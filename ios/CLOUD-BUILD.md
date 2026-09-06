@@ -11,7 +11,7 @@ The workflow runs automatically when native code or its workflow changes on main
 3. Open Actions → iPhone prototype — compile check → Run workflow.
 4. Inspect the result and downloadable build log. Fix native compilation errors before proceeding.
 
-The first cloud run found a Swift compiler type-check timeout in pixel conversion. The expression was simplified and a second compile was started. See GitHub Actions for the latest result. GitHub Actions usage depends on your account's allowance and billing settings; the workflow does not provision paid runner capacity or change billing.
+The unsigned simulator build **passed on 6 September 2026**, using Xcode 26.6: [build result](https://github.com/andrei230995/Mobile-legends-app/actions/runs/34054717121). The initial Swift expression and bundle-folder errors were corrected. All 22 engine tests and 104 image hash checks passed. GitHub Actions usage depends on your account's allowance and billing settings; the workflow does not provision paid runner capacity or change billing.
 
 ## Getting it onto the iPhone
 

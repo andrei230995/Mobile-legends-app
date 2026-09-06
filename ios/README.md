@@ -1,6 +1,6 @@
 # Rankwise for iPhone — developer prototype
 
-**Status:** source implementation prepared for an iPhone 17 Pro Max. The purchase engine passes its automated tests. The native targets have **not** been compiled with an Apple SDK, installed, or tested against live MLBB. This is an Xcode source project, not an installable IPA or a TestFlight release.
+**Status:** source implementation prepared for an iPhone 17 Pro Max. The purchase engine passes its automated tests. Both native targets passed an unsigned iOS Simulator build with Xcode 26.6 on 6 September 2026. They have not been installed or tested against live MLBB. This is an Xcode source project, not an installable IPA or a TestFlight release.
 
 The intended experience is to start a screen broadcast once, play MLBB, briefly open the equipment scoreboard, and receive a suggested next purchase based on automatically read gold and items. There are no manual gold or inventory entry forms. A one-time screen-region calibration and pre-match hero selection are required.
 
@@ -18,7 +18,7 @@ The intended experience is to start a screen broadcast once, play MLBB, briefly 
 
 ## No Mac available?
 
-See `CLOUD-BUILD.md` for the prepared GitHub Actions compile check. It has not been run and does not produce an installable iPhone app.
+See `CLOUD-BUILD.md` for the prepared GitHub Actions compile check. The unsigned compile check has passed; it does not produce an installable iPhone app.
 
 ## Open and build on a Mac
 
@@ -91,7 +91,7 @@ node --test Tests/advisor.test.js
 
 The 22 tests cover freshness checks, unknown inventories, exact budgets, recursive and duplicate component credits, full inventories, alternative boots, stale enemy data, counter-item responses, malformed inputs, inconsistent recipes, and budget/slot invariants across the 17 hero paths.
 
-No Apple SDK compile, simulator run, or real-device test has been performed in the preparation environment. Run `scripts/build_on_mac.sh` to establish the first native build result. Resolve any build or device issues before creating a signed release.
+Unsigned simulator compilation passed for the app and broadcast extension: [successful GitHub run](https://github.com/andrei230995/Mobile-legends-app/actions/runs/34054717121). All 22 purchase-engine tests and the 104 image hash checks passed. The build did not launch the app in a simulator or test it on a real device. Signing, notification delivery, live capture and recognition still need device verification.
 
 ## Source layout
 
@@ -102,4 +102,4 @@ No Apple SDK compile, simulator run, or real-device test has been performed in t
 - `CoachAssets/catalogue.json`: dated costs, recipes, derived tags and curated hero paths.
 - `scripts/configure_project.py`: deterministic native Xcode project generator.
 
-The earlier web draft remains separate at the parent project's `dist/` directory. It is unfinished, unpublished, and is not the live iPhone companion.
+This repository contains the native iPhone project.
