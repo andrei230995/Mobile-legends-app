@@ -1,0 +1,1943 @@
+{
+  "checkedAt": "2026-09-05",
+  "verifiedCurrentPatch": false,
+  "items": [
+    {
+      "id": "allow-throw",
+      "name": "Allow Throw",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "allow-throw.png",
+      "source": "https://mlbbhub.com/items/allow-throw",
+      "stats": {}
+    },
+    {
+      "id": "antique-cuirass",
+      "name": "Antique Cuirass",
+      "cost": 2170,
+      "recipe": [
+        "dreadnaught-armor",
+        "ares-belt"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "antique-cuirass.png",
+      "source": "https://mlbbhub.com/items/antique-cuirass",
+      "stats": {
+        "hp": 920,
+        "hpregen": 4,
+        "physdefense": 40
+      }
+    },
+    {
+      "id": "dreadnaught-armor",
+      "name": "Dreadnaught Armor",
+      "cost": 730,
+      "recipe": [
+        "leather-jerkin",
+        "leather-jerkin"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "dreadnaught-armor.png",
+      "source": "https://mlbbhub.com/items/dreadnaught-armor",
+      "stats": {
+        "physdefense": 30
+      }
+    },
+    {
+      "id": "leather-jerkin",
+      "name": "Leather Jerkin",
+      "cost": 220,
+      "recipe": [],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "leather-jerkin.png",
+      "source": "https://mlbbhub.com/items/leather-jerkin",
+      "stats": {
+        "physdefense": 14
+      }
+    },
+    {
+      "id": "ares-belt",
+      "name": "Ares Belt",
+      "cost": 900,
+      "recipe": [
+        "vitality-crystal"
+      ],
+      "tags": [],
+      "icon": "ares-belt.png",
+      "source": "https://mlbbhub.com/items/ares-belt",
+      "stats": {
+        "hp": 770
+      }
+    },
+    {
+      "id": "vitality-crystal",
+      "name": "Vitality Crystal",
+      "cost": 300,
+      "recipe": [],
+      "tags": [],
+      "icon": "vitality-crystal.png",
+      "source": "https://mlbbhub.com/items/vitality-crystal",
+      "stats": {
+        "hp": 230
+      }
+    },
+    {
+      "id": "arcane-boots",
+      "name": "Arcane Boots",
+      "cost": 690,
+      "recipe": [
+        "boots"
+      ],
+      "tags": [
+        "advancedBoots"
+      ],
+      "icon": "arcane-boots.png",
+      "source": "https://mlbbhub.com/items/arcane-boots",
+      "stats": {
+        "magicpenFlat": 10,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "cost": 250,
+      "recipe": [],
+      "tags": [],
+      "icon": "boots.png",
+      "source": "https://mlbbhub.com/items/boots",
+      "stats": {
+        "movespeed": 20
+      }
+    },
+    {
+      "id": "athenas-shield",
+      "name": "Athena's Shield",
+      "cost": 2150,
+      "recipe": [
+        "silence-robe",
+        "vitality-crystal"
+      ],
+      "tags": [
+        "magicDefense"
+      ],
+      "icon": "athenas-shield.png",
+      "source": "https://mlbbhub.com/items/athenas-shield",
+      "stats": {
+        "hp": 900,
+        "hpregen": 2,
+        "magicdefense": 48
+      }
+    },
+    {
+      "id": "silence-robe",
+      "name": "Silence Robe",
+      "cost": 1020,
+      "recipe": [
+        "vitality-crystal",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "magicDefense"
+      ],
+      "icon": "silence-robe.png",
+      "source": "https://mlbbhub.com/items/silence-robe",
+      "stats": {
+        "hp": 540,
+        "magicdefense": 23
+      }
+    },
+    {
+      "id": "magic-resist-cloak",
+      "name": "Magic Resist Cloak",
+      "cost": 220,
+      "recipe": [],
+      "tags": [
+        "magicDefense"
+      ],
+      "icon": "magic-resist-cloak.png",
+      "source": "https://mlbbhub.com/items/magic-resist-cloak",
+      "stats": {
+        "magicdefense": 14
+      }
+    },
+    {
+      "id": "azure-blade",
+      "name": "Azure Blade",
+      "cost": 600,
+      "recipe": [
+        "magic-necklace",
+        "magic-necklace"
+      ],
+      "tags": [],
+      "icon": "azure-blade.png",
+      "source": "https://mlbbhub.com/items/azure-blade",
+      "stats": {
+        "mpregen": 5,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "magic-necklace",
+      "name": "Magic Necklace",
+      "cost": 120,
+      "recipe": [],
+      "tags": [],
+      "icon": "magic-necklace.png",
+      "source": "https://mlbbhub.com/items/magic-necklace",
+      "stats": {
+        "mpregen": 2
+      }
+    },
+    {
+      "id": "berserkers-fury",
+      "name": "Berserker's Fury",
+      "cost": 2390,
+      "recipe": [
+        "legion-sword",
+        "javelin",
+        "javelin"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "berserkers-fury.png",
+      "source": "https://mlbbhub.com/items/berserkers-fury",
+      "stats": {
+        "physatk": 60,
+        "critchance": 25
+      }
+    },
+    {
+      "id": "legion-sword",
+      "name": "Legion Sword",
+      "cost": 910,
+      "recipe": [
+        "dagger",
+        "dagger"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "legion-sword.png",
+      "source": "https://mlbbhub.com/items/legion-sword",
+      "stats": {
+        "physatk": 60
+      }
+    },
+    {
+      "id": "dagger",
+      "name": "Dagger",
+      "cost": 250,
+      "recipe": [],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "dagger.png",
+      "source": "https://mlbbhub.com/items/dagger",
+      "stats": {
+        "physatk": 15
+      }
+    },
+    {
+      "id": "javelin",
+      "name": "Javelin",
+      "cost": 320,
+      "recipe": [],
+      "tags": [],
+      "icon": "javelin.png",
+      "source": "https://mlbbhub.com/items/javelin",
+      "stats": {
+        "critchance": 8
+      }
+    },
+    {
+      "id": "black-ice-shield",
+      "name": "Black Ice Shield",
+      "cost": 780,
+      "recipe": [
+        "leather-jerkin",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "magicDefense",
+        "physicalDefense"
+      ],
+      "icon": "black-ice-shield.png",
+      "source": "https://mlbbhub.com/items/black-ice-shield",
+      "stats": {
+        "physdefense": 20,
+        "magicdefense": 20
+      }
+    },
+    {
+      "id": "blade-armor",
+      "name": "Blade Armor",
+      "cost": 1910,
+      "recipe": [
+        "steel-legplates",
+        "leather-jerkin",
+        "leather-jerkin"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "blade-armor.png",
+      "source": "https://mlbbhub.com/items/blade-armor",
+      "stats": {
+        "physdefense": 70
+      }
+    },
+    {
+      "id": "steel-legplates",
+      "name": "Steel Legplates",
+      "cost": 630,
+      "recipe": [
+        "leather-jerkin"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "steel-legplates.png",
+      "source": "https://mlbbhub.com/items/steel-legplates",
+      "stats": {
+        "physdefense": 35
+      }
+    },
+    {
+      "id": "blade-of-despair",
+      "name": "Blade of Despair",
+      "cost": 3010,
+      "recipe": [
+        "legion-sword",
+        "legion-sword"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "blade-of-despair.png",
+      "source": "https://mlbbhub.com/items/blade-of-despair",
+      "stats": {
+        "physatk": 160,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "blade-of-the-heptaseas",
+      "name": "Blade of the Heptaseas",
+      "cost": 1950,
+      "recipe": [
+        "ogre-tomahawk",
+        "fury-hammer"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "blade-of-the-heptaseas.png",
+      "source": "https://mlbbhub.com/items/blade-of-the-heptaseas",
+      "stats": {
+        "hp": 250,
+        "physatk": 70
+      }
+    },
+    {
+      "id": "ogre-tomahawk",
+      "name": "Ogre Tomahawk",
+      "cost": 650,
+      "recipe": [
+        "vitality-crystal",
+        "dagger"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "ogre-tomahawk.png",
+      "source": "https://mlbbhub.com/items/ogre-tomahawk",
+      "stats": {
+        "hp": 230,
+        "physatk": 25
+      }
+    },
+    {
+      "id": "fury-hammer",
+      "name": "Fury Hammer",
+      "cost": 830,
+      "recipe": [
+        "dagger"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "fury-hammer.png",
+      "source": "https://mlbbhub.com/items/fury-hammer",
+      "stats": {
+        "physatk": 35
+      }
+    },
+    {
+      "id": "blood-wings",
+      "name": "Blood Wings",
+      "cost": 2100,
+      "recipe": [
+        "magic-wand",
+        "magic-wand"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "blood-wings.png",
+      "source": "https://mlbbhub.com/items/blood-wings",
+      "stats": {
+        "magicpower": 90
+      }
+    },
+    {
+      "id": "magic-wand",
+      "name": "Magic Wand",
+      "cost": 820,
+      "recipe": [
+        "mystery-codex"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "magic-wand.png",
+      "source": "https://mlbbhub.com/items/magic-wand",
+      "stats": {
+        "magicpower": 45
+      }
+    },
+    {
+      "id": "mystery-codex",
+      "name": "Mystery Codex",
+      "cost": 300,
+      "recipe": [],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "mystery-codex.png",
+      "source": "https://mlbbhub.com/items/mystery-codex",
+      "stats": {
+        "magicpower": 15
+      }
+    },
+    {
+      "id": "bloody-retribution",
+      "name": "Bloody Retribution",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "bloody-retribution.png",
+      "source": "https://mlbbhub.com/items/bloody-retribution",
+      "stats": {}
+    },
+    {
+      "id": "book-of-sages",
+      "name": "Book of Sages",
+      "cost": 450,
+      "recipe": [],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "book-of-sages.png",
+      "source": "https://mlbbhub.com/items/book-of-sages",
+      "stats": {
+        "magicpower": 8,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "broken-heart",
+      "name": "Broken Heart",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "broken-heart.png",
+      "source": "https://mlbbhub.com/items/broken-heart",
+      "stats": {}
+    },
+    {
+      "id": "brute-force-breastplate",
+      "name": "Brute Force Breastplate",
+      "cost": 1870,
+      "recipe": [
+        "heros-ring",
+        "vitality-crystal",
+        "leather-jerkin"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "brute-force-breastplate.png",
+      "source": "https://mlbbhub.com/items/brute-force-breastplate",
+      "stats": {
+        "hp": 600,
+        "physdefense": 20,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "heros-ring",
+      "name": "Hero's Ring",
+      "cost": 450,
+      "recipe": [],
+      "tags": [],
+      "icon": "heros-ring.png",
+      "source": "https://mlbbhub.com/items/heros-ring",
+      "stats": {
+        "hp": 150,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "chastise-pauldron",
+      "name": "Chastise Pauldron",
+      "cost": 2100,
+      "recipe": [
+        "steel-legplates",
+        "ares-belt"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "chastise-pauldron.png",
+      "source": "https://mlbbhub.com/items/chastise-pauldron",
+      "stats": {
+        "hp": 1800,
+        "physdefense": 40
+      }
+    },
+    {
+      "id": "clock-of-destiny",
+      "name": "Clock of Destiny",
+      "cost": 2030,
+      "recipe": [
+        "elegant-gem",
+        "magic-wand"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "clock-of-destiny.png",
+      "source": "https://mlbbhub.com/items/clock-of-destiny",
+      "stats": {
+        "hp": 400,
+        "mp": 400,
+        "magicpower": 45,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "elegant-gem",
+      "name": "Elegant Gem",
+      "cost": 700,
+      "recipe": [
+        "vitality-crystal",
+        "power-crystal"
+      ],
+      "tags": [],
+      "icon": "elegant-gem.png",
+      "source": "https://mlbbhub.com/items/elegant-gem",
+      "stats": {
+        "hp": 300,
+        "mp": 380
+      }
+    },
+    {
+      "id": "power-crystal",
+      "name": "Power Crystal",
+      "cost": 220,
+      "recipe": [],
+      "tags": [],
+      "icon": "power-crystal.png",
+      "source": "https://mlbbhub.com/items/power-crystal",
+      "stats": {
+        "mp": 280
+      }
+    },
+    {
+      "id": "conceal",
+      "name": "Conceal",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "conceal.png",
+      "source": "https://mlbbhub.com/items/conceal",
+      "stats": {}
+    },
+    {
+      "id": "concentrated-energy",
+      "name": "Concentrated Energy",
+      "cost": 2020,
+      "recipe": [
+        "mystic-container",
+        "magic-wand",
+        "vitality-crystal"
+      ],
+      "tags": [
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "concentrated-energy.png",
+      "source": "https://mlbbhub.com/items/concentrated-energy",
+      "stats": {
+        "hp": 400,
+        "magicpower": 75
+      }
+    },
+    {
+      "id": "mystic-container",
+      "name": "Mystic Container",
+      "cost": 500,
+      "recipe": [
+        "mystery-codex"
+      ],
+      "tags": [
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "mystic-container.png",
+      "source": "https://mlbbhub.com/items/mystic-container",
+      "stats": {
+        "spellvamp": 8,
+        "magicpower": 15
+      }
+    },
+    {
+      "id": "corrosion-scythe",
+      "name": "Corrosion Scythe",
+      "cost": 2050,
+      "recipe": [
+        "swift-crossbow",
+        "regular-spear"
+      ],
+      "tags": [
+        "attackSpeed",
+        "physicalDamage"
+      ],
+      "icon": "corrosion-scythe.png",
+      "source": "https://mlbbhub.com/items/corrosion-scythe",
+      "stats": {
+        "attackspeed": 30,
+        "physatk": 30,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "swift-crossbow",
+      "name": "Swift Crossbow",
+      "cost": 1000,
+      "recipe": [
+        "knife",
+        "knife"
+      ],
+      "tags": [
+        "attackSpeed"
+      ],
+      "icon": "swift-crossbow.png",
+      "source": "https://mlbbhub.com/items/swift-crossbow",
+      "stats": {
+        "attackspeed": 20
+      }
+    },
+    {
+      "id": "knife",
+      "name": "Knife",
+      "cost": 280,
+      "recipe": [],
+      "tags": [
+        "attackSpeed"
+      ],
+      "icon": "knife.png",
+      "source": "https://mlbbhub.com/items/knife",
+      "stats": {
+        "attackspeed": 10
+      }
+    },
+    {
+      "id": "regular-spear",
+      "name": "Regular Spear",
+      "cost": 600,
+      "recipe": [
+        "knife",
+        "dagger"
+      ],
+      "tags": [
+        "attackSpeed",
+        "physicalDamage"
+      ],
+      "icon": "regular-spear.png",
+      "source": "https://mlbbhub.com/items/regular-spear",
+      "stats": {
+        "attackspeed": 10,
+        "physatk": 20
+      }
+    },
+    {
+      "id": "cursed-helmet",
+      "name": "Cursed Helmet",
+      "cost": 1910,
+      "recipe": [
+        "molten-essence",
+        "ares-belt",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "magicDefense"
+      ],
+      "icon": "cursed-helmet.png",
+      "source": "https://mlbbhub.com/items/cursed-helmet",
+      "stats": {
+        "hp": 1200,
+        "magicdefense": 20
+      },
+      "recipeIssue": "Source component totals exceed item price; automatic purchase calculations are disabled for this recipe."
+    },
+    {
+      "id": "molten-essence",
+      "name": "Molten Essence",
+      "cost": 800,
+      "recipe": [
+        "vitality-crystal"
+      ],
+      "tags": [],
+      "icon": "molten-essence.png",
+      "source": "https://mlbbhub.com/items/molten-essence",
+      "stats": {
+        "hp": 540
+      }
+    },
+    {
+      "id": "demon-boots",
+      "name": "Demon Boots",
+      "cost": 720,
+      "recipe": [
+        "magic-necklace",
+        "boots",
+        "magic-necklace"
+      ],
+      "tags": [
+        "advancedBoots"
+      ],
+      "icon": "demon-boots.png",
+      "source": "https://mlbbhub.com/items/demon-boots",
+      "stats": {
+        "mpregen": 10,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "demon-hunter-sword",
+      "name": "Demon Hunter Sword",
+      "cost": 2180,
+      "recipe": [
+        "regular-spear",
+        "vampire-mallet",
+        "knife"
+      ],
+      "tags": [
+        "attackSpeed",
+        "physicalDamage"
+      ],
+      "icon": "demon-hunter-sword.png",
+      "source": "https://mlbbhub.com/items/demon-hunter-sword",
+      "stats": {
+        "attackspeed": 20,
+        "physatk": 35
+      }
+    },
+    {
+      "id": "vampire-mallet",
+      "name": "Vampire Mallet",
+      "cost": 400,
+      "recipe": [],
+      "tags": [
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "vampire-mallet.png",
+      "source": "https://mlbbhub.com/items/vampire-mallet",
+      "stats": {
+        "lifesteal": 8,
+        "physatk": 8
+      }
+    },
+    {
+      "id": "dire-hit",
+      "name": "Dire Hit",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "dire-hit.png",
+      "source": "https://mlbbhub.com/items/dire-hit",
+      "stats": {}
+    },
+    {
+      "id": "divine-glaive",
+      "name": "Divine Glaive",
+      "cost": 1970,
+      "recipe": [
+        "magic-wand"
+      ],
+      "tags": [
+        "magicDamage",
+        "magicPenPercent"
+      ],
+      "icon": "divine-glaive.png",
+      "source": "https://mlbbhub.com/items/divine-glaive",
+      "stats": {
+        "magicpower": 60
+      }
+    },
+    {
+      "id": "dominance-ice",
+      "name": "Dominance Ice",
+      "cost": 2010,
+      "recipe": [
+        "black-ice-shield",
+        "leather-jerkin",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "magicDefense",
+        "physicalDefense"
+      ],
+      "icon": "dominance-ice.png",
+      "source": "https://mlbbhub.com/items/dominance-ice",
+      "stats": {
+        "physdefense": 40,
+        "movespeedPct": 5,
+        "magicdefense": 40
+      }
+    },
+    {
+      "id": "enchanted-talisman",
+      "name": "Enchanted Talisman",
+      "cost": 2070,
+      "recipe": [
+        "book-of-sages",
+        "tome-of-evil",
+        "magic-necklace"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "enchanted-talisman.png",
+      "source": "https://mlbbhub.com/items/enchanted-talisman",
+      "stats": {
+        "hp": 300,
+        "magicpower": 75,
+        "cdreduction": 15
+      }
+    },
+    {
+      "id": "tome-of-evil",
+      "name": "Tome of Evil",
+      "cost": 950,
+      "recipe": [
+        "book-of-sages",
+        "mystery-codex"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "tome-of-evil.png",
+      "source": "https://mlbbhub.com/items/tome-of-evil",
+      "stats": {
+        "mpregen": 2,
+        "magicpower": 30,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "encourage",
+      "name": "Encourage",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "encourage.png",
+      "source": "https://mlbbhub.com/items/encourage",
+      "stats": {}
+    },
+    {
+      "id": "endless-battle",
+      "name": "Endless Battle",
+      "cost": 2330,
+      "recipe": [
+        "azure-blade",
+        "vampire-mallet",
+        "ogre-tomahawk"
+      ],
+      "tags": [
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "endless-battle.png",
+      "source": "https://mlbbhub.com/items/endless-battle",
+      "stats": {
+        "hp": 250,
+        "mpregen": 5,
+        "hybridsteal": 8,
+        "physatk": 60,
+        "cdreduction": 10,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "exotic-veil",
+      "name": "Exotic Veil",
+      "cost": 600,
+      "recipe": [
+        "mystery-codex"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "exotic-veil.png",
+      "source": "https://mlbbhub.com/items/exotic-veil",
+      "stats": {
+        "magicpower": 30,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "expert-gloves",
+      "name": "Expert Gloves",
+      "cost": 500,
+      "recipe": [],
+      "tags": [],
+      "icon": "expert-gloves.png",
+      "source": "https://mlbbhub.com/items/expert-gloves",
+      "stats": {
+        "adaptiveatk": 30
+      }
+    },
+    {
+      "id": "favor",
+      "name": "Favor",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "favor.png",
+      "source": "https://mlbbhub.com/items/favor",
+      "stats": {}
+    },
+    {
+      "id": "feather-of-heaven",
+      "name": "Feather of Heaven",
+      "cost": 2030,
+      "recipe": [
+        "swift-crossbow",
+        "book-of-sages"
+      ],
+      "tags": [
+        "attackSpeed",
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "feather-of-heaven.png",
+      "source": "https://mlbbhub.com/items/feather-of-heaven",
+      "stats": {
+        "lifesteal": 10,
+        "attackspeed": 20,
+        "magicpower": 60,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "flame-retribution",
+      "name": "Flame Retribution",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "flame-retribution.png",
+      "source": "https://mlbbhub.com/items/flame-retribution",
+      "stats": {}
+    },
+    {
+      "id": "flask-of-the-oasis",
+      "name": "Flask of the Oasis",
+      "cost": 1850,
+      "recipe": [
+        "book-of-sages",
+        "magic-wand",
+        "vitality-crystal"
+      ],
+      "tags": [
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "flask-of-the-oasis.png",
+      "source": "https://mlbbhub.com/items/flask-of-the-oasis",
+      "stats": {
+        "hp": 300,
+        "magicpower": 60,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "fleeting-time",
+      "name": "Fleeting Time",
+      "cost": 2050,
+      "recipe": [
+        "expert-gloves",
+        "heros-ring",
+        "heros-ring"
+      ],
+      "tags": [],
+      "icon": "fleeting-time.png",
+      "source": "https://mlbbhub.com/items/fleeting-time",
+      "stats": {
+        "hp": 600,
+        "adaptiveatk": 30,
+        "cdreduction": 15
+      }
+    },
+    {
+      "id": "flower-of-hope",
+      "name": "Flower of Hope",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "flower-of-hope.png",
+      "source": "https://mlbbhub.com/items/flower-of-hope",
+      "stats": {
+        "adaptiveatkPct": 5
+      }
+    },
+    {
+      "id": "genius-wand",
+      "name": "Genius Wand",
+      "cost": 2000,
+      "recipe": [
+        "exotic-veil",
+        "magic-wand"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "genius-wand.png",
+      "source": "https://mlbbhub.com/items/genius-wand",
+      "stats": {
+        "magicpower": 75,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "glowing-wand",
+      "name": "Glowing Wand",
+      "cost": 2050,
+      "recipe": [
+        "exotic-veil",
+        "mystery-codex",
+        "vitality-crystal"
+      ],
+      "tags": [
+        "antiHeal",
+        "magicDamage"
+      ],
+      "icon": "glowing-wand.png",
+      "source": "https://mlbbhub.com/items/glowing-wand",
+      "stats": {
+        "hp": 300,
+        "magicpower": 60,
+        "movespeedPct": 5
+      }
+    },
+    {
+      "id": "golden-staff",
+      "name": "Golden Staff",
+      "cost": 2000,
+      "recipe": [
+        "regular-spear",
+        "dagger",
+        "dagger"
+      ],
+      "tags": [
+        "attackSpeed",
+        "physicalDamage"
+      ],
+      "icon": "golden-staff.png",
+      "source": "https://mlbbhub.com/items/golden-staff",
+      "stats": {
+        "attackspeed": 15,
+        "physatk": 55
+      }
+    },
+    {
+      "id": "great-dragon-spear",
+      "name": "Great Dragon Spear",
+      "cost": 2140,
+      "recipe": [
+        "legion-sword",
+        "iron-hunting-bow",
+        "javelin"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "great-dragon-spear.png",
+      "source": "https://mlbbhub.com/items/great-dragon-spear",
+      "stats": {
+        "physatk": 70,
+        "cdreduction": 10,
+        "critchance": 20
+      }
+    },
+    {
+      "id": "iron-hunting-bow",
+      "name": "Iron Hunting Bow",
+      "cost": 450,
+      "recipe": [],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "iron-hunting-bow.png",
+      "source": "https://mlbbhub.com/items/iron-hunting-bow",
+      "stats": {
+        "physatk": 10,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "guardian-helmet",
+      "name": "Guardian Helmet",
+      "cost": 2200,
+      "recipe": [
+        "ares-belt",
+        "ares-belt",
+        "healing-necklace"
+      ],
+      "tags": [],
+      "icon": "guardian-helmet.png",
+      "source": "https://mlbbhub.com/items/guardian-helmet",
+      "stats": {
+        "hp": 1550,
+        "hpregen": 20
+      }
+    },
+    {
+      "id": "healing-necklace",
+      "name": "Healing Necklace",
+      "cost": 140,
+      "recipe": [],
+      "tags": [],
+      "icon": "healing-necklace.png",
+      "source": "https://mlbbhub.com/items/healing-necklace",
+      "stats": {
+        "hpregen": 4
+      }
+    },
+    {
+      "id": "haass-claws",
+      "name": "Haas's Claws",
+      "cost": 2020,
+      "recipe": [
+        "vampire-mallet",
+        "rogue-meteor",
+        "dagger"
+      ],
+      "tags": [
+        "attackSpeed",
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "haass-claws.png",
+      "source": "https://mlbbhub.com/items/haass-claws",
+      "stats": {
+        "attackspeed": 15,
+        "physatk": 40,
+        "critchance": 20
+      }
+    },
+    {
+      "id": "rogue-meteor",
+      "name": "Rogue Meteor",
+      "cost": 900,
+      "recipe": [
+        "javelin",
+        "knife"
+      ],
+      "tags": [
+        "attackSpeed"
+      ],
+      "icon": "rogue-meteor.png",
+      "source": "https://mlbbhub.com/items/rogue-meteor",
+      "stats": {
+        "attackspeed": 15,
+        "critchance": 10
+      }
+    },
+    {
+      "id": "holy-crystal",
+      "name": "Holy Crystal",
+      "cost": 3000,
+      "recipe": [
+        "magic-wand",
+        "magic-wand",
+        "magic-wand"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "holy-crystal.png",
+      "source": "https://mlbbhub.com/items/holy-crystal",
+      "stats": {
+        "magicpower": 165
+      }
+    },
+    {
+      "id": "hunter-strike",
+      "name": "Hunter Strike",
+      "cost": 2010,
+      "recipe": [
+        "fury-hammer",
+        "iron-hunting-bow",
+        "dagger"
+      ],
+      "tags": [
+        "physicalDamage"
+      ],
+      "icon": "hunter-strike.png",
+      "source": "https://mlbbhub.com/items/hunter-strike",
+      "stats": {
+        "physatk": 80,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "ice-queen-wand",
+      "name": "Ice Queen Wand",
+      "cost": 2040,
+      "recipe": [
+        "magic-wand",
+        "mystic-container"
+      ],
+      "tags": [
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "ice-queen-wand.png",
+      "source": "https://mlbbhub.com/items/ice-queen-wand",
+      "stats": {
+        "hp": 300,
+        "spellvamp": 10,
+        "magicpower": 60,
+        "movespeedPct": 7
+      }
+    },
+    {
+      "id": "ice-retribution",
+      "name": "Ice Retribution",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "ice-retribution.png",
+      "source": "https://mlbbhub.com/items/ice-retribution",
+      "stats": {}
+    },
+    {
+      "id": "immortality",
+      "name": "Immortality",
+      "cost": 2120,
+      "recipe": [
+        "ares-belt",
+        "leather-jerkin"
+      ],
+      "tags": [
+        "physicalDefense"
+      ],
+      "icon": "immortality.png",
+      "source": "https://mlbbhub.com/items/immortality",
+      "stats": {
+        "hp": 800,
+        "physdefense": 15
+      }
+    },
+    {
+      "id": "lantern-of-hope",
+      "name": "Lantern of Hope",
+      "cost": 0,
+      "recipe": [],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "lantern-of-hope.png",
+      "source": "https://mlbbhub.com/items/lantern-of-hope",
+      "stats": {
+        "magicpower": 20,
+        "movespeedPct": 4,
+        "cdreduction": 2
+      }
+    },
+    {
+      "id": "lightning-truncheon",
+      "name": "Lightning Truncheon",
+      "cost": 2250,
+      "recipe": [
+        "magic-wand",
+        "book-of-sages",
+        "power-crystal"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "lightning-truncheon.png",
+      "source": "https://mlbbhub.com/items/lightning-truncheon",
+      "stats": {
+        "mp": 400,
+        "magicpower": 75,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "magic-blade",
+      "name": "Magic Blade",
+      "cost": 1050,
+      "recipe": [
+        "dagger",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "magic-blade.png",
+      "source": "https://mlbbhub.com/items/magic-blade",
+      "stats": {
+        "lifesteal": 10,
+        "physatk": 35
+      }
+    },
+    {
+      "id": "magic-boots",
+      "name": "Magic Boots",
+      "cost": 710,
+      "recipe": [
+        "boots"
+      ],
+      "tags": [
+        "advancedBoots"
+      ],
+      "icon": "magic-boots.png",
+      "source": "https://mlbbhub.com/items/magic-boots",
+      "stats": {
+        "cdreduction": 10,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "magic-potion",
+      "name": "Magic Potion",
+      "cost": 1500,
+      "recipe": [],
+      "tags": [],
+      "icon": "magic-potion.png",
+      "source": "https://mlbbhub.com/items/magic-potion",
+      "stats": {}
+    },
+    {
+      "id": "malefic-gun",
+      "name": "Malefic Gun",
+      "cost": 2120,
+      "recipe": [
+        "fury-hammer",
+        "knife",
+        "knife"
+      ],
+      "tags": [
+        "attackSpeed",
+        "physicalDamage",
+        "physicalPenPercent"
+      ],
+      "icon": "malefic-gun.png",
+      "source": "https://mlbbhub.com/items/malefic-gun",
+      "stats": {
+        "attackspeed": 20,
+        "physatk": 40
+      }
+    },
+    {
+      "id": "malefic-roar",
+      "name": "Malefic Roar",
+      "cost": 2060,
+      "recipe": [
+        "legion-sword"
+      ],
+      "tags": [
+        "physicalDamage",
+        "physicalPenPercent"
+      ],
+      "icon": "malefic-roar.png",
+      "source": "https://mlbbhub.com/items/malefic-roar",
+      "stats": {
+        "physatk": 60
+      }
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "cost": 1860,
+      "recipe": [
+        "heros-ring",
+        "heros-ring",
+        "vitality-crystal"
+      ],
+      "tags": [
+        "healing",
+        "magicDefense",
+        "physicalDefense"
+      ],
+      "icon": "oracle.png",
+      "source": "https://mlbbhub.com/items/oracle",
+      "stats": {
+        "hp": 850,
+        "physdefense": 20,
+        "magicdefense": 20,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "power-potion",
+      "name": "Power Potion",
+      "cost": 1500,
+      "recipe": [],
+      "tags": [],
+      "icon": "power-potion.png",
+      "source": "https://mlbbhub.com/items/power-potion",
+      "stats": {}
+    },
+    {
+      "id": "queens-wings",
+      "name": "Queen's Wings",
+      "cost": 2250,
+      "recipe": [
+        "expert-gloves",
+        "vitality-crystal",
+        "heros-ring"
+      ],
+      "tags": [
+        "healing"
+      ],
+      "icon": "queens-wings.png",
+      "source": "https://mlbbhub.com/items/queens-wings",
+      "stats": {
+        "hp": 600,
+        "spellvamp": 10,
+        "adaptiveatk": 40,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "radiant-armor",
+      "name": "Radiant Armor",
+      "cost": 1880,
+      "recipe": [
+        "silence-robe",
+        "magic-resist-cloak",
+        "healing-necklace"
+      ],
+      "tags": [
+        "magicDefense"
+      ],
+      "icon": "radiant-armor.png",
+      "source": "https://mlbbhub.com/items/radiant-armor",
+      "stats": {
+        "hp": 950,
+        "hpregen": 12,
+        "magicdefense": 40
+      }
+    },
+    {
+      "id": "rapid-boots",
+      "name": "Rapid Boots",
+      "cost": 750,
+      "recipe": [
+        "boots"
+      ],
+      "tags": [
+        "advancedBoots"
+      ],
+      "icon": "rapid-boots.png",
+      "source": "https://mlbbhub.com/items/rapid-boots",
+      "stats": {
+        "movespeed": 55,
+        "slowreduction": 35
+      }
+    },
+    {
+      "id": "rock-potion",
+      "name": "Rock Potion",
+      "cost": 1500,
+      "recipe": [],
+      "tags": [],
+      "icon": "rock-potion.png",
+      "source": "https://mlbbhub.com/items/rock-potion",
+      "stats": {}
+    },
+    {
+      "id": "rose-gold-meteor",
+      "name": "Rose Gold Meteor",
+      "cost": 1820,
+      "recipe": [
+        "magic-blade",
+        "vampire-mallet"
+      ],
+      "tags": [
+        "attackSpeed",
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "rose-gold-meteor.png",
+      "source": "https://mlbbhub.com/items/rose-gold-meteor",
+      "stats": {
+        "lifesteal": 10,
+        "attackspeed": 20,
+        "physatk": 30
+      }
+    },
+    {
+      "id": "sea-halberd",
+      "name": "Sea Halberd",
+      "cost": 2050,
+      "recipe": [
+        "regular-spear",
+        "legion-sword"
+      ],
+      "tags": [
+        "antiHeal",
+        "attackSpeed",
+        "physicalDamage"
+      ],
+      "icon": "sea-halberd.png",
+      "source": "https://mlbbhub.com/items/sea-halberd",
+      "stats": {
+        "attackspeed": 20,
+        "physatk": 80
+      }
+    },
+    {
+      "id": "sky-piercer",
+      "name": "Sky Piercer",
+      "cost": 1500,
+      "recipe": [
+        "expert-gloves",
+        "expert-gloves"
+      ],
+      "tags": [],
+      "icon": "sky-piercer.png",
+      "source": "https://mlbbhub.com/items/sky-piercer",
+      "stats": {
+        "adaptiveatk": 60,
+        "movespeed": 15
+      }
+    },
+    {
+      "id": "starlium-scythe",
+      "name": "Starlium Scythe",
+      "cost": 2220,
+      "recipe": [
+        "azure-blade",
+        "mystic-container",
+        "magic-wand"
+      ],
+      "tags": [
+        "healing",
+        "magicDamage"
+      ],
+      "icon": "starlium-scythe.png",
+      "source": "https://mlbbhub.com/items/starlium-scythe",
+      "stats": {
+        "mpregen": 6,
+        "hybridsteal": 8,
+        "magicpower": 75,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "swift-boots",
+      "name": "Swift Boots",
+      "cost": 710,
+      "recipe": [
+        "boots",
+        "knife"
+      ],
+      "tags": [
+        "advancedBoots",
+        "attackSpeed"
+      ],
+      "icon": "swift-boots.png",
+      "source": "https://mlbbhub.com/items/swift-boots",
+      "stats": {
+        "attackspeed": 15,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "throw-forbidden",
+      "name": "Throw Forbidden",
+      "cost": 0,
+      "recipe": [],
+      "tags": [],
+      "icon": "throw-forbidden.png",
+      "source": "https://mlbbhub.com/items/throw-forbidden",
+      "stats": {}
+    },
+    {
+      "id": "thunder-belt",
+      "name": "Thunder Belt",
+      "cost": 1820,
+      "recipe": [
+        "ares-belt",
+        "leather-jerkin",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "magicDefense",
+        "physicalDefense"
+      ],
+      "icon": "thunder-belt.png",
+      "source": "https://mlbbhub.com/items/thunder-belt",
+      "stats": {
+        "hp": 800,
+        "physdefense": 15,
+        "magicdefense": 15,
+        "movespeed": 20
+      }
+    },
+    {
+      "id": "tough-boots",
+      "name": "Tough Boots",
+      "cost": 700,
+      "recipe": [
+        "boots",
+        "magic-resist-cloak"
+      ],
+      "tags": [
+        "advancedBoots",
+        "magicDefense"
+      ],
+      "icon": "tough-boots.png",
+      "source": "https://mlbbhub.com/items/tough-boots",
+      "stats": {
+        "magicdefense": 18,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "war-axe",
+      "name": "War Axe",
+      "cost": 2100,
+      "recipe": [
+        "ogre-tomahawk",
+        "iron-hunting-bow",
+        "heros-ring"
+      ],
+      "tags": [
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "war-axe.png",
+      "source": "https://mlbbhub.com/items/war-axe",
+      "stats": {
+        "hp": 400,
+        "spellvamp": 8,
+        "physatk": 35,
+        "cdreduction": 10
+      }
+    },
+    {
+      "id": "warrior-boots",
+      "name": "Warrior Boots",
+      "cost": 720,
+      "recipe": [
+        "boots",
+        "leather-jerkin"
+      ],
+      "tags": [
+        "advancedBoots",
+        "physicalDefense"
+      ],
+      "icon": "warrior-boots.png",
+      "source": "https://mlbbhub.com/items/warrior-boots",
+      "stats": {
+        "physdefense": 18,
+        "movespeed": 40
+      }
+    },
+    {
+      "id": "wind-of-nature",
+      "name": "Wind of Nature",
+      "cost": 1910,
+      "recipe": [
+        "regular-spear",
+        "vampire-mallet"
+      ],
+      "tags": [
+        "attackSpeed",
+        "healing",
+        "physicalDamage"
+      ],
+      "icon": "wind-of-nature.png",
+      "source": "https://mlbbhub.com/items/wind-of-nature",
+      "stats": {
+        "lifesteal": 10,
+        "attackspeed": 20,
+        "physatk": 30
+      }
+    },
+    {
+      "id": "windtalker",
+      "name": "Windtalker",
+      "cost": 1880,
+      "recipe": [
+        "rogue-meteor",
+        "knife"
+      ],
+      "tags": [
+        "attackSpeed"
+      ],
+      "icon": "windtalker.png",
+      "source": "https://mlbbhub.com/items/windtalker",
+      "stats": {
+        "attackspeed": 35,
+        "critchance": 20,
+        "movespeed": 20
+      }
+    },
+    {
+      "id": "winter-crown",
+      "name": "Winter Crown",
+      "cost": 1910,
+      "recipe": [
+        "expert-gloves",
+        "heros-ring",
+        "vitality-crystal"
+      ],
+      "tags": [],
+      "icon": "winter-crown.png",
+      "source": "https://mlbbhub.com/items/winter-crown",
+      "stats": {
+        "hp": 400,
+        "adaptiveatk": 45,
+        "cdreduction": 5
+      }
+    },
+    {
+      "id": "wishing-lantern",
+      "name": "Wishing Lantern",
+      "cost": 2250,
+      "recipe": [
+        "magic-wand",
+        "book-of-sages",
+        "mystery-codex"
+      ],
+      "tags": [
+        "magicDamage"
+      ],
+      "icon": "wishing-lantern.png",
+      "source": "https://mlbbhub.com/items/wishing-lantern",
+      "stats": {
+        "mp": 400,
+        "magicpower": 75,
+        "cdreduction": 10
+      }
+    }
+  ],
+  "heroes": {
+    "Alice": {
+      "kind": "magic",
+      "core": [
+        "tough-boots",
+        "clock-of-destiny",
+        "concentrated-energy",
+        "glowing-wand",
+        "oracle",
+        "winter-crown"
+      ]
+    },
+    "Eudora": {
+      "kind": "magic",
+      "core": [
+        "arcane-boots",
+        "genius-wand",
+        "holy-crystal",
+        "divine-glaive",
+        "blood-wings",
+        "winter-crown"
+      ]
+    },
+    "Nana": {
+      "kind": "magic",
+      "core": [
+        "arcane-boots",
+        "genius-wand",
+        "wishing-lantern",
+        "holy-crystal",
+        "divine-glaive",
+        "blood-wings"
+      ]
+    },
+    "Valir": {
+      "kind": "magic",
+      "core": [
+        "demon-boots",
+        "glowing-wand",
+        "ice-queen-wand",
+        "genius-wand",
+        "athenas-shield",
+        "immortality"
+      ]
+    },
+    "Kadita": {
+      "kind": "magic",
+      "core": [
+        "arcane-boots",
+        "genius-wand",
+        "holy-crystal",
+        "divine-glaive",
+        "blood-wings",
+        "winter-crown"
+      ]
+    },
+    "Saber": {
+      "kind": "physical",
+      "core": [
+        "tough-boots",
+        "blade-of-the-heptaseas",
+        "hunter-strike",
+        "malefic-roar",
+        "blade-of-despair",
+        "immortality"
+      ]
+    },
+    "Balmond": {
+      "kind": "fighter",
+      "core": [
+        "tough-boots",
+        "war-axe",
+        "queens-wings",
+        "brute-force-breastplate",
+        "athenas-shield",
+        "immortality"
+      ]
+    },
+    "Baxia": {
+      "kind": "tank",
+      "core": [
+        "tough-boots",
+        "cursed-helmet",
+        "dominance-ice",
+        "antique-cuirass",
+        "athenas-shield",
+        "immortality"
+      ]
+    },
+    "Layla": {
+      "kind": "marksman",
+      "core": [
+        "swift-boots",
+        "haass-claws",
+        "berserkers-fury",
+        "malefic-gun",
+        "blade-of-despair",
+        "wind-of-nature"
+      ]
+    },
+    "Clint": {
+      "kind": "physical",
+      "core": [
+        "tough-boots",
+        "endless-battle",
+        "berserkers-fury",
+        "malefic-roar",
+        "blade-of-despair",
+        "wind-of-nature"
+      ]
+    },
+    "Hanabi": {
+      "kind": "marksman",
+      "core": [
+        "swift-boots",
+        "corrosion-scythe",
+        "demon-hunter-sword",
+        "golden-staff",
+        "sea-halberd",
+        "rose-gold-meteor"
+      ]
+    },
+    "Tigreal": {
+      "kind": "tank",
+      "core": [
+        "tough-boots",
+        "dominance-ice",
+        "antique-cuirass",
+        "athenas-shield",
+        "radiant-armor",
+        "immortality"
+      ]
+    },
+    "Lolita": {
+      "kind": "tank",
+      "core": [
+        "tough-boots",
+        "dominance-ice",
+        "athenas-shield",
+        "antique-cuirass",
+        "radiant-armor",
+        "immortality"
+      ]
+    },
+    "Diggie": {
+      "kind": "magic",
+      "core": [
+        "magic-boots",
+        "enchanted-talisman",
+        "fleeting-time",
+        "glowing-wand",
+        "athenas-shield",
+        "immortality"
+      ]
+    },
+    "Ruby": {
+      "kind": "fighter",
+      "core": [
+        "tough-boots",
+        "war-axe",
+        "queens-wings",
+        "oracle",
+        "brute-force-breastplate",
+        "immortality"
+      ]
+    },
+    "Dyrroth": {
+      "kind": "fighter",
+      "core": [
+        "tough-boots",
+        "blade-of-the-heptaseas",
+        "hunter-strike",
+        "war-axe",
+        "malefic-roar",
+        "immortality"
+      ]
+    },
+    "Minsitthar": {
+      "kind": "fighter",
+      "core": [
+        "tough-boots",
+        "corrosion-scythe",
+        "demon-hunter-sword",
+        "golden-staff",
+        "sea-halberd",
+        "immortality"
+      ]
+    }
+  }
+}

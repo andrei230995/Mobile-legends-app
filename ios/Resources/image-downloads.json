@@ -1,0 +1,522 @@
+[
+  {
+    "name": "allow-throw.png",
+    "url": "https://mlbbhub.com/images/items/allow-throw.png",
+    "sha256": "e126e674eddf9313ed3294aec39d77388ea062d073ac244703390ddb8455d284"
+  },
+  {
+    "name": "antique-cuirass.png",
+    "url": "https://mlbbhub.com/images/items/antique-cuirass.png",
+    "sha256": "bee34f335c90b18607e9482166f95dfe91a2d1c7290226cb5e15f0e0b5acd1a7"
+  },
+  {
+    "name": "dreadnaught-armor.png",
+    "url": "https://mlbbhub.com/images/items/dreadnaught-armor.png",
+    "sha256": "558f01ff06729ace6a6805ac7276265ed7523beeb18f836b64819952fdb39e46"
+  },
+  {
+    "name": "leather-jerkin.png",
+    "url": "https://mlbbhub.com/images/items/leather-jerkin.png",
+    "sha256": "7d0a15832c1fc65754d5144a141b82400f8fbaaa2a6cf6d5437ab6034aeb9d0d"
+  },
+  {
+    "name": "ares-belt.png",
+    "url": "https://mlbbhub.com/images/items/ares-belt.png",
+    "sha256": "30490a0f36642f2ea0d03554f421486c1739c76038eecd2b34c71f5d324d9d82"
+  },
+  {
+    "name": "vitality-crystal.png",
+    "url": "https://mlbbhub.com/images/items/vitality-crystal.png",
+    "sha256": "ab91515b0d0c075d2e1097d0d2444d20a7c21b3d34a731f92f6f6116516ad04d"
+  },
+  {
+    "name": "arcane-boots.png",
+    "url": "https://mlbbhub.com/images/items/arcane-boots.png",
+    "sha256": "bdfd7bc125fd0cdc713c7e4fb7724722d82eeaaae29edb04fd02e3f6e30d19fe"
+  },
+  {
+    "name": "boots.png",
+    "url": "https://mlbbhub.com/images/items/boots.png",
+    "sha256": "dba73460b84c1d67724e9741e3e8ee51eef9dca84d79678bdad4c72e217b3989"
+  },
+  {
+    "name": "athenas-shield.png",
+    "url": "https://mlbbhub.com/images/items/athenas-shield.png",
+    "sha256": "9546e71501936aa58de365e38ad5e35f5e3e49a38d9329e80ea26dc5eb93c5eb"
+  },
+  {
+    "name": "silence-robe.png",
+    "url": "https://mlbbhub.com/images/items/silence-robe.png",
+    "sha256": "c290fa79e6e11a767cffd5cd7a77dc644bdf2233c12e9ffe9487df465f00ff63"
+  },
+  {
+    "name": "magic-resist-cloak.png",
+    "url": "https://mlbbhub.com/images/items/magic-resist-cloak.png",
+    "sha256": "0f8dc09e8e86bcfc46d83527967fe41137b122ffbe7ce35949e319a8703aefd7"
+  },
+  {
+    "name": "azure-blade.png",
+    "url": "https://mlbbhub.com/images/items/azure-blade.png",
+    "sha256": "1c77108f4256dcd0f24f73d49168e4fea0d2f1b3d14dec98040d508b222fc071"
+  },
+  {
+    "name": "magic-necklace.png",
+    "url": "https://mlbbhub.com/images/items/magic-necklace.png",
+    "sha256": "778fafd3b3ba53383ef78d96ab2868a1b414357440b38bc113e1aa35ffcdbfc7"
+  },
+  {
+    "name": "berserkers-fury.png",
+    "url": "https://mlbbhub.com/images/items/berserkers-fury.png",
+    "sha256": "217761400dd62b7726830c2750acc319401179a3d5cfcd5a9ba6db833c7f814a"
+  },
+  {
+    "name": "legion-sword.png",
+    "url": "https://mlbbhub.com/images/items/legion-sword.png",
+    "sha256": "5c366a63f370d69eb02e17898e04ab5b7a9f78931d74363c9bf27520769d9ee0"
+  },
+  {
+    "name": "dagger.png",
+    "url": "https://mlbbhub.com/images/items/dagger.png",
+    "sha256": "9e2a93f83a77f8fb792071a1eaa896893b430b87aafe8c9b68a4f1cab8a5493d"
+  },
+  {
+    "name": "javelin.png",
+    "url": "https://mlbbhub.com/images/items/javelin.png",
+    "sha256": "3f8b6e0a64f94d59eb2522eee296cf50cd59e33487932aaac3cb770445f8306f"
+  },
+  {
+    "name": "black-ice-shield.png",
+    "url": "https://mlbbhub.com/images/items/black-ice-shield.png",
+    "sha256": "254c043ae0840bd23c70562fc3d196ee466d31474b84f7ccd4838f46dfa36628"
+  },
+  {
+    "name": "blade-armor.png",
+    "url": "https://mlbbhub.com/images/items/blade-armor.png",
+    "sha256": "3306df3b8de8e003b33c10de5e553279c14027549631ce9de2f17f315b219bbe"
+  },
+  {
+    "name": "steel-legplates.png",
+    "url": "https://mlbbhub.com/images/items/steel-legplates.png",
+    "sha256": "53536aa5d7970089a32b277a0eeaa9e05012b8142958ecdfe28afb317a153682"
+  },
+  {
+    "name": "blade-of-despair.png",
+    "url": "https://mlbbhub.com/images/items/blade-of-despair.png",
+    "sha256": "c3a6e95b586d0798e9a28103720f46fe4e1de2a3f7ac227f62d970ca763abad4"
+  },
+  {
+    "name": "blade-of-the-heptaseas.png",
+    "url": "https://mlbbhub.com/images/items/blade-of-the-heptaseas.png",
+    "sha256": "dccf357f7851b37947d051bf302a32ebc10ebc84f4479d14ca69ad608fdf35a0"
+  },
+  {
+    "name": "ogre-tomahawk.png",
+    "url": "https://mlbbhub.com/images/items/ogre-tomahawk.png",
+    "sha256": "9f0e03238347b33693c82f4a51d6c762ebacbd3ec7483abeb2cb625024cee028"
+  },
+  {
+    "name": "fury-hammer.png",
+    "url": "https://mlbbhub.com/images/items/fury-hammer.png",
+    "sha256": "b3d58d31feee613eee6aa98159f17283fc40c053b8389dd65cd53b0149141f24"
+  },
+  {
+    "name": "blood-wings.png",
+    "url": "https://mlbbhub.com/images/items/blood-wings.png",
+    "sha256": "a8d8720fd1c9d96773e6e50dbc4efccef3205d6261d54c8f496be775b3c07128"
+  },
+  {
+    "name": "magic-wand.png",
+    "url": "https://mlbbhub.com/images/items/magic-wand.png",
+    "sha256": "151bf9bba6652eb7711973a3ee0526aa296f65f049e79aa5912cb85cd9450037"
+  },
+  {
+    "name": "mystery-codex.png",
+    "url": "https://mlbbhub.com/images/items/mystery-codex.png",
+    "sha256": "2c54951a246fdce0c823666bdad815461ad81e6541cc06392f3779162ce98c20"
+  },
+  {
+    "name": "bloody-retribution.png",
+    "url": "https://mlbbhub.com/images/items/bloody-retribution.png",
+    "sha256": "cf141f96d1636af32a7af491c1b6bb4639bc54b0fd7897a0185d5e093c014f33"
+  },
+  {
+    "name": "book-of-sages.png",
+    "url": "https://mlbbhub.com/images/items/book-of-sages.png",
+    "sha256": "e15a0b68f69bfda511e65629b0bad9e81abcacf0ee8bdc3fc903e8bb3e577af5"
+  },
+  {
+    "name": "broken-heart.png",
+    "url": "https://mlbbhub.com/images/items/broken-heart.png",
+    "sha256": "ca83ea8d9d42677d12f2f56c955cf224cb4eae508836326f0235cf71e65244c5"
+  },
+  {
+    "name": "brute-force-breastplate.png",
+    "url": "https://mlbbhub.com/images/items/brute-force-breastplate.png",
+    "sha256": "dab6c26c574d404507ab5d918d2e07db85db763387d5405e912a7d0dcadaa7a2"
+  },
+  {
+    "name": "heros-ring.png",
+    "url": "https://mlbbhub.com/images/items/heros-ring.png",
+    "sha256": "24367c0ba9a46d03d8786465d984d531b2a907a6d40ea360748282b57af7e56d"
+  },
+  {
+    "name": "chastise-pauldron.png",
+    "url": "https://mlbbhub.com/images/items/chastise-pauldron.png",
+    "sha256": "4772f07622cdb6427cd6a361f3beba788953b33811b8fac4af3d81b1305370ea"
+  },
+  {
+    "name": "clock-of-destiny.png",
+    "url": "https://mlbbhub.com/images/items/clock-of-destiny.png",
+    "sha256": "a3425abc2287b6fff00a9d884d76dc6bda6fe602b5e1e3316addcf3ae1af2105"
+  },
+  {
+    "name": "elegant-gem.png",
+    "url": "https://mlbbhub.com/images/items/elegant-gem.png",
+    "sha256": "8e52c4a86f758d8cae2e5310981e22ad3ad07197206034b602c1bc58b2f74980"
+  },
+  {
+    "name": "power-crystal.png",
+    "url": "https://mlbbhub.com/images/items/power-crystal.png",
+    "sha256": "1986dd87950b4be0f0fd2d2bf626b389f0eed9495b3dcb65b8f9d6161556a153"
+  },
+  {
+    "name": "conceal.png",
+    "url": "https://mlbbhub.com/images/items/conceal.png",
+    "sha256": "77f1a48428ef0aa1c06bd5306e617c30cf470d58eb50861ab29d09d7a62a8a4d"
+  },
+  {
+    "name": "concentrated-energy.png",
+    "url": "https://mlbbhub.com/images/items/concentrated-energy.png",
+    "sha256": "ba72d82c0967e51ba28bf26f70706f2d3a55bfcdacf665921262bed075ebabac"
+  },
+  {
+    "name": "mystic-container.png",
+    "url": "https://mlbbhub.com/images/items/mystic-container.png",
+    "sha256": "dd659760f4dfb00b60a1a089356a6dad7ea06625a2f69b1e793c5ef39e778ceb"
+  },
+  {
+    "name": "corrosion-scythe.png",
+    "url": "https://mlbbhub.com/images/items/corrosion-scythe.png",
+    "sha256": "8d10d97910fdc14acd2f84804362f5d514fb9aa57feb26e4052f852292229d1b"
+  },
+  {
+    "name": "swift-crossbow.png",
+    "url": "https://mlbbhub.com/images/items/swift-crossbow.png",
+    "sha256": "83e591987336846385b4be3065f9fc0ce440ba5a131b61e1b96b10865a499e8f"
+  },
+  {
+    "name": "knife.png",
+    "url": "https://mlbbhub.com/images/items/knife.png",
+    "sha256": "51aff52a46c83dab70e574a63c0efe77f484c404c6dcf2bdf8f0b5c8379f8244"
+  },
+  {
+    "name": "regular-spear.png",
+    "url": "https://mlbbhub.com/images/items/regular-spear.png",
+    "sha256": "f71d6378fc6ba6651e20ef41766c3491e879afa1cbb0cea1f1201fd2f6ead131"
+  },
+  {
+    "name": "cursed-helmet.png",
+    "url": "https://mlbbhub.com/images/items/cursed-helmet.png",
+    "sha256": "f833f276b65deedaa3bf146a65416861e9616dd0946c6f5fd2b6ad1201911d4c"
+  },
+  {
+    "name": "molten-essence.png",
+    "url": "https://mlbbhub.com/images/items/molten-essence.png",
+    "sha256": "804eebef5865e446a74b51f12d194ed4f71b40db14dd4afa9d64783ac9e6be7a"
+  },
+  {
+    "name": "demon-boots.png",
+    "url": "https://mlbbhub.com/images/items/demon-boots.png",
+    "sha256": "240465d28391bf9e1c0c51a12d0dfd20bf9636942e064c9043cf966c82fe91eb"
+  },
+  {
+    "name": "demon-hunter-sword.png",
+    "url": "https://mlbbhub.com/images/items/demon-hunter-sword.png",
+    "sha256": "308565cdbcd8e3032cb8956871fede0fafdc623be9156c882698427630caf3da"
+  },
+  {
+    "name": "vampire-mallet.png",
+    "url": "https://mlbbhub.com/images/items/vampire-mallet.png",
+    "sha256": "0fad9eeb9a62763d287c9400075fb722c1d4cfac6cdcb67a6289cbab3fb6160c"
+  },
+  {
+    "name": "dire-hit.png",
+    "url": "https://mlbbhub.com/images/items/dire-hit.png",
+    "sha256": "2fa0184d4514a0e289efd56da408779cee4ea4796d6c7e071f75c31cb76b3cf8"
+  },
+  {
+    "name": "divine-glaive.png",
+    "url": "https://mlbbhub.com/images/items/divine-glaive.png",
+    "sha256": "668e233326486dd337a3463d63a028c3fd740bf66bad89c0c649e36c47c3a214"
+  },
+  {
+    "name": "dominance-ice.png",
+    "url": "https://mlbbhub.com/images/items/dominance-ice.png",
+    "sha256": "cb3bc4914f8cfe5bb56a2236a61690f7ff11beb999950bf9e1f352abd18c911f"
+  },
+  {
+    "name": "enchanted-talisman.png",
+    "url": "https://mlbbhub.com/images/items/enchanted-talisman.png",
+    "sha256": "aaf19312f97186c9efc4ffb37b1fb1571c6df7dcd397a7bd4690216d9261824c"
+  },
+  {
+    "name": "tome-of-evil.png",
+    "url": "https://mlbbhub.com/images/items/tome-of-evil.png",
+    "sha256": "aaab58653e6e6f487ecfcb4cf01a48c0b568d9b3a533f6653c885646dc5f4dc6"
+  },
+  {
+    "name": "encourage.png",
+    "url": "https://mlbbhub.com/images/items/encourage.png",
+    "sha256": "b60a11bab938d7e4a11d5ce928e0f901b7e252d8999c4ad86bed802878effa24"
+  },
+  {
+    "name": "endless-battle.png",
+    "url": "https://mlbbhub.com/images/items/endless-battle.png",
+    "sha256": "1e4da541f291d83e7e0ea1121c137781decbad3204577b231d7cbaa51714ff75"
+  },
+  {
+    "name": "exotic-veil.png",
+    "url": "https://mlbbhub.com/images/items/exotic-veil.png",
+    "sha256": "7fe8e43536bd845c1d2b96df4222d8b18b74c8733957bcbb4d08ac21c9303859"
+  },
+  {
+    "name": "expert-gloves.png",
+    "url": "https://mlbbhub.com/images/items/expert-gloves.png",
+    "sha256": "d8925b30218695d68849c958f3af7857068a6ea80f45f143802443b746fa09f7"
+  },
+  {
+    "name": "favor.png",
+    "url": "https://mlbbhub.com/images/items/favor.png",
+    "sha256": "e6df442dbb3a5a330a9d030fc32a315d12fd1a6f98fc415e23aeac9eb5151a30"
+  },
+  {
+    "name": "feather-of-heaven.png",
+    "url": "https://mlbbhub.com/images/items/feather-of-heaven.png",
+    "sha256": "ff29e802657f40b578909b22ec6409491cd6c6925119f8739cdc6141ae895f78"
+  },
+  {
+    "name": "flame-retribution.png",
+    "url": "https://mlbbhub.com/images/items/flame-retribution.png",
+    "sha256": "6c6c4a0060f4ad24a3e84c5982bfd32c965b9ee7b827ecf215a81b1a6fc31937"
+  },
+  {
+    "name": "flask-of-the-oasis.png",
+    "url": "https://mlbbhub.com/images/items/flask-of-the-oasis.png",
+    "sha256": "e5ca372e851f0662492a14af4940b4e421942ac40ae7a1cd1b81a329e2e0cabd"
+  },
+  {
+    "name": "fleeting-time.png",
+    "url": "https://mlbbhub.com/images/items/fleeting-time.png",
+    "sha256": "4d40b5ecf9dcbce928723ce6092561b4cc688830b7534d3847a2c1fb40053f57"
+  },
+  {
+    "name": "flower-of-hope.png",
+    "url": "https://mlbbhub.com/images/items/flower-of-hope.png",
+    "sha256": "0273f2f84af5f900d962ba632548d9788a27ecc5829315807143f180e2e4f68f"
+  },
+  {
+    "name": "genius-wand.png",
+    "url": "https://mlbbhub.com/images/items/genius-wand.png",
+    "sha256": "36ba8e327bddaf3e1515bd2ad8398432671fc4abcbb6e1956952d123d6ebb7f0"
+  },
+  {
+    "name": "glowing-wand.png",
+    "url": "https://mlbbhub.com/images/items/glowing-wand.png",
+    "sha256": "15e48fca9f93561bca64c324cc58f27ec78f74140ce829f53259144ee1ff8d4d"
+  },
+  {
+    "name": "golden-staff.png",
+    "url": "https://mlbbhub.com/images/items/golden-staff.png",
+    "sha256": "459026f624272862c9e9ed8e17df69186e3b27ebbf386c8cf295b7aeb0be2ba5"
+  },
+  {
+    "name": "great-dragon-spear.png",
+    "url": "https://mlbbhub.com/images/items/great-dragon-spear.png",
+    "sha256": "c18cb566b46aeda0b3519b72d9308cf2de2ecb7608b4090f9d64d9a6c0139f05"
+  },
+  {
+    "name": "iron-hunting-bow.png",
+    "url": "https://mlbbhub.com/images/items/iron-hunting-bow.png",
+    "sha256": "256e18578b276e8dc2c5de6c82de0cd54dbfca7b55b5b8dd8f00d932adcc724c"
+  },
+  {
+    "name": "guardian-helmet.png",
+    "url": "https://mlbbhub.com/images/items/guardian-helmet.png",
+    "sha256": "5c78a138dbe648a169f5ef8cd2ed32b525e304ad99bb2235c12585aff8e91fec"
+  },
+  {
+    "name": "healing-necklace.png",
+    "url": "https://mlbbhub.com/images/items/healing-necklace.png",
+    "sha256": "4959a73fa0b34c41356cddcf5ebc7b1cf88ad784e5b78ade1354ff8ab5c12017"
+  },
+  {
+    "name": "haass-claws.png",
+    "url": "https://mlbbhub.com/images/items/haass-claws.png",
+    "sha256": "72689317d213eef51560993dd69d14696b1bf279b6ddfbd43eef5f091cbf9737"
+  },
+  {
+    "name": "rogue-meteor.png",
+    "url": "https://mlbbhub.com/images/items/rogue-meteor.png",
+    "sha256": "4014fedf6cbd4d42a2353f216a008a3bedd67b811b9f64731b1a35efff99e811"
+  },
+  {
+    "name": "holy-crystal.png",
+    "url": "https://mlbbhub.com/images/items/holy-crystal.png",
+    "sha256": "a2c5d733429096d5314012970340cbbe088a2ccc032388c1eefdea0f79bb77e2"
+  },
+  {
+    "name": "hunter-strike.png",
+    "url": "https://mlbbhub.com/images/items/hunter-strike.png",
+    "sha256": "059f6dd260229d445f1fd10289b59a9249ce21dac738898acdc76991c2d311c3"
+  },
+  {
+    "name": "ice-queen-wand.png",
+    "url": "https://mlbbhub.com/images/items/ice-queen-wand.png",
+    "sha256": "a1e12f8ed38d148e63ae791f943c2d0c62459f53d5828d1e517f6f097d3a02da"
+  },
+  {
+    "name": "ice-retribution.png",
+    "url": "https://mlbbhub.com/images/items/ice-retribution.png",
+    "sha256": "80b524c9dec44b29a93181f168bf580f07c9959b835d09b2ca0a352e8c582010"
+  },
+  {
+    "name": "immortality.png",
+    "url": "https://mlbbhub.com/images/items/immortality.png",
+    "sha256": "9d6c8adfe14fc5a637babfc27811e69391ff088c5515c276c5a698b053b1308b"
+  },
+  {
+    "name": "lantern-of-hope.png",
+    "url": "https://mlbbhub.com/images/items/lantern-of-hope.png",
+    "sha256": "70e6d8f4f42d2aebc25d17dc7fa3de42fa7a01851a4ab35ee9e3a2e35607c237"
+  },
+  {
+    "name": "lightning-truncheon.png",
+    "url": "https://mlbbhub.com/images/items/lightning-truncheon.png",
+    "sha256": "51e1a79a38bb956f5255bae733acb114c89fceda19bc8ac1ec5db75648f512d0"
+  },
+  {
+    "name": "magic-blade.png",
+    "url": "https://mlbbhub.com/images/items/magic-blade.png",
+    "sha256": "b0c33c79f7b4fda1b3236428b67592e58315673c0103c0f3365ed630a58369cb"
+  },
+  {
+    "name": "magic-boots.png",
+    "url": "https://mlbbhub.com/images/items/magic-boots.png",
+    "sha256": "95a333183afeeea77a6ea59d6cc6ddf7a4e5b5d178dd9ff21decdf34938b8fd4"
+  },
+  {
+    "name": "magic-potion.png",
+    "url": "https://mlbbhub.com/images/items/magic-potion.png",
+    "sha256": "f5a0d06033ecda6531ddfc86cd6b1a6901a34342d62f925ed262837698cf0d92"
+  },
+  {
+    "name": "malefic-gun.png",
+    "url": "https://mlbbhub.com/images/items/malefic-gun.png",
+    "sha256": "f2c9559dd2ccb1110987bbc490b7ed32dfb0ada68224d47ac1ac34777ef4327b"
+  },
+  {
+    "name": "malefic-roar.png",
+    "url": "https://mlbbhub.com/images/items/malefic-roar.png",
+    "sha256": "18045767cc8c236a9d72677c0ff9aa1605cdf8beecc5eff00232165b6b6e0e37"
+  },
+  {
+    "name": "oracle.png",
+    "url": "https://mlbbhub.com/images/items/oracle.png",
+    "sha256": "eb86251705b97e220110f1fb787ffa9a28e525575772a561f9eab6fb46ab815e"
+  },
+  {
+    "name": "power-potion.png",
+    "url": "https://mlbbhub.com/images/items/power-potion.png",
+    "sha256": "7b3a40bd4d000919e9ebb02aa9872de503346463cc4f4924a7a92622728b77f0"
+  },
+  {
+    "name": "queens-wings.png",
+    "url": "https://mlbbhub.com/images/items/queens-wings.png",
+    "sha256": "35030f03598854a27f34557af35aa99b3f6a88bbf8cc457d62df48ee63db4e3f"
+  },
+  {
+    "name": "radiant-armor.png",
+    "url": "https://mlbbhub.com/images/items/radiant-armor.png",
+    "sha256": "19445d855310fefa8d97cf424c2c2d7b9193c32c66a71ac8128342d72fe7b85f"
+  },
+  {
+    "name": "rapid-boots.png",
+    "url": "https://mlbbhub.com/images/items/rapid-boots.png",
+    "sha256": "ed9311685a2457950499fc3a35b27be37d900956e85a5253d1b1c8e6cd96e84e"
+  },
+  {
+    "name": "rock-potion.png",
+    "url": "https://mlbbhub.com/images/items/rock-potion.png",
+    "sha256": "82cc399f016b8b571cf071d5dab8ca3388a54163266d854d769266614ccc9a43"
+  },
+  {
+    "name": "rose-gold-meteor.png",
+    "url": "https://mlbbhub.com/images/items/rose-gold-meteor.png",
+    "sha256": "0f4c4041fb65f12cf14b61d2a4954ebe50997702ac7d63bbd6aea47f08e534a0"
+  },
+  {
+    "name": "sea-halberd.png",
+    "url": "https://mlbbhub.com/images/items/sea-halberd.png",
+    "sha256": "bf2117e1b64442bc62e91660e74ec927c435961f45e6adf97f7fa934c4d480c3"
+  },
+  {
+    "name": "sky-piercer.png",
+    "url": "https://mlbbhub.com/images/items/sky-piercer.png",
+    "sha256": "998ae1d53c9335174ae53acb72f09a4818374c9a12520d3e788dfd8f4e03bbd1"
+  },
+  {
+    "name": "starlium-scythe.png",
+    "url": "https://mlbbhub.com/images/items/starlium-scythe.png",
+    "sha256": "d0956652cc21c4baff47382bd86708e209577b984b5ad961268ad58a5747392a"
+  },
+  {
+    "name": "swift-boots.png",
+    "url": "https://mlbbhub.com/images/items/swift-boots.png",
+    "sha256": "9095312165e1b71b196df54f555b92dd09d4f602f0850da79b815a09cc371bc0"
+  },
+  {
+    "name": "throw-forbidden.png",
+    "url": "https://mlbbhub.com/images/items/throw-forbidden.png",
+    "sha256": "51c695547ced63bfd722e6ff1a0f9e0b88f6d7e969e4202a8be527eab9575355"
+  },
+  {
+    "name": "thunder-belt.png",
+    "url": "https://mlbbhub.com/images/items/thunder-belt.png",
+    "sha256": "d0acb7adba3261300f646185eaa7de53ba4f8efb6974bc94658c42bf4d4a3c31"
+  },
+  {
+    "name": "tough-boots.png",
+    "url": "https://mlbbhub.com/images/items/tough-boots.png",
+    "sha256": "acac9120e2f044942e33ec948a300aee1374201ab2202ab4820fa3965674994f"
+  },
+  {
+    "name": "war-axe.png",
+    "url": "https://mlbbhub.com/images/items/war-axe.png",
+    "sha256": "2f97cca879f938dbfd6f8895da5cbd3bbcef9f73c89c5ca6be1a8c7a88d26c43"
+  },
+  {
+    "name": "warrior-boots.png",
+    "url": "https://mlbbhub.com/images/items/warrior-boots.png",
+    "sha256": "2574c9729782770ad7c01b3b26d008d8abcdef22710317b51ecb886fd8ebfc80"
+  },
+  {
+    "name": "wind-of-nature.png",
+    "url": "https://mlbbhub.com/images/items/wind-of-nature.png",
+    "sha256": "11a54ff18fa1c000e2931635f05a02a680a29f8aa722ba48d9e6b93c257b75a3"
+  },
+  {
+    "name": "windtalker.png",
+    "url": "https://mlbbhub.com/images/items/windtalker.png",
+    "sha256": "22060d9901a6a290c88c0c7985f1c8d7854c036472caa4ebb14706834a46970e"
+  },
+  {
+    "name": "winter-crown.png",
+    "url": "https://mlbbhub.com/images/items/winter-crown.png",
+    "sha256": "cc7b30e386c89f9a12de7609f3aa2bae6a99eee95558870ceae69fe36e03ee66"
+  },
+  {
+    "name": "wishing-lantern.png",
+    "url": "https://mlbbhub.com/images/items/wishing-lantern.png",
+    "sha256": "2a73dc9581e652b892caca506262e02fe9851c4c0b5920495ef635a2ada00490"
+  }
+]

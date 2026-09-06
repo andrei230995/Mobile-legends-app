@@ -1,0 +1,2079 @@
+[
+  {
+    "name": "Allow Throw",
+    "slug": "allow-throw",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/allow-throw",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Allow_Throw",
+    "imageUrl": "https://mlbbhub.com/images/items/allow-throw.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Antique Cuirass",
+    "slug": "antique-cuirass",
+    "requested": true,
+    "cost": 2170,
+    "recipe": [
+      {
+        "slug": "dreadnaught-armor",
+        "name": "Dreadnaught Armor"
+      },
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/antique-cuirass",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Antique_Cuirass",
+    "imageUrl": "https://mlbbhub.com/images/items/antique-cuirass.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Dreadnaught Armor",
+    "slug": "dreadnaught-armor",
+    "requested": true,
+    "cost": 730,
+    "recipe": [
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/dreadnaught-armor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Dreadnaught_Armor",
+    "imageUrl": "https://mlbbhub.com/images/items/dreadnaught-armor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Leather Jerkin",
+    "slug": "leather-jerkin",
+    "requested": true,
+    "cost": 220,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/leather-jerkin",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Leather_Jerkin",
+    "imageUrl": "https://mlbbhub.com/images/items/leather-jerkin.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Ares Belt",
+    "slug": "ares-belt",
+    "requested": true,
+    "cost": 900,
+    "recipe": [
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/ares-belt",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Ares_Belt",
+    "imageUrl": "https://mlbbhub.com/images/items/ares-belt.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Vitality Crystal",
+    "slug": "vitality-crystal",
+    "requested": true,
+    "cost": 300,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/vitality-crystal",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Vitality_Crystal",
+    "imageUrl": "https://mlbbhub.com/images/items/vitality-crystal.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Arcane Boots",
+    "slug": "arcane-boots",
+    "requested": true,
+    "cost": 690,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/arcane-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Arcane_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/arcane-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Boots",
+    "slug": "boots",
+    "requested": true,
+    "cost": 250,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Athena's Shield",
+    "slug": "athenas-shield",
+    "requested": true,
+    "cost": 2150,
+    "recipe": [
+      {
+        "slug": "silence-robe",
+        "name": "Silence Robe"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/athenas-shield",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Athena's_Shield",
+    "imageUrl": "https://mlbbhub.com/images/items/athenas-shield.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Silence Robe",
+    "slug": "silence-robe",
+    "requested": true,
+    "cost": 1020,
+    "recipe": [
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/silence-robe",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Silence_Robe",
+    "imageUrl": "https://mlbbhub.com/images/items/silence-robe.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Magic Resist Cloak",
+    "slug": "magic-resist-cloak",
+    "requested": true,
+    "cost": 220,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/magic-resist-cloak",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Resist_Cloak",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-resist-cloak.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Azure Blade",
+    "slug": "azure-blade",
+    "requested": true,
+    "cost": 600,
+    "recipe": [
+      {
+        "slug": "magic-necklace",
+        "name": "Magic Necklace"
+      },
+      {
+        "slug": "magic-necklace",
+        "name": "Magic Necklace"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/azure-blade",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Azure_Blade",
+    "imageUrl": "https://mlbbhub.com/images/items/azure-blade.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Magic Necklace",
+    "slug": "magic-necklace",
+    "requested": true,
+    "cost": 120,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/magic-necklace",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Necklace",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-necklace.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Berserker's Fury",
+    "slug": "berserkers-fury",
+    "requested": true,
+    "cost": 2390,
+    "recipe": [
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      },
+      {
+        "slug": "javelin",
+        "name": "Javelin"
+      },
+      {
+        "slug": "javelin",
+        "name": "Javelin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/berserkers-fury",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Berserker's_Fury",
+    "imageUrl": "https://mlbbhub.com/images/items/berserkers-fury.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Legion Sword",
+    "slug": "legion-sword",
+    "requested": true,
+    "cost": 910,
+    "recipe": [
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/legion-sword",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Legion_Sword",
+    "imageUrl": "https://mlbbhub.com/images/items/legion-sword.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Dagger",
+    "slug": "dagger",
+    "requested": true,
+    "cost": 250,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/dagger",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Dagger",
+    "imageUrl": "https://mlbbhub.com/images/items/dagger.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Javelin",
+    "slug": "javelin",
+    "requested": true,
+    "cost": 320,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/javelin",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Javelin",
+    "imageUrl": "https://mlbbhub.com/images/items/javelin.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Black Ice Shield",
+    "slug": "black-ice-shield",
+    "requested": true,
+    "cost": 780,
+    "recipe": [
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/black-ice-shield",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Black_Ice_Shield",
+    "imageUrl": "https://mlbbhub.com/images/items/black-ice-shield.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Blade Armor",
+    "slug": "blade-armor",
+    "requested": true,
+    "cost": 1910,
+    "recipe": [
+      {
+        "slug": "steel-legplates",
+        "name": "Steel Legplates"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/blade-armor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Blade_Armor",
+    "imageUrl": "https://mlbbhub.com/images/items/blade-armor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Steel Legplates",
+    "slug": "steel-legplates",
+    "requested": true,
+    "cost": 630,
+    "recipe": [
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/steel-legplates",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Steel_Legplates",
+    "imageUrl": "https://mlbbhub.com/images/items/steel-legplates.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Blade of Despair",
+    "slug": "blade-of-despair",
+    "requested": true,
+    "cost": 3010,
+    "recipe": [
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      },
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/blade-of-despair",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Blade_of_Despair",
+    "imageUrl": "https://mlbbhub.com/images/items/blade-of-despair.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Blade of the Heptaseas",
+    "slug": "blade-of-the-heptaseas",
+    "requested": true,
+    "cost": 1950,
+    "recipe": [
+      {
+        "slug": "ogre-tomahawk",
+        "name": "Ogre Tomahawk"
+      },
+      {
+        "slug": "fury-hammer",
+        "name": "Fury Hammer"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/blade-of-the-heptaseas",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Blade_of_the_Heptaseas",
+    "imageUrl": "https://mlbbhub.com/images/items/blade-of-the-heptaseas.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Ogre Tomahawk",
+    "slug": "ogre-tomahawk",
+    "requested": true,
+    "cost": 650,
+    "recipe": [
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/ogre-tomahawk",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Ogre_Tomahawk",
+    "imageUrl": "https://mlbbhub.com/images/items/ogre-tomahawk.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Fury Hammer",
+    "slug": "fury-hammer",
+    "requested": true,
+    "cost": 830,
+    "recipe": [
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/fury-hammer",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Fury_Hammer",
+    "imageUrl": "https://mlbbhub.com/images/items/fury-hammer.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Blood Wings",
+    "slug": "blood-wings",
+    "requested": true,
+    "cost": 2100,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/blood-wings",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Blood_Wings",
+    "imageUrl": "https://mlbbhub.com/images/items/blood-wings.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Magic Wand",
+    "slug": "magic-wand",
+    "requested": true,
+    "cost": 820,
+    "recipe": [
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/magic-wand",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Wand",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-wand.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Mystery Codex",
+    "slug": "mystery-codex",
+    "requested": true,
+    "cost": 300,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/mystery-codex",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Mystery_Codex",
+    "imageUrl": "https://mlbbhub.com/images/items/mystery-codex.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Bloody Retribution",
+    "slug": "bloody-retribution",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/bloody-retribution",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Bloody_Retribution",
+    "imageUrl": "https://mlbbhub.com/images/items/bloody-retribution.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Book of Sages",
+    "slug": "book-of-sages",
+    "requested": true,
+    "cost": 450,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/book-of-sages",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Book_of_Sages",
+    "imageUrl": "https://mlbbhub.com/images/items/book-of-sages.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Broken Heart",
+    "slug": "broken-heart",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/broken-heart",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Broken_Heart",
+    "imageUrl": "https://mlbbhub.com/images/items/broken-heart.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Brute Force Breastplate",
+    "slug": "brute-force-breastplate",
+    "requested": true,
+    "cost": 1870,
+    "recipe": [
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/brute-force-breastplate",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Brute_Force_Breastplate",
+    "imageUrl": "https://mlbbhub.com/images/items/brute-force-breastplate.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Hero's Ring",
+    "slug": "heros-ring",
+    "requested": true,
+    "cost": 450,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/heros-ring",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Hero's_Ring",
+    "imageUrl": "https://mlbbhub.com/images/items/heros-ring.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Chastise Pauldron",
+    "slug": "chastise-pauldron",
+    "requested": true,
+    "cost": 2100,
+    "recipe": [
+      {
+        "slug": "steel-legplates",
+        "name": "Steel Legplates"
+      },
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/chastise-pauldron",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Chastise_Pauldron",
+    "imageUrl": "https://mlbbhub.com/images/items/chastise-pauldron.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Clock of Destiny",
+    "slug": "clock-of-destiny",
+    "requested": true,
+    "cost": 2030,
+    "recipe": [
+      {
+        "slug": "elegant-gem",
+        "name": "Elegant Gem"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/clock-of-destiny",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Clock_of_Destiny",
+    "imageUrl": "https://mlbbhub.com/images/items/clock-of-destiny.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Elegant Gem",
+    "slug": "elegant-gem",
+    "requested": true,
+    "cost": 700,
+    "recipe": [
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      },
+      {
+        "slug": "power-crystal",
+        "name": "Power Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/elegant-gem",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Elegant_Gem",
+    "imageUrl": "https://mlbbhub.com/images/items/elegant-gem.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Power Crystal",
+    "slug": "power-crystal",
+    "requested": true,
+    "cost": 220,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/power-crystal",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Power_Crystal",
+    "imageUrl": "https://mlbbhub.com/images/items/power-crystal.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Conceal",
+    "slug": "conceal",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/conceal",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Conceal",
+    "imageUrl": "https://mlbbhub.com/images/items/conceal.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Concentrated Energy",
+    "slug": "concentrated-energy",
+    "requested": true,
+    "cost": 2020,
+    "recipe": [
+      {
+        "slug": "mystic-container",
+        "name": "Mystic Container"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/concentrated-energy",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Concentrated_Energy",
+    "imageUrl": "https://mlbbhub.com/images/items/concentrated-energy.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Mystic Container",
+    "slug": "mystic-container",
+    "requested": true,
+    "cost": 500,
+    "recipe": [
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/mystic-container",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Mystic_Container",
+    "imageUrl": "https://mlbbhub.com/images/items/mystic-container.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Corrosion Scythe",
+    "slug": "corrosion-scythe",
+    "requested": true,
+    "cost": 2050,
+    "recipe": [
+      {
+        "slug": "swift-crossbow",
+        "name": "Swift Crossbow"
+      },
+      {
+        "slug": "regular-spear",
+        "name": "Regular Spear"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/corrosion-scythe",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Corrosion_Scythe",
+    "imageUrl": "https://mlbbhub.com/images/items/corrosion-scythe.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Swift Crossbow",
+    "slug": "swift-crossbow",
+    "requested": true,
+    "cost": 1000,
+    "recipe": [
+      {
+        "slug": "knife",
+        "name": "Knife"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/swift-crossbow",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Swift_Crossbow",
+    "imageUrl": "https://mlbbhub.com/images/items/swift-crossbow.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Knife",
+    "slug": "knife",
+    "requested": true,
+    "cost": 280,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/knife",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Knife",
+    "imageUrl": "https://mlbbhub.com/images/items/knife.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Regular Spear",
+    "slug": "regular-spear",
+    "requested": true,
+    "cost": 600,
+    "recipe": [
+      {
+        "slug": "knife",
+        "name": "Knife"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/regular-spear",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Regular_Spear",
+    "imageUrl": "https://mlbbhub.com/images/items/regular-spear.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Cursed Helmet",
+    "slug": "cursed-helmet",
+    "requested": true,
+    "cost": 1910,
+    "recipe": [
+      {
+        "slug": "molten-essence",
+        "name": "Molten Essence"
+      },
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/cursed-helmet",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Cursed_Helmet",
+    "imageUrl": "https://mlbbhub.com/images/items/cursed-helmet.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Molten Essence",
+    "slug": "molten-essence",
+    "requested": true,
+    "cost": 800,
+    "recipe": [
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/molten-essence",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Molten_Essence",
+    "imageUrl": "https://mlbbhub.com/images/items/molten-essence.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Demon Boots",
+    "slug": "demon-boots",
+    "requested": true,
+    "cost": 720,
+    "recipe": [
+      {
+        "slug": "magic-necklace",
+        "name": "Magic Necklace"
+      },
+      {
+        "slug": "boots",
+        "name": "Boots"
+      },
+      {
+        "slug": "magic-necklace",
+        "name": "Magic Necklace"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/demon-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Demon_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/demon-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Demon Hunter Sword",
+    "slug": "demon-hunter-sword",
+    "requested": true,
+    "cost": 2180,
+    "recipe": [
+      {
+        "slug": "regular-spear",
+        "name": "Regular Spear"
+      },
+      {
+        "slug": "vampire-mallet",
+        "name": "Vampire Mallet"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/demon-hunter-sword",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Demon_Hunter_Sword",
+    "imageUrl": "https://mlbbhub.com/images/items/demon-hunter-sword.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Vampire Mallet",
+    "slug": "vampire-mallet",
+    "requested": true,
+    "cost": 400,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/vampire-mallet",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Vampire_Mallet",
+    "imageUrl": "https://mlbbhub.com/images/items/vampire-mallet.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Dire Hit",
+    "slug": "dire-hit",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/dire-hit",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Dire_Hit",
+    "imageUrl": "https://mlbbhub.com/images/items/dire-hit.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Divine Glaive",
+    "slug": "divine-glaive",
+    "requested": true,
+    "cost": 1970,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/divine-glaive",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Divine_Glaive",
+    "imageUrl": "https://mlbbhub.com/images/items/divine-glaive.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Dominance Ice",
+    "slug": "dominance-ice",
+    "requested": true,
+    "cost": 2010,
+    "recipe": [
+      {
+        "slug": "black-ice-shield",
+        "name": "Black Ice Shield"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/dominance-ice",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Dominance_Ice",
+    "imageUrl": "https://mlbbhub.com/images/items/dominance-ice.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Enchanted Talisman",
+    "slug": "enchanted-talisman",
+    "requested": true,
+    "cost": 2070,
+    "recipe": [
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      },
+      {
+        "slug": "tome-of-evil",
+        "name": "Tome of Evil"
+      },
+      {
+        "slug": "magic-necklace",
+        "name": "Magic Necklace"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/enchanted-talisman",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Enchanted_Talisman",
+    "imageUrl": "https://mlbbhub.com/images/items/enchanted-talisman.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Tome of Evil",
+    "slug": "tome-of-evil",
+    "requested": true,
+    "cost": 950,
+    "recipe": [
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      },
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/tome-of-evil",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Tome_of_Evil",
+    "imageUrl": "https://mlbbhub.com/images/items/tome-of-evil.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Encourage",
+    "slug": "encourage",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/encourage",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Encourage",
+    "imageUrl": "https://mlbbhub.com/images/items/encourage.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Endless Battle",
+    "slug": "endless-battle",
+    "requested": true,
+    "cost": 2330,
+    "recipe": [
+      {
+        "slug": "azure-blade",
+        "name": "Azure Blade"
+      },
+      {
+        "slug": "vampire-mallet",
+        "name": "Vampire Mallet"
+      },
+      {
+        "slug": "ogre-tomahawk",
+        "name": "Ogre Tomahawk"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/endless-battle",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Endless_Battle",
+    "imageUrl": "https://mlbbhub.com/images/items/endless-battle.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Exotic Veil",
+    "slug": "exotic-veil",
+    "requested": true,
+    "cost": 600,
+    "recipe": [
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/exotic-veil",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Exotic_Veil",
+    "imageUrl": "https://mlbbhub.com/images/items/exotic-veil.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Expert Gloves",
+    "slug": "expert-gloves",
+    "requested": true,
+    "cost": 500,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/expert-gloves",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Expert_Gloves",
+    "imageUrl": "https://mlbbhub.com/images/items/expert-gloves.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Favor",
+    "slug": "favor",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/favor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Favor",
+    "imageUrl": "https://mlbbhub.com/images/items/favor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Feather of Heaven",
+    "slug": "feather-of-heaven",
+    "requested": true,
+    "cost": 2030,
+    "recipe": [
+      {
+        "slug": "swift-crossbow",
+        "name": "Swift Crossbow"
+      },
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/feather-of-heaven",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Feather_of_Heaven",
+    "imageUrl": "https://mlbbhub.com/images/items/feather-of-heaven.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Flame Retribution",
+    "slug": "flame-retribution",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/flame-retribution",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Flame_Retribution",
+    "imageUrl": "https://mlbbhub.com/images/items/flame-retribution.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Flask of the Oasis",
+    "slug": "flask-of-the-oasis",
+    "requested": true,
+    "cost": 1850,
+    "recipe": [
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/flask-of-the-oasis",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Flask_of_the_Oasis",
+    "imageUrl": "https://mlbbhub.com/images/items/flask-of-the-oasis.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Fleeting Time",
+    "slug": "fleeting-time",
+    "requested": true,
+    "cost": 2050,
+    "recipe": [
+      {
+        "slug": "expert-gloves",
+        "name": "Expert Gloves"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/fleeting-time",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Fleeting_Time",
+    "imageUrl": "https://mlbbhub.com/images/items/fleeting-time.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Flower of Hope",
+    "slug": "flower-of-hope",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/flower-of-hope",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Flower_of_Hope",
+    "imageUrl": "https://mlbbhub.com/images/items/flower-of-hope.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Genius Wand",
+    "slug": "genius-wand",
+    "requested": true,
+    "cost": 2000,
+    "recipe": [
+      {
+        "slug": "exotic-veil",
+        "name": "Exotic Veil"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/genius-wand",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Genius_Wand",
+    "imageUrl": "https://mlbbhub.com/images/items/genius-wand.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Glowing Wand",
+    "slug": "glowing-wand",
+    "requested": true,
+    "cost": 2050,
+    "recipe": [
+      {
+        "slug": "exotic-veil",
+        "name": "Exotic Veil"
+      },
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/glowing-wand",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Glowing_Wand",
+    "imageUrl": "https://mlbbhub.com/images/items/glowing-wand.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Golden Staff",
+    "slug": "golden-staff",
+    "requested": true,
+    "cost": 2000,
+    "recipe": [
+      {
+        "slug": "regular-spear",
+        "name": "Regular Spear"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/golden-staff",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Golden_Staff",
+    "imageUrl": "https://mlbbhub.com/images/items/golden-staff.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Great Dragon Spear",
+    "slug": "great-dragon-spear",
+    "requested": true,
+    "cost": 2140,
+    "recipe": [
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      },
+      {
+        "slug": "iron-hunting-bow",
+        "name": "Iron Hunting Bow"
+      },
+      {
+        "slug": "javelin",
+        "name": "Javelin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/great-dragon-spear",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Great_Dragon_Spear",
+    "imageUrl": "https://mlbbhub.com/images/items/great-dragon-spear.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Iron Hunting Bow",
+    "slug": "iron-hunting-bow",
+    "requested": true,
+    "cost": 450,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/iron-hunting-bow",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Iron_Hunting_Bow",
+    "imageUrl": "https://mlbbhub.com/images/items/iron-hunting-bow.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Guardian Helmet",
+    "slug": "guardian-helmet",
+    "requested": true,
+    "cost": 2200,
+    "recipe": [
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      },
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      },
+      {
+        "slug": "healing-necklace",
+        "name": "Healing Necklace"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/guardian-helmet",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Guardian_Helmet",
+    "imageUrl": "https://mlbbhub.com/images/items/guardian-helmet.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Healing Necklace",
+    "slug": "healing-necklace",
+    "requested": true,
+    "cost": 140,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/healing-necklace",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Healing_Necklace",
+    "imageUrl": "https://mlbbhub.com/images/items/healing-necklace.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Haas's Claws",
+    "slug": "haass-claws",
+    "requested": true,
+    "cost": 2020,
+    "recipe": [
+      {
+        "slug": "vampire-mallet",
+        "name": "Vampire Mallet"
+      },
+      {
+        "slug": "rogue-meteor",
+        "name": "Rogue Meteor"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/haass-claws",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Haas's_Claws",
+    "imageUrl": "https://mlbbhub.com/images/items/haass-claws.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Rogue Meteor",
+    "slug": "rogue-meteor",
+    "requested": true,
+    "cost": 900,
+    "recipe": [
+      {
+        "slug": "javelin",
+        "name": "Javelin"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/rogue-meteor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Rogue_Meteor",
+    "imageUrl": "https://mlbbhub.com/images/items/rogue-meteor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Holy Crystal",
+    "slug": "holy-crystal",
+    "requested": true,
+    "cost": 3000,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/holy-crystal",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Holy_Crystal",
+    "imageUrl": "https://mlbbhub.com/images/items/holy-crystal.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Hunter Strike",
+    "slug": "hunter-strike",
+    "requested": true,
+    "cost": 2010,
+    "recipe": [
+      {
+        "slug": "fury-hammer",
+        "name": "Fury Hammer"
+      },
+      {
+        "slug": "iron-hunting-bow",
+        "name": "Iron Hunting Bow"
+      },
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/hunter-strike",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Hunter_Strike",
+    "imageUrl": "https://mlbbhub.com/images/items/hunter-strike.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Ice Queen Wand",
+    "slug": "ice-queen-wand",
+    "requested": true,
+    "cost": 2040,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "mystic-container",
+        "name": "Mystic Container"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/ice-queen-wand",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Ice_Queen_Wand",
+    "imageUrl": "https://mlbbhub.com/images/items/ice-queen-wand.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Ice Retribution",
+    "slug": "ice-retribution",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/ice-retribution",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Ice_Retribution",
+    "imageUrl": "https://mlbbhub.com/images/items/ice-retribution.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Immortality",
+    "slug": "immortality",
+    "requested": true,
+    "cost": 2120,
+    "recipe": [
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/immortality",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Immortality",
+    "imageUrl": "https://mlbbhub.com/images/items/immortality.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Lantern of Hope",
+    "slug": "lantern-of-hope",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/lantern-of-hope",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Lantern_of_Hope",
+    "imageUrl": "https://mlbbhub.com/images/items/lantern-of-hope.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Lightning Truncheon",
+    "slug": "lightning-truncheon",
+    "requested": true,
+    "cost": 2250,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      },
+      {
+        "slug": "power-crystal",
+        "name": "Power Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/lightning-truncheon",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Lightning_Truncheon",
+    "imageUrl": "https://mlbbhub.com/images/items/lightning-truncheon.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Magic Blade",
+    "slug": "magic-blade",
+    "requested": true,
+    "cost": 1050,
+    "recipe": [
+      {
+        "slug": "dagger",
+        "name": "Dagger"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/magic-blade",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Blade",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-blade.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Magic Boots",
+    "slug": "magic-boots",
+    "requested": true,
+    "cost": 710,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/magic-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Magic Potion",
+    "slug": "magic-potion",
+    "requested": true,
+    "cost": 1500,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/magic-potion",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Magic_Potion",
+    "imageUrl": "https://mlbbhub.com/images/items/magic-potion.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Malefic Gun",
+    "slug": "malefic-gun",
+    "requested": true,
+    "cost": 2120,
+    "recipe": [
+      {
+        "slug": "fury-hammer",
+        "name": "Fury hammer"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/malefic-gun",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Malefic_Gun",
+    "imageUrl": "https://mlbbhub.com/images/items/malefic-gun.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Malefic Roar",
+    "slug": "malefic-roar",
+    "requested": true,
+    "cost": 2060,
+    "recipe": [
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/malefic-roar",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Malefic_Roar",
+    "imageUrl": "https://mlbbhub.com/images/items/malefic-roar.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Oracle",
+    "slug": "oracle",
+    "requested": true,
+    "cost": 1860,
+    "recipe": [
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/oracle",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Oracle",
+    "imageUrl": "https://mlbbhub.com/images/items/oracle.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Power Potion",
+    "slug": "power-potion",
+    "requested": true,
+    "cost": 1500,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/power-potion",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Power_Potion",
+    "imageUrl": "https://mlbbhub.com/images/items/power-potion.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Queen's Wings",
+    "slug": "queens-wings",
+    "requested": true,
+    "cost": 2250,
+    "recipe": [
+      {
+        "slug": "expert-gloves",
+        "name": "Expert Gloves"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/queens-wings",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Queen's_Wings",
+    "imageUrl": "https://mlbbhub.com/images/items/queens-wings.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Radiant Armor",
+    "slug": "radiant-armor",
+    "requested": true,
+    "cost": 1880,
+    "recipe": [
+      {
+        "slug": "silence-robe",
+        "name": "Silence Robe"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      },
+      {
+        "slug": "healing-necklace",
+        "name": "Healing Necklace"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/radiant-armor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Radiant_Armor",
+    "imageUrl": "https://mlbbhub.com/images/items/radiant-armor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Rapid Boots",
+    "slug": "rapid-boots",
+    "requested": true,
+    "cost": 750,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/rapid-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Rapid_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/rapid-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Rock Potion",
+    "slug": "rock-potion",
+    "requested": true,
+    "cost": 1500,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/rock-potion",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Rock_Potion",
+    "imageUrl": "https://mlbbhub.com/images/items/rock-potion.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Rose Gold Meteor",
+    "slug": "rose-gold-meteor",
+    "requested": true,
+    "cost": 1820,
+    "recipe": [
+      {
+        "slug": "magic-blade",
+        "name": "Magic Blade"
+      },
+      {
+        "slug": "vampire-mallet",
+        "name": "Vampire Mallet"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/rose-gold-meteor",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Rose_Gold_Meteor",
+    "imageUrl": "https://mlbbhub.com/images/items/rose-gold-meteor.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Sea Halberd",
+    "slug": "sea-halberd",
+    "requested": true,
+    "cost": 2050,
+    "recipe": [
+      {
+        "slug": "regular-spear",
+        "name": "Regular Spear"
+      },
+      {
+        "slug": "legion-sword",
+        "name": "Legion Sword"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/sea-halberd",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Sea_Halberd",
+    "imageUrl": "https://mlbbhub.com/images/items/sea-halberd.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Sky Piercer",
+    "slug": "sky-piercer",
+    "requested": true,
+    "cost": 1500,
+    "recipe": [
+      {
+        "slug": "expert-gloves",
+        "name": "Expert Gloves"
+      },
+      {
+        "slug": "expert-gloves",
+        "name": "Expert Gloves"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/sky-piercer",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Sky_Piercer",
+    "imageUrl": "https://mlbbhub.com/images/items/sky-piercer.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Starlium Scythe",
+    "slug": "starlium-scythe",
+    "requested": true,
+    "cost": 2220,
+    "recipe": [
+      {
+        "slug": "azure-blade",
+        "name": "Azure Blade"
+      },
+      {
+        "slug": "mystic-container",
+        "name": "Mystic Container"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/starlium-scythe",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Starlium_Scythe",
+    "imageUrl": "https://mlbbhub.com/images/items/starlium-scythe.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Swift Boots",
+    "slug": "swift-boots",
+    "requested": true,
+    "cost": 710,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/swift-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Swift_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/swift-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Throw Forbidden",
+    "slug": "throw-forbidden",
+    "requested": true,
+    "cost": 0,
+    "recipe": [],
+    "sourcePage": "https://mlbbhub.com/items/throw-forbidden",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Throw_Forbidden",
+    "imageUrl": "https://mlbbhub.com/images/items/throw-forbidden.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Thunder Belt",
+    "slug": "thunder-belt",
+    "requested": true,
+    "cost": 1820,
+    "recipe": [
+      {
+        "slug": "ares-belt",
+        "name": "Ares Belt"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/thunder-belt",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Thunder_Belt",
+    "imageUrl": "https://mlbbhub.com/images/items/thunder-belt.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Tough Boots",
+    "slug": "tough-boots",
+    "requested": true,
+    "cost": 700,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      },
+      {
+        "slug": "magic-resist-cloak",
+        "name": "Magic Resist Cloak"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/tough-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Tough_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/tough-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "War Axe",
+    "slug": "war-axe",
+    "requested": true,
+    "cost": 2100,
+    "recipe": [
+      {
+        "slug": "ogre-tomahawk",
+        "name": "Ogre Tomahawk"
+      },
+      {
+        "slug": "iron-hunting-bow",
+        "name": "Iron Hunting Bow"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/war-axe",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/War_Axe",
+    "imageUrl": "https://mlbbhub.com/images/items/war-axe.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Warrior Boots",
+    "slug": "warrior-boots",
+    "requested": true,
+    "cost": 720,
+    "recipe": [
+      {
+        "slug": "boots",
+        "name": "Boots"
+      },
+      {
+        "slug": "leather-jerkin",
+        "name": "Leather Jerkin"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/warrior-boots",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Warrior_Boots",
+    "imageUrl": "https://mlbbhub.com/images/items/warrior-boots.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Wind of Nature",
+    "slug": "wind-of-nature",
+    "requested": true,
+    "cost": 1910,
+    "recipe": [
+      {
+        "slug": "regular-spear",
+        "name": "Regular Spear"
+      },
+      {
+        "slug": "vampire-mallet",
+        "name": "Vampire Mallet"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/wind-of-nature",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Wind_of_Nature",
+    "imageUrl": "https://mlbbhub.com/images/items/wind-of-nature.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Windtalker",
+    "slug": "windtalker",
+    "requested": true,
+    "cost": 1880,
+    "recipe": [
+      {
+        "slug": "rogue-meteor",
+        "name": "Rogue Meteor"
+      },
+      {
+        "slug": "knife",
+        "name": "Knife"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/windtalker",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Windtalker",
+    "imageUrl": "https://mlbbhub.com/images/items/windtalker.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  },
+  {
+    "name": "Winter Crown",
+    "slug": "winter-crown",
+    "requested": true,
+    "cost": 1910,
+    "recipe": [
+      {
+        "slug": "expert-gloves",
+        "name": "Expert Gloves"
+      },
+      {
+        "slug": "heros-ring",
+        "name": "Hero's Ring"
+      },
+      {
+        "slug": "vitality-crystal",
+        "name": "Vitality Crystal"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/winter-crown",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Winter_Crown",
+    "imageUrl": "https://mlbbhub.com/images/items/winter-crown.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": true
+  },
+  {
+    "name": "Wishing Lantern",
+    "slug": "wishing-lantern",
+    "requested": true,
+    "cost": 2250,
+    "recipe": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "book-of-sages",
+        "name": "Book of Sages"
+      },
+      {
+        "slug": "mystery-codex",
+        "name": "Mystery Codex"
+      }
+    ],
+    "sourcePage": "https://mlbbhub.com/items/wishing-lantern",
+    "catalogSource": "https://mlbbhub.com/items",
+    "originalListedSource": "https://liquipedia.net/mobilelegends/Wishing_Lantern",
+    "imageUrl": "https://mlbbhub.com/images/items/wishing-lantern.png",
+    "reuse": "MOONTON game artwork. No open reuse license established.",
+    "initialRequested": false
+  }
+]

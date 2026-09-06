@@ -1,0 +1,38 @@
+name: iPhone prototype — compile check
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["ios/**", ".github/workflows/ios-build.yml"]
+permissions:
+  contents: read
+concurrency:
+  group: rankwise-ios-check
+  cancel-in-progress: true
+jobs:
+  compile:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Restore verified recognition images
+        run: python3 ios/scripts/prepare_assets.py
+      - name: Inspect the available Apple SDK
+        run: xcodebuild -version
+      - name: Test the purchase engine
+        run: node --test ios/Tests/advisor.test.js
+      - name: Compile the app and broadcast extension without signing
+        shell: bash
+        run: |
+          set -o pipefail
+          xcodebuild -project ios/Rankwise.xcodeproj -scheme Rankwise -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/rankwise-build" -resultBundlePath "$RUNNER_TEMP/rankwise-compile.xcresult" CODE_SIGNING_ALLOWED=NO build 2>&1 | tee "$RUNNER_TEMP/rankwise-build.log"
+      - name: Retain the build log
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rankwise-build-log
+          path: ${{ runner.temp }}/rankwise-build.log
+          if-no-files-found: ignore
+          retention-days: 7
