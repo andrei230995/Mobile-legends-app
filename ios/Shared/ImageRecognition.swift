@@ -45,7 +45,14 @@ final class ImageRecognition {
             return true
         }
         guard ok else { return nil }
-        return stride(from: 0, to: bytes.count, by: 4).flatMap { [Float(bytes[$0]) / 255, Float(bytes[$0+1]) / 255, Float(bytes[$0+2]) / 255] }
+        var vector = [Float]()
+        vector.reserveCapacity(size * size * 3)
+        for offset in stride(from: 0, to: bytes.count, by: 4) {
+            vector.append(Float(bytes[offset]) / 255.0)
+            vector.append(Float(bytes[offset + 1]) / 255.0)
+            vector.append(Float(bytes[offset + 2]) / 255.0)
+        }
+        return vector
     }
     private func distance(_ a: [Float], _ b: [Float]) -> Float {
         guard a.count == b.count, !a.isEmpty else { return 1 }
