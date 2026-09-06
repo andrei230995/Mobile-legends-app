@@ -119,7 +119,7 @@ struct ItemRow: View {
     let id: String
     var body: some View {
         HStack {
-            if let url = Bundle.main.url(forResource: id, withExtension: "png", subdirectory: "Resources/Items"), let image = UIImage(contentsOfFile: url.path) { Image(uiImage: image).resizable().frame(width: 36, height: 36).clipShape(RoundedRectangle(cornerRadius: 7)).accessibilityHidden(true) }
+            if let url = Bundle.main.url(forResource: id, withExtension: "png", subdirectory: "CoachAssets/Items"), let image = UIImage(contentsOfFile: url.path) { Image(uiImage: image).resizable().frame(width: 36, height: 36).clipShape(RoundedRectangle(cornerRadius: 7)).accessibilityHidden(true) }
             Text(model.itemName(id)).font(.subheadline)
         }
     }

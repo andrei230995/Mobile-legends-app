@@ -1,17 +1,17 @@
 # Build without owning a Mac
 
-GitHub Actions can compile this project using a hosted Mac. The prepared workflow is at the repository root: `.github/workflows/ios-build.yml`. It must be placed at that location in a GitHub repository; the existing source repository is not itself a GitHub Actions runner.
+GitHub Actions can compile this project using a hosted Mac. The prepared workflow is at the repository root: `.github/workflows/ios-build.yml`. The project is hosted at https://github.com/andrei230995/Mobile-legends-app.
 
-This first workflow is manually triggered and performs an **unsigned simulator compile check** plus the existing purchase-engine tests. It does not sign, install, distribute or publish the app, and it needs no Apple signing secrets. A successful run would establish compilation, not real-game recognition or screen-capture reliability.
+The workflow runs automatically when native code or its workflow changes on main, and can also be manually triggered and performs an **unsigned simulator compile check** plus the existing purchase-engine tests. It does not sign, install, distribute or publish the app, and it needs no Apple signing secrets. A successful run would establish compilation, not real-game recognition or screen-capture reliability.
 
 ## First run
 
-1. Connect the GitHub integration and select a repository you control, or upload the complete cloud-build package into your own private GitHub repository.
+1. Open the project repository on GitHub.
 2. Keep `.github/workflows/ios-build.yml` at the repository root and the native project under `ios/`.
 3. Open Actions → iPhone prototype — compile check → Run workflow.
 4. Inspect the result and downloadable build log. Fix native compilation errors before proceeding.
 
-The workflow is prepared but has **not been run**. GitHub Actions usage depends on your account's allowance and billing settings; the workflow does not provision paid runner capacity or change billing.
+The first cloud run found a Swift compiler type-check timeout in pixel conversion. The expression was simplified and a second compile was started. See GitHub Actions for the latest result. GitHub Actions usage depends on your account's allowance and billing settings; the workflow does not provision paid runner capacity or change billing.
 
 ## Getting it onto the iPhone
 

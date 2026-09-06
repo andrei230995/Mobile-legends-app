@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def restore(asset):
-    target = ROOT / "Resources" / "Items" / asset["name"]
+    target = ROOT / "CoachAssets" / "Items" / asset["name"]
     expected = asset["sha256"]
     if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest() == expected:
         return
@@ -23,7 +23,7 @@ def restore(asset):
 
 
 if __name__ == "__main__":
-    assets = json.loads((ROOT / "Resources" / "image-downloads.json").read_text())
+    assets = json.loads((ROOT / "CoachAssets" / "image-downloads.json").read_text())
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(restore, assets))
     print(f"Verified {len(assets)} recognition images")

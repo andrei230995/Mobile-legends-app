@@ -22,7 +22,7 @@ ext_product=obj('product.extension','isa = PBXFileReference; explicitFileType = 
 files={}
 for path in sorted(ROOT.rglob('*.swift')):
  rel=path.relative_to(ROOT).as_posix();files[rel]=obj('file.'+rel,f'isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = {q(rel)}; sourceTree = "<group>";')
-resources=obj('file.resources','isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>";')
+resources=obj('file.resources','isa = PBXFileReference; lastKnownFileType = folder; path = CoachAssets; sourceTree = "<group>";')
 obj('products',f'isa = PBXGroup; children = {refs([app_product,ext_product])}; name = Products; sourceTree = "<group>";')
 obj('root',f'isa = PBXGroup; children = {refs(list(files.values())+[resources,products])}; sourceTree = "<group>";')
 for label,name,identifier,source_dir,plist,entitlements,product,kind in [

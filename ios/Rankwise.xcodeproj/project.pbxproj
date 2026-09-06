@@ -9,7 +9,7 @@ AD7EA99CDAA4827D7A48913D = { isa = PBXFileReference; lastKnownFileType = sourcec
 BCD6E79950BB8198EE051421 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/ImageRecognition.swift"; sourceTree = "<group>"; };
 DF9291BC51467B7E22200AA0 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/Models.swift"; sourceTree = "<group>"; };
 01AA3C5EA5C7F8649C51154D = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/SharedStore.swift"; sourceTree = "<group>"; };
-606804B5277F68E0E8E9AD2E = { isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+606804B5277F68E0E8E9AD2E = { isa = PBXFileReference; lastKnownFileType = folder; path = CoachAssets; sourceTree = "<group>"; };
 0A3E27B8CA818264D75C8D81 = { isa = PBXGroup; children = (F434D4E4866B6C4D1CD83EAC,81B7B4A358680870C8FC4B16,); name = Products; sourceTree = "<group>"; };
 4813494D137E1631BBA301D5 = { isa = PBXGroup; children = (4ABED55CC5C4AEB5E75A3744,90B10A93121D82A5A805B2E2,E9D847635DF2E65B823EB50B,AD7EA99CDAA4827D7A48913D,BCD6E79950BB8198EE051421,DF9291BC51467B7E22200AA0,01AA3C5EA5C7F8649C51154D,606804B5277F68E0E8E9AD2E,0A3E27B8CA818264D75C8D81,); sourceTree = "<group>"; };
 2A6CF32BDA99961358E91608 = { isa = PBXBuildFile; fileRef = 90B10A93121D82A5A805B2E2; };

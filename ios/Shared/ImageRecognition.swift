@@ -13,7 +13,7 @@ final class ImageRecognition {
     init(catalogue: Catalogue) {
         for item in catalogue.items {
             guard let icon = item.icon,
-                  let url = Bundle.main.url(forResource: icon, withExtension: nil, subdirectory: "Resources/Items"),
+                  let url = Bundle.main.url(forResource: icon, withExtension: nil, subdirectory: "CoachAssets/Items"),
                   let image = UIImage(contentsOfFile: url.path)?.cgImage,
                   let vector = Self.vector(image, inset: 0.12) else { continue }
             templates.append((item.id, vector))

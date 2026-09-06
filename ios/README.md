@@ -75,7 +75,7 @@ Suggestions are transparent heuristics, not a mathematical proof of the best buy
 
 ## Catalogue provenance
 
-Reference compiled from [MLBBHub's item catalogue](https://mlbbhub.com/items), retrieved 5 September 2026; the source marked its catalogue updated 3 September 2026. The current MLBB patch has not been independently verified. Exact per-item source links and artwork attribution are bundled in `Resources/asset-sources.json` and `Resources/catalogue.json`.
+Reference compiled from [MLBBHub's item catalogue](https://mlbbhub.com/items), retrieved 5 September 2026; the source marked its catalogue updated 3 September 2026. The current MLBB patch has not been independently verified. Exact per-item source links and artwork attribution are bundled in `CoachAssets/asset-sources.json` and `CoachAssets/catalogue.json`.
 
 The source lists Cursed Helmet at 1,910 gold, but its listed recipe totals 1,920 gold. Its recipe is flagged and excluded from automatic purchase calculations. Do not "repair" that disagreement by guessing a number.
 
@@ -98,8 +98,8 @@ No Apple SDK compile, simulator run, or real-device test has been performed in t
 - `RankwiseApp/`: setup, calibration, live observation display, item reference.
 - `BroadcastExtension/`: ReplayKit frame handling and notification requests.
 - `Shared/`: models, shared storage, recognition and JavaScriptCore bridge.
-- `Resources/Advisor.js`: pure purchase-decision engine.
-- `Resources/catalogue.json`: dated costs, recipes, derived tags and curated hero paths.
+- `CoachAssets/Advisor.js`: pure purchase-decision engine.
+- `CoachAssets/catalogue.json`: dated costs, recipes, derived tags and curated hero paths.
 - `scripts/configure_project.py`: deterministic native Xcode project generator.
 
 The earlier web draft remains separate at the parent project's `dist/` directory. It is unfinished, unpublished, and is not the live iPhone companion.

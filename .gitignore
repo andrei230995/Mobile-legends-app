@@ -1,4 +1,4 @@
-ios/Resources/Items/*.png
+ios/CoachAssets/Items/*.png
 ios/.build/
 __pycache__/
 *.xcuserstate

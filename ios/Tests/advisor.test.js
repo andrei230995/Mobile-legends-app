@@ -1,8 +1,8 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {test}=require('node:test');
-const {recommend,recommendJSON}=require('../Resources/Advisor.js');
-const catalogue=require('../Resources/catalogue.json');
+const {recommend,recommendJSON}=require('../CoachAssets/Advisor.js');
+const catalogue=require('../CoachAssets/catalogue.json');
 const NOW=1800000000;
 function input(overrides={}){return {now:NOW,catalogue,settings:{hero:'Alice',pricesConfirmed:true,purchasePreference:'balanced'},snapshot:{captureActive:true,capturedAt:NOW,gold:1000,goldAt:NOW,ownInventoryKnown:true,ownItems:[],ownItemsAt:NOW,enemyItems:[],enemyItemsAt:NOW,unknownEnemySlots:30},...overrides};}
 function state(patch={},settings={}){const x=input();Object.assign(x.snapshot,patch);Object.assign(x.settings,settings);return x;}

@@ -29,7 +29,7 @@ final class SharedStore {
         _ = write(UUID().uuidString, to: "reset-token.json")
     }
     func resource(_ name: String, extension ext: String) -> URL? {
-        Bundle.main.url(forResource: name, withExtension: ext, subdirectory: "Resources")
+        Bundle.main.url(forResource: name, withExtension: ext, subdirectory: "CoachAssets")
     }
     func catalogue() -> Catalogue? {
         guard let url = resource("catalogue", extension: "json"), let data = try? Data(contentsOf: url) else { return nil }
