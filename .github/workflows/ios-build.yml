@@ -2,7 +2,7 @@ name: iPhone prototype — compile check
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [preview/screenshots]
     paths: ["ios/**", ".github/workflows/ios-build.yml"]
 permissions:
   contents: read
@@ -28,6 +28,14 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild -project ios/Rankwise.xcodeproj -scheme Rankwise -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/rankwise-build" -resultBundlePath "$RUNNER_TEMP/rankwise-compile.xcresult" CODE_SIGNING_ALLOWED=NO build 2>&1 | tee "$RUNNER_TEMP/rankwise-build.log"
+      - name: Capture the actual simulator screens
+        run: python3 ios/scripts/capture_screens.py
+      - name: Retain screenshots
+        uses: actions/upload-artifact@v7
+        with:
+          name: rankwise-iphone-screenshots
+          path: ${{ runner.temp }}/rankwise-screenshots/
+          retention-days: 30
       - name: Retain the build log
         if: always()
         uses: actions/upload-artifact@v7

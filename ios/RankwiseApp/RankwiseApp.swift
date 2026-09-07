@@ -51,11 +51,18 @@ struct RankwiseApp: App {
     func itemName(_ id: String) -> String { catalogue?.items.first(where: { $0.id == id })?.name ?? id }
 }
 struct RootView: View {
+    @State private var selectedTab: Int = {
+        #if DEBUG && targetEnvironment(simulator)
+        return Int(ProcessInfo.processInfo.environment["RANKWISE_SCREENSHOT_TAB"] ?? "0") ?? 0
+        #else
+        return 0
+        #endif
+    }()
     var body: some View {
-        TabView {
-            MatchView().tabItem { Label("Match", systemImage: "gamecontroller") }
-            SetupView().tabItem { Label("Setup", systemImage: "viewfinder") }
-            CatalogueView().tabItem { Label("Items", systemImage: "square.grid.2x2") }
+        TabView(selection: $selectedTab) {
+            MatchView().tabItem { Label("Match", systemImage: "gamecontroller") }.tag(0)
+            SetupView().tabItem { Label("Setup", systemImage: "viewfinder") }.tag(1)
+            CatalogueView().tabItem { Label("Items", systemImage: "square.grid.2x2") }.tag(2)
         }
     }
 }
