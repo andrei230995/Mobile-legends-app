@@ -1,0 +1,982 @@
+{
+  "generated_at": "2026-09-24T07:41:48.603015+00:00",
+  "source": "bundled",
+  "profile": "trading212_ucits",
+  "criteria": {
+    "min_oos_trades": 40,
+    "oos_net_return_positive": true,
+    "trade_mean_ci90_lower_bps_gt": 0.0,
+    "max_oos_drawdown_pct": 25.0,
+    "sharpe_at_least_buy_and_hold": true,
+    "stress_3x_costs_positive": true,
+    "stress_delay_1d_positive": true,
+    "gbp10_net_return_positive": true,
+    "validation_data_max_age_days": 120,
+    "forward_paper_min_sessions": 20,
+    "forward_paper_min_closed_trades": 5
+  },
+  "assumptions": {
+    "execution": "signal at close t, fill at open t+1 (+half spread +slippage)",
+    "profile_note": "Signals on SPY/QQQ, executed in London UCITS equivalents (VUSA/EQQQ) in GBP. The backtest uses US index prices, so it ignores GBP/USD moves and UCITS tracking differences that a GBP holder experiences; the 10 bps spread for London ETF lines is an assumption.",
+    "base_costs": {
+      "spread_bps": 10.0,
+      "slippage_bps": 2.0,
+      "fx_bps": 0.0,
+      "stop_extra_bps": 0.0,
+      "fees": "none: no commission, GBP line so no FX fee, ETFs exempt from UK stamp duty"
+    },
+    "modelled_round_trip_bps": 14.0,
+    "gbpusd_for_account_sizes": 1.3,
+    "dividend_yield_accrual": {
+      "SPY": 0.019,
+      "QQQ": 0.01
+    },
+    "train_years": 5
+  },
+  "results": [
+    {
+      "symbol": "SPY",
+      "strategy": "trend_sma",
+      "data_start": "1999-01-04",
+      "data_end": "2018-12-31",
+      "oos": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 86.95,
+        "cagr_pct": 4.58,
+        "ann_vol_pct": 10.78,
+        "sharpe": 0.469,
+        "max_drawdown_pct": -18.52,
+        "longest_drawdown_days": 675,
+        "exposure_pct": 75.4,
+        "trades": 83,
+        "win_rate_pct": 28.9,
+        "avg_trade_bps": 62.8,
+        "median_trade_bps": -61.9,
+        "worst_trade_pct": -5.08,
+        "annual_turnover_x": 11.87,
+        "losing_months_pct": 32.3,
+        "worst_month_pct": -6.78,
+        "skipped_below_min_size": 0,
+        "trade_mean_ci90_bps": [
+          -20.8,
+          159.2
+        ],
+        "daily_mean_ci90_bps": [
+          0.33,
+          3.8
+        ]
+      },
+      "buy_and_hold_same_period": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 144.32,
+        "cagr_pct": 6.6,
+        "ann_vol_pct": 16.93,
+        "sharpe": 0.462,
+        "max_drawdown_pct": -52.39,
+        "longest_drawdown_days": 1242,
+        "exposure_pct": 100.0,
+        "trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_bps": 10825.1,
+        "median_trade_bps": 10825.1,
+        "worst_trade_pct": 108.25,
+        "annual_turnover_x": 0.15,
+        "losing_months_pct": 32.3,
+        "worst_month_pct": -15.54,
+        "skipped_below_min_size": 0
+      },
+      "stress": {
+        "costs_3x": {
+          "total_return_pct": 48.22,
+          "cagr_pct": 2.85,
+          "sharpe": 0.315,
+          "max_drawdown_pct": -20.77,
+          "trades": 83,
+          "avg_trade_bps": 34.7
+        },
+        "delay_1d": {
+          "total_return_pct": 80.91,
+          "cagr_pct": 4.33,
+          "sharpe": 0.448,
+          "max_drawdown_pct": -19.49,
+          "trades": 72,
+          "avg_trade_bps": 67.7
+        },
+        "stop_gap_100bps": {
+          "total_return_pct": 86.95,
+          "cagr_pct": 4.58,
+          "sharpe": 0.469,
+          "max_drawdown_pct": -18.52,
+          "trades": 83,
+          "avg_trade_bps": 62.8
+        },
+        "spread_25bps": {
+          "total_return_pct": 65.09,
+          "cagr_pct": 3.65,
+          "sharpe": 0.387,
+          "max_drawdown_pct": -19.73,
+          "trades": 83,
+          "avg_trade_bps": 47.8
+        }
+      },
+      "account_sizes": {
+        "gbp_10": {
+          "total_return_pct": 86.95,
+          "cagr_pct": 4.58,
+          "avg_trade_bps": 62.8,
+          "trades": 83,
+          "skipped_below_min_size": 0
+        },
+        "gbp_100": {
+          "total_return_pct": 86.95,
+          "cagr_pct": 4.58,
+          "avg_trade_bps": 62.8,
+          "trades": 83,
+          "skipped_below_min_size": 0
+        },
+        "gbp_1000": {
+          "total_return_pct": 86.95,
+          "cagr_pct": 4.58,
+          "avg_trade_bps": 62.8,
+          "trades": 83,
+          "skipped_below_min_size": 0
+        }
+      },
+      "param_choices": [
+        {
+          "test_year": 2005,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.02
+        },
+        {
+          "test_year": 2006,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.413
+        },
+        {
+          "test_year": 2007,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.564
+        },
+        {
+          "test_year": 2008,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.488
+        },
+        {
+          "test_year": 2009,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.184
+        },
+        {
+          "test_year": 2010,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.624
+        },
+        {
+          "test_year": 2011,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.607
+        },
+        {
+          "test_year": 2012,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.324
+        },
+        {
+          "test_year": 2013,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.596
+        },
+        {
+          "test_year": 2014,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.982
+        },
+        {
+          "test_year": 2015,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.708
+        },
+        {
+          "test_year": 2016,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.534
+        },
+        {
+          "test_year": 2017,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.874
+        },
+        {
+          "test_year": 2018,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 1.12
+        }
+      ],
+      "checks": {
+        "min_oos_trades": true,
+        "oos_net_return_positive": true,
+        "trade_mean_ci90_lower_bps_gt": false,
+        "max_oos_drawdown_pct": true,
+        "sharpe_at_least_buy_and_hold": true,
+        "stress_3x_costs_positive": true,
+        "stress_delay_1d_positive": true,
+        "gbp10_net_return_positive": true,
+        "validation_data_max_age_days": false,
+        "forward_paper_min_sessions": false,
+        "forward_paper_min_closed_trades": false
+      },
+      "backtest_criteria_pass": false,
+      "eligible_for_live": false,
+      "expected_edge_bps": 62.8
+    },
+    {
+      "symbol": "SPY",
+      "strategy": "rsi2_mr",
+      "data_start": "1999-01-04",
+      "data_end": "2018-12-31",
+      "oos": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 19.14,
+        "cagr_pct": 1.26,
+        "ann_vol_pct": 5.1,
+        "sharpe": 0.271,
+        "max_drawdown_pct": -10.37,
+        "longest_drawdown_days": 645,
+        "exposure_pct": 11.0,
+        "trades": 129,
+        "win_rate_pct": 68.2,
+        "avg_trade_bps": 12.4,
+        "median_trade_bps": 40.7,
+        "worst_trade_pct": -6.13,
+        "annual_turnover_x": 18.45,
+        "losing_months_pct": 22.2,
+        "worst_month_pct": -6.1,
+        "skipped_below_min_size": 0,
+        "trade_mean_ci90_bps": [
+          -9.0,
+          33.3
+        ],
+        "daily_mean_ci90_bps": [
+          -0.21,
+          1.32
+        ]
+      },
+      "buy_and_hold_same_period": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 144.32,
+        "cagr_pct": 6.6,
+        "ann_vol_pct": 16.93,
+        "sharpe": 0.462,
+        "max_drawdown_pct": -52.39,
+        "longest_drawdown_days": 1242,
+        "exposure_pct": 100.0,
+        "trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_bps": 10825.1,
+        "median_trade_bps": 10825.1,
+        "worst_trade_pct": 108.25,
+        "annual_turnover_x": 0.15,
+        "losing_months_pct": 32.3,
+        "worst_month_pct": -15.54,
+        "skipped_below_min_size": 0
+      },
+      "stress": {
+        "costs_3x": {
+          "total_return_pct": -16.97,
+          "cagr_pct": -1.32,
+          "sharpe": -0.233,
+          "max_drawdown_pct": -19.65,
+          "trades": 129,
+          "avg_trade_bps": -15.6
+        },
+        "delay_1d": {
+          "total_return_pct": 7.91,
+          "cagr_pct": 0.55,
+          "sharpe": 0.13,
+          "max_drawdown_pct": -14.63,
+          "trades": 123,
+          "avg_trade_bps": 4.5
+        },
+        "stop_gap_100bps": {
+          "total_return_pct": 15.6,
+          "cagr_pct": 1.04,
+          "sharpe": 0.226,
+          "max_drawdown_pct": -12.15,
+          "trades": 129,
+          "avg_trade_bps": 10.2
+        },
+        "spread_25bps": {
+          "total_return_pct": -1.81,
+          "cagr_pct": -0.13,
+          "sharpe": 0.0,
+          "max_drawdown_pct": -13.05,
+          "trades": 129,
+          "avg_trade_bps": -2.6
+        }
+      },
+      "account_sizes": {
+        "gbp_10": {
+          "total_return_pct": 19.14,
+          "cagr_pct": 1.26,
+          "avg_trade_bps": 12.4,
+          "trades": 129,
+          "skipped_below_min_size": 0
+        },
+        "gbp_100": {
+          "total_return_pct": 19.14,
+          "cagr_pct": 1.26,
+          "avg_trade_bps": 12.4,
+          "trades": 129,
+          "skipped_below_min_size": 0
+        },
+        "gbp_1000": {
+          "total_return_pct": 19.14,
+          "cagr_pct": 1.26,
+          "avg_trade_bps": 12.4,
+          "trades": 129,
+          "skipped_below_min_size": 0
+        }
+      },
+      "param_choices": [
+        {
+          "test_year": 2005,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.185
+        },
+        {
+          "test_year": 2006,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.617
+        },
+        {
+          "test_year": 2007,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.784
+        },
+        {
+          "test_year": 2008,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.638
+        },
+        {
+          "test_year": 2009,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.55
+        },
+        {
+          "test_year": 2010,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.79
+        },
+        {
+          "test_year": 2011,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.705
+        },
+        {
+          "test_year": 2012,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.537
+        },
+        {
+          "test_year": 2013,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.425
+        },
+        {
+          "test_year": 2014,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.62
+        },
+        {
+          "test_year": 2015,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.516
+        },
+        {
+          "test_year": 2016,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.754
+        },
+        {
+          "test_year": 2017,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.751
+        },
+        {
+          "test_year": 2018,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.818
+        }
+      ],
+      "checks": {
+        "min_oos_trades": true,
+        "oos_net_return_positive": true,
+        "trade_mean_ci90_lower_bps_gt": false,
+        "max_oos_drawdown_pct": true,
+        "sharpe_at_least_buy_and_hold": false,
+        "stress_3x_costs_positive": false,
+        "stress_delay_1d_positive": true,
+        "gbp10_net_return_positive": true,
+        "validation_data_max_age_days": false,
+        "forward_paper_min_sessions": false,
+        "forward_paper_min_closed_trades": false
+      },
+      "backtest_criteria_pass": false,
+      "eligible_for_live": false,
+      "expected_edge_bps": 12.4
+    },
+    {
+      "symbol": "QQQ",
+      "strategy": "trend_sma",
+      "data_start": "1999-01-04",
+      "data_end": "2018-12-31",
+      "oos": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 124.65,
+        "cagr_pct": 5.96,
+        "ann_vol_pct": 12.41,
+        "sharpe": 0.529,
+        "max_drawdown_pct": -29.59,
+        "longest_drawdown_days": 491,
+        "exposure_pct": 69.1,
+        "trades": 93,
+        "win_rate_pct": 31.2,
+        "avg_trade_bps": 93.4,
+        "median_trade_bps": -85.1,
+        "worst_trade_pct": -7.02,
+        "annual_turnover_x": 13.3,
+        "losing_months_pct": 40.1,
+        "worst_month_pct": -9.94,
+        "skipped_below_min_size": 0,
+        "trade_mean_ci90_bps": [
+          -3.1,
+          203.2
+        ],
+        "daily_mean_ci90_bps": [
+          0.62,
+          4.76
+        ]
+      },
+      "buy_and_hold_same_period": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 230.31,
+        "cagr_pct": 8.92,
+        "ann_vol_pct": 19.4,
+        "sharpe": 0.538,
+        "max_drawdown_pct": -53.41,
+        "longest_drawdown_days": 823,
+        "exposure_pct": 100.0,
+        "trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_bps": 20699.9,
+        "median_trade_bps": 20699.9,
+        "worst_trade_pct": 207.0,
+        "annual_turnover_x": 0.17,
+        "losing_months_pct": 39.5,
+        "worst_month_pct": -16.95,
+        "skipped_below_min_size": 0
+      },
+      "stress": {
+        "costs_3x": {
+          "total_return_pct": 73.17,
+          "cagr_pct": 4.01,
+          "sharpe": 0.378,
+          "max_drawdown_pct": -32.68,
+          "trades": 93,
+          "avg_trade_bps": 65.2
+        },
+        "delay_1d": {
+          "total_return_pct": 133.39,
+          "cagr_pct": 6.25,
+          "sharpe": 0.546,
+          "max_drawdown_pct": -33.52,
+          "trades": 83,
+          "avg_trade_bps": 109.6
+        },
+        "stop_gap_100bps": {
+          "total_return_pct": 124.65,
+          "cagr_pct": 5.96,
+          "sharpe": 0.529,
+          "max_drawdown_pct": -29.59,
+          "trades": 93,
+          "avg_trade_bps": 93.4
+        },
+        "spread_25bps": {
+          "total_return_pct": 95.41,
+          "cagr_pct": 4.91,
+          "sharpe": 0.448,
+          "max_drawdown_pct": -31.26,
+          "trades": 93,
+          "avg_trade_bps": 78.3
+        }
+      },
+      "account_sizes": {
+        "gbp_10": {
+          "total_return_pct": 124.65,
+          "cagr_pct": 5.96,
+          "avg_trade_bps": 93.4,
+          "trades": 93,
+          "skipped_below_min_size": 0
+        },
+        "gbp_100": {
+          "total_return_pct": 124.65,
+          "cagr_pct": 5.96,
+          "avg_trade_bps": 93.4,
+          "trades": 93,
+          "skipped_below_min_size": 0
+        },
+        "gbp_1000": {
+          "total_return_pct": 124.65,
+          "cagr_pct": 5.96,
+          "avg_trade_bps": 93.4,
+          "trades": 93,
+          "skipped_below_min_size": 0
+        }
+      },
+      "param_choices": [
+        {
+          "test_year": 2005,
+          "params": {
+            "n": 50
+          },
+          "train_sharpe": 0.305
+        },
+        {
+          "test_year": 2006,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.479
+        },
+        {
+          "test_year": 2007,
+          "params": {
+            "n": 50
+          },
+          "train_sharpe": 0.667
+        },
+        {
+          "test_year": 2008,
+          "params": {
+            "n": 50
+          },
+          "train_sharpe": 0.726
+        },
+        {
+          "test_year": 2009,
+          "params": {
+            "n": 50
+          },
+          "train_sharpe": 0.117
+        },
+        {
+          "test_year": 2010,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.622
+        },
+        {
+          "test_year": 2011,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.752
+        },
+        {
+          "test_year": 2012,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.461
+        },
+        {
+          "test_year": 2013,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 0.691
+        },
+        {
+          "test_year": 2014,
+          "params": {
+            "n": 100
+          },
+          "train_sharpe": 1.183
+        },
+        {
+          "test_year": 2015,
+          "params": {
+            "n": 50
+          },
+          "train_sharpe": 0.751
+        },
+        {
+          "test_year": 2016,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.565
+        },
+        {
+          "test_year": 2017,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 0.779
+        },
+        {
+          "test_year": 2018,
+          "params": {
+            "n": 200
+          },
+          "train_sharpe": 1.182
+        }
+      ],
+      "checks": {
+        "min_oos_trades": true,
+        "oos_net_return_positive": true,
+        "trade_mean_ci90_lower_bps_gt": false,
+        "max_oos_drawdown_pct": false,
+        "sharpe_at_least_buy_and_hold": false,
+        "stress_3x_costs_positive": true,
+        "stress_delay_1d_positive": true,
+        "gbp10_net_return_positive": true,
+        "validation_data_max_age_days": false,
+        "forward_paper_min_sessions": false,
+        "forward_paper_min_closed_trades": false
+      },
+      "backtest_criteria_pass": false,
+      "eligible_for_live": false,
+      "expected_edge_bps": 93.4
+    },
+    {
+      "symbol": "QQQ",
+      "strategy": "rsi2_mr",
+      "data_start": "1999-01-04",
+      "data_end": "2018-12-31",
+      "oos": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 15.86,
+        "cagr_pct": 1.06,
+        "ann_vol_pct": 5.33,
+        "sharpe": 0.224,
+        "max_drawdown_pct": -12.63,
+        "longest_drawdown_days": 1214,
+        "exposure_pct": 8.4,
+        "trades": 85,
+        "win_rate_pct": 69.4,
+        "avg_trade_bps": 17.8,
+        "median_trade_bps": 48.2,
+        "worst_trade_pct": -6.31,
+        "annual_turnover_x": 12.16,
+        "losing_months_pct": 13.8,
+        "worst_month_pct": -6.3,
+        "skipped_below_min_size": 0,
+        "trade_mean_ci90_bps": [
+          -17.2,
+          51.4
+        ],
+        "daily_mean_ci90_bps": [
+          -0.28,
+          1.36
+        ]
+      },
+      "buy_and_hold_same_period": {
+        "start": "2005-01-03",
+        "end": "2018-12-31",
+        "years": 13.98,
+        "total_return_pct": 230.31,
+        "cagr_pct": 8.92,
+        "ann_vol_pct": 19.4,
+        "sharpe": 0.538,
+        "max_drawdown_pct": -53.41,
+        "longest_drawdown_days": 823,
+        "exposure_pct": 100.0,
+        "trades": 1,
+        "win_rate_pct": 100.0,
+        "avg_trade_bps": 20699.9,
+        "median_trade_bps": 20699.9,
+        "worst_trade_pct": 207.0,
+        "annual_turnover_x": 0.17,
+        "losing_months_pct": 39.5,
+        "worst_month_pct": -16.95,
+        "skipped_below_min_size": 0
+      },
+      "stress": {
+        "costs_3x": {
+          "total_return_pct": -8.68,
+          "cagr_pct": -0.65,
+          "sharpe": -0.093,
+          "max_drawdown_pct": -15.21,
+          "trades": 85,
+          "avg_trade_bps": -10.2
+        },
+        "delay_1d": {
+          "total_return_pct": 2.78,
+          "cagr_pct": 0.2,
+          "sharpe": 0.064,
+          "max_drawdown_pct": -13.01,
+          "trades": 85,
+          "avg_trade_bps": 3.4
+        },
+        "stop_gap_100bps": {
+          "total_return_pct": 12.42,
+          "cagr_pct": 0.84,
+          "sharpe": 0.182,
+          "max_drawdown_pct": -13.5,
+          "trades": 85,
+          "avg_trade_bps": 14.5
+        },
+        "spread_25bps": {
+          "total_return_pct": 1.99,
+          "cagr_pct": 0.14,
+          "sharpe": 0.053,
+          "max_drawdown_pct": -13.54,
+          "trades": 85,
+          "avg_trade_bps": 2.8
+        }
+      },
+      "account_sizes": {
+        "gbp_10": {
+          "total_return_pct": 15.86,
+          "cagr_pct": 1.06,
+          "avg_trade_bps": 17.8,
+          "trades": 85,
+          "skipped_below_min_size": 0
+        },
+        "gbp_100": {
+          "total_return_pct": 15.86,
+          "cagr_pct": 1.06,
+          "avg_trade_bps": 17.8,
+          "trades": 85,
+          "skipped_below_min_size": 0
+        },
+        "gbp_1000": {
+          "total_return_pct": 15.86,
+          "cagr_pct": 1.06,
+          "avg_trade_bps": 17.8,
+          "trades": 85,
+          "skipped_below_min_size": 0
+        }
+      },
+      "param_choices": [
+        {
+          "test_year": 2005,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.372
+        },
+        {
+          "test_year": 2006,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.67
+        },
+        {
+          "test_year": 2007,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.536
+        },
+        {
+          "test_year": 2008,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.59
+        },
+        {
+          "test_year": 2009,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.53
+        },
+        {
+          "test_year": 2010,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.575
+        },
+        {
+          "test_year": 2011,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.56
+        },
+        {
+          "test_year": 2012,
+          "params": {
+            "entry_th": 5,
+            "max_hold": 10
+          },
+          "train_sharpe": 0.319
+        },
+        {
+          "test_year": 2013,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.314
+        },
+        {
+          "test_year": 2014,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.567
+        },
+        {
+          "test_year": 2015,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.547
+        },
+        {
+          "test_year": 2016,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.911
+        },
+        {
+          "test_year": 2017,
+          "params": {
+            "entry_th": 10,
+            "max_hold": 5
+          },
+          "train_sharpe": 0.991
+        },
+        {
+          "test_year": 2018,
+          "params": {
+            "entry_th": 15,
+            "max_hold": 10
+          },
+          "train_sharpe": 1.217
+        }
+      ],
+      "checks": {
+        "min_oos_trades": true,
+        "oos_net_return_positive": true,
+        "trade_mean_ci90_lower_bps_gt": false,
+        "max_oos_drawdown_pct": true,
+        "sharpe_at_least_buy_and_hold": false,
+        "stress_3x_costs_positive": false,
+        "stress_delay_1d_positive": true,
+        "gbp10_net_return_positive": true,
+        "validation_data_max_age_days": false,
+        "forward_paper_min_sessions": false,
+        "forward_paper_min_closed_trades": false
+      },
+      "backtest_criteria_pass": false,
+      "eligible_for_live": false,
+      "expected_edge_bps": 17.8
+    }
+  ]
+}

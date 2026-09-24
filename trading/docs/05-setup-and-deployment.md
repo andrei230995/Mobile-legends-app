@@ -3,14 +3,20 @@
 You need an iPhone with Safari and, for maintenance, either the cloud provider's **web console** (it works in Safari) or an SSH app such as Termius. **Never paste API keys or passwords into chats, tickets or this repository.** Secrets are typed only into the server-side `configure.sh`, which hides the input and writes `deploy/.env` with owner-only permissions (600).
 
 ## 1. Accounts (do these in Safari)
-1. **Alpaca**: sign up, create a **paper** account, and generate *paper* API keys. Live keys come later, only once a strategy passes the promotion gate and you decide to go live. Keys are shown once.
-2. **Healthchecks.io** (free): create a check with a 2-minute period and 5-minute grace, and enable email/push alerts. This alerts you when the bot **stops**, which the bot itself can't do.
-3. **ntfy** app (free, App Store): subscribe to a long random topic, e.g. `tb-` + 24 random characters. Anyone who knows the topic can read the messages, so keep it secret, or use a self-hosted ntfy with a token. Telegram is the alternative (`TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`).
-4. Optional: **Anthropic API key** for AI news assessment (shadow mode, daily $ cap).
-5. Optional: **Tailscale** (free) on the server and iPhone, which gives private HTTPS access with **no public ports**. Or a domain name pointed at the server for public HTTPS via Caddy.
+1. **Trading 212** (your broker): in the app, switch to the **Practice** account, then *Settings → API (Beta) → Generate key*.
+   * Grant only: account data, portfolio, orders (read + execute), history.
+   * Restrict the key to your server's IP address.
+   * The secret is shown once. Create the live key later, in your Invest or Stocks ISA account, only when live trading is allowed.
+   * Check that **VUSA** and **EQQQ** are available to you.
+2. **Alpaca** (data only, no money): create a free **paper** account and paper API keys. The bot uses them only for real-time US prices, because Trading 212 has no price feed.
+3. **Finnhub** (free key): delayed London ETF prices for order sizing. Whether the free plan includes London quotes is **unverified**. Without it, the first entry per symbol is refused until Trading 212 reports a price.
+4. **Healthchecks.io** (free): create a check with a 2-minute period and 5-minute grace, and enable email/push alerts. This alerts you when the bot **stops**, which the bot itself can't do.
+5. **ntfy** app (free, App Store): subscribe to a long random topic, e.g. `tb-` + 24 random characters. Anyone who knows the topic can read the messages, so keep it secret, or use a self-hosted ntfy with a token. Telegram is the alternative (`TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`).
+6. Optional (default off): **Anthropic API key** for AI news assessment (shadow mode, daily $ cap).
+7. **Tailscale** (free, your choice) on the server and iPhone, which gives private HTTPS access with **no public ports**.
 
 ## 2. Server
-1. Create an Ubuntu 24.04 VM (e.g. Hetzner CX22; the Ashburn, US location is nearest the broker). In "Cloud config", paste `trading/deploy/cloud-init.yaml`. It installs Docker, a firewall, unattended security upgrades and nightly backups, and clones this repository.
+1. Create an Ubuntu 24.04 VM (e.g. Hetzner CX22 in Germany, close to Trading 212 and London). In "Cloud config", paste `trading/deploy/cloud-init.yaml`. It installs Docker, a firewall, unattended security upgrades and nightly backups, and clones this repository.
 2. Open the provider's web console and run:
    ```
    sudo /opt/tradebot/trading/deploy/configure.sh
@@ -25,7 +31,7 @@ You need an iPhone with Safari and, for maintenance, either the cloud provider's
 * The system starts in **PAPER** mode with trading **off**. Review and **Confirm** the risk limits (Risk tab), then press **Start trading**.
 * On the server, refresh the validation with current data:
   `docker compose exec tradebot python -m tradebot.backtest.validate --source alpaca --out /data/validation`
-  Then `docker compose restart tradebot`. The engine reads `/data/validation/results.json` if present, otherwise the bundled 1999–2018 results.
+  (`--source alpaca` is the free data account; this works with Trading 212 as the broker.) Then `docker compose restart tradebot`. The engine reads `/data/validation/<profile>/results.json` if present, otherwise the bundled 1999–2018 results.
 * Daily reports and alerts arrive via ntfy/Telegram. The Reports tab keeps the full breakdown.
 
 ## 4. Going live (only if the evidence supports it)

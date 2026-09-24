@@ -30,7 +30,7 @@ from .notify import Notifier
 
 log = logging.getLogger("tradebot.runtime")
 
-DEFAULT_RESULTS = Path(__file__).resolve().parents[2] / "docs" / "validation" / "results.json"
+VALIDATION_DIR = Path(__file__).resolve().parents[2] / "docs" / "validation"
 
 
 class Runtime:
@@ -53,8 +53,10 @@ class Runtime:
         self.last_error: str | None = None
 
     def _results_path(self) -> Path:
-        local = self.s.data_dir / "validation" / "results.json"
-        return local if local.exists() else DEFAULT_RESULTS
+        """Validation for this broker's cost profile; a server-side re-run with fresh data wins."""
+        profile = self.s.validation_profile
+        local = self.s.data_dir / "validation" / profile / "results.json"
+        return local if local.exists() else VALIDATION_DIR / profile / "results.json"
 
     # -- construction --------------------------------------------------------------
     def data(self) -> MarketData:
@@ -92,7 +94,7 @@ class Runtime:
             creds = self.s.t212_demo if env == "paper" else self.s.t212_live
             if not creds:
                 raise RuntimeError(f"Trading 212 {env} credentials are not configured")
-            b = Trading212Broker(creds, demo=env == "paper")
+            b = Trading212Broker(creds, demo=env == "paper", execution_map=self.s.effective_execution_map())
         else:
             raise RuntimeError(f"unknown broker {self.s.broker}")
         for note in b.prepare_account():
@@ -108,9 +110,15 @@ class Runtime:
                                     self.s.ai_model, mode=self.control.get("ai_mode", "shadow"),
                                     daily_budget_usd=self.s.ai_daily_budget_usd,
                                     max_calls_per_day=self.s.ai_max_calls_per_day)
-            self.engines[env] = Engine(self.s, store, self.broker(env), self.data(), self.fx(), self.clock,
+            broker = self.broker(env)
+            exec_prices = None
+            if getattr(broker, "execution_map", None):
+                from .data.reference import ReferencePrices
+                exec_prices = ReferencePrices(broker.execution_map, self.clock,
+                                              self.s.finnhub_api_key.get_secret_value() if self.s.finnhub_api_key else None)
+            self.engines[env] = Engine(self.s, store, broker, self.data(), self.fx(), self.clock,
                                        Notifier(self.s, store), assessor, load_registry(self.results_path),
-                                       control=self.control)
+                                       control=self.control, exec_prices=exec_prices)
         return self.engines[env]
 
     @property

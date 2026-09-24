@@ -19,6 +19,8 @@ from .models import (D0, Account, Asset, BrokerOrder, Check, D, Mode, Position, 
 GAP_ALLOWANCE = Decimal("0.01")      # extra loss assumed beyond the stop (gaps, slippage)
 MODELLED_COST_BPS = Decimal("6")      # round-trip spread+slippage assumed in validation (2x(1+2))
 EST_SLIPPAGE_BPS = Decimal("2")       # per side, as in validation; realised slippage is monitored
+MAX_REFERENCE_AGE_S = 1200            # delayed reference price for sizing (15-min delayed feeds)
+REFERENCE_BUFFER = Decimal("0.01")    # size as if the price were 1% higher than the delayed reference
 
 
 @dataclass
@@ -46,6 +48,8 @@ class RiskContext:
     data_is_replay: bool = False
     ai_veto: str | None = None
     reconciliation_ok: bool = True
+    venue_open: bool = True               # execution exchange (e.g. London for UCITS ETFs) open
+    exec_spread_bps: Decimal = Decimal("10")   # assumed when the execution instrument has no live quote
 
 
 @dataclass
@@ -61,8 +65,11 @@ class EntryDecision:
 
 
 class RiskEngine:
-    def evaluate_entry(self, sig: Signal, ctx: RiskContext, quote: Quote | None, asset: Asset | None
-                       ) -> EntryDecision:
+    def evaluate_entry(self, sig: Signal, ctx: RiskContext, quote: Quote | None, asset: Asset | None,
+                       exec_quote: Quote | None = None, separate_execution: bool = False) -> EntryDecision:
+        """``quote`` is the real-time quote of the signal symbol (freshness, spread, stop level).
+        With ``separate_execution`` the order is placed in a different instrument (e.g. a London
+        UCITS ETF) and ``exec_quote`` is its - possibly delayed - reference price for sizing."""
         L = ctx.limits
         checks: list[Check] = []
 
@@ -109,6 +116,16 @@ class RiskEngine:
                 f"spread={quote.spread_bps:.1f}bps limit={L.max_spread_bps}bps")
         a_ok = asset is not None and asset.tradable
         chk("instrument_tradable", a_ok, "" if a_ok else "asset not tradable/unknown")
+        chk("execution_venue_open", ctx.venue_open, "execution exchange open")
+        if separate_execution:
+            e_ok = exec_quote is not None and exec_quote.valid
+            age = exec_quote.age_seconds(ctx.now) if e_ok else None
+            e_ok = e_ok and age <= MAX_REFERENCE_AGE_S
+            chk("execution_price_reference", e_ok,
+                (f"{exec_quote.ask} from {exec_quote.source} ({'delayed' if exec_quote.delayed else 'live'}), "
+                 f"age {age:.0f}s, limit {MAX_REFERENCE_AGE_S}s; used for sizing only") if exec_quote
+                else "no price for the execution instrument (Trading 212 has no price feed)")
+            q_ok = q_ok and e_ok
 
         # -- loss limits & activity limits ----------------------------------------------
         chk("daily_loss_within_limit", ctx.day_pnl_pct > -D(L.daily_loss_limit_pct),
@@ -131,7 +148,7 @@ class RiskEngine:
 
         # -- sizing ------------------------------------------------------------------------
         eq = ctx.account.equity
-        px = quote.ask
+        px = exec_quote.ask * (1 + REFERENCE_BUFFER) if separate_execution else quote.ask
         exposure = sum((p.market_value for p in ctx.positions), D0) + sum(
             ((o.notional or (o.qty or D0) * px) for o in ctx.open_orders if o.status.is_open and o.side == Side.BUY), D0)
         max_expo = min(D(L.max_total_exposure_pct), D(HARD_MAX_EXPOSURE_PCT)) / 100
@@ -160,15 +177,18 @@ class RiskEngine:
                 f"(limited by {binding}), below the broker minimum of {asset.min_notional}."))
 
         # -- expected cost versus validated edge ---------------------------------------
-        fee = ctx.fee_model.fee(Side.SELL, qty, quote.bid)
-        cost_bps = (quote.spread_bps + 2 * EST_SLIPPAGE_BPS
-                    + fee / value * 10000 + D(2 * ctx.caps.fx_fee_bps))
+        fee = ctx.fee_model.fee(Side.SELL, qty, px if separate_execution else quote.bid)
+        spread = ctx.exec_spread_bps if separate_execution else quote.spread_bps
+        fx_bps = D(2 * ctx.caps.fx_fee_bps) if asset.currency != ctx.account.currency else D0
+        cost_bps = spread + 2 * EST_SLIPPAGE_BPS + fee / value * 10000 + fx_bps
         if sig.expected_edge_bps is None:
             chk("validated_edge_available", False, "strategy has no validated out-of-sample edge estimate")
         else:
-            gross = D(sig.expected_edge_bps) + MODELLED_COST_BPS
+            modelled = D(sig.modelled_cost_bps) if sig.modelled_cost_bps is not None else MODELLED_COST_BPS
+            gross = D(sig.expected_edge_bps) + modelled
             chk("costs_small_vs_edge", gross > 0 and cost_bps <= gross * D(L.max_cost_to_edge_ratio),
-                f"est. round-trip cost={cost_bps:.1f}bps (incl. min fee {fee} on exit), "
+                f"est. round-trip cost={cost_bps:.1f}bps (spread {spread:.1f}"
+                f"{' assumed' if separate_execution else ''}, fee {fee} on exit, FX {fx_bps}bps), "
                 f"gross validated edge={gross:.1f}bps, max ratio={L.max_cost_to_edge_ratio}")
         stop_price = (quote.ask * (1 - stop_pct)).quantize(Decimal("0.01"), rounding=ROUND_DOWN) if sig.stop_pct else None
         return self._finish(checks, qty, px, value, cost_bps, stop_price)

@@ -39,6 +39,9 @@
 | **Engine exception** | the tick is skipped; the next tick runs | unchanged | broker-held stops remain | push + Healthchecks `/fail` |
 | **Server down** | none (nothing runs) | stay at the broker (DAY orders expire at the close) | broker-held stops only (Alpaca fractional stops are DAY: **none overnight**) | Healthchecks.io alerts when pings stop |
 | **Restart** | resumes from the database | reconciled by client id | protective stops re-placed if missing | audit log |
+| **Trading 212: stop hit while London is closed** (16:30–21:00 UK) | – | – | exit queued; sold at market shortly after the next London open (gap risk overnight) | decision log |
+| **Trading 212: no reference price** for sizing | blocked for that symbol | – | – | decision log |
+| **Fill much worse than reference** (> slippage limit + 50 bps allowance for a delayed reference) | paused until you resume | – | kept, managed | push |
 | **Corporate action (split)** | blocked by the reconciliation mismatch | – | the broker position is correct; the local ledger is not | push. **Manual step: close and reopen the position, or wait for a fix. Automatic corporate-action adjustment is not implemented** |
 | **Leaving live mode** with open live positions/orders | – | – | **refused**, so management isn't silently switched off. Use *Stop* (exits continue) or close positions first | API error |
 

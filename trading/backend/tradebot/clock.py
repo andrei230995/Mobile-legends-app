@@ -44,17 +44,22 @@ class SimClock(Clock):
         return self._now
 
 
-@functools.lru_cache(maxsize=1)
-def _xnys():
+@functools.lru_cache(maxsize=4)
+def _calendar(code: str):
     import exchange_calendars as xcals
-    return xcals.get_calendar("XNYS", start="2015-01-01")
+    return xcals.get_calendar(code, start="2015-01-01")
 
 
 class MarketCalendar:
-    """NYSE regular sessions (no extended hours: the bot does not trade them)."""
+    """Regular sessions of one exchange: NYSE (``XNYS``, default - signals and US execution)
+    or London (``XLON`` - execution of UCITS ETFs on Trading 212). No extended hours."""
+
+    def __init__(self, code: str = "XNYS"):
+        self.code = code
+        self.tz = NY if code == "XNYS" else LONDON
 
     def session_bounds(self, day: date) -> tuple[datetime, datetime] | None:
-        cal = _xnys()
+        cal = _calendar(self.code)
         ts = pd.Timestamp(day)
         if not cal.is_session(ts):
             return None
@@ -63,8 +68,8 @@ class MarketCalendar:
         return o, c
 
     def session_date(self, now: datetime) -> date:
-        """The New York calendar date of ``now``."""
-        return now.astimezone(NY).date()
+        """The exchange-local calendar date of ``now``."""
+        return now.astimezone(self.tz).date()
 
     def clock(self, now: datetime) -> MarketClock:
         today = self.session_date(now)
@@ -85,20 +90,20 @@ class MarketCalendar:
                            session_close=bounds[1] if bounds else None)
 
     def previous_sessions(self, before: date, n: int) -> list[date]:
-        cal = _xnys()
+        cal = _calendar(self.code)
         sessions = cal.sessions_in_range(pd.Timestamp(before) - pd.Timedelta(days=n * 2 + 10),
                                          pd.Timestamp(before) - pd.Timedelta(days=1))
         return [s.date() for s in sessions[-n:]]
 
     def sessions_between(self, start: date, end: date) -> int:
         """Number of sessions in (start, end]."""
-        cal = _xnys()
+        cal = _calendar(self.code)
         if end <= start:
             return 0
         return len(cal.sessions_in_range(pd.Timestamp(start) + pd.Timedelta(days=1), pd.Timestamp(end)))
 
     def add_sessions(self, day: date, n: int) -> date:
-        cal = _xnys()
+        cal = _calendar(self.code)
         sessions = cal.sessions_in_range(pd.Timestamp(day) + pd.Timedelta(days=1),
                                          pd.Timestamp(day) + pd.Timedelta(days=n * 2 + 14))
         return sessions[n - 1].date()

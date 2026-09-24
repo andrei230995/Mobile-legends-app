@@ -81,7 +81,7 @@ def test_ten_pound_account_sizes_or_explains(tmp_path):
     h.tick(10)
     rej = h.decisions("rejected")[-1]
     assert "costs_small_vs_edge" in rej["summary"]
-    assert "min fee 0.02" in rej["checks"]
+    assert "fee 0.02 on exit" in rej["checks"]
     assert h.orders() == []
 
 

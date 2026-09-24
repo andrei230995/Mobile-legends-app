@@ -1,6 +1,6 @@
-# Strategy validation results
+# Strategy validation results: `alpaca` cost profile
 
-Generated 2026-09-24T07:08:50.754185+00:00 from source `bundled`.
+Generated 2026-09-24T07:41:06.488924+00:00 from source `bundled`. US ETFs (SPY/QQQ) in USD at Alpaca.
 
 All figures are **net of modelled costs** and **out-of-sample** (walk-forward: parameters chosen on the prior 5 years, traded on the next year). They are historical simulations, not forecasts, and index-level proxies (see assumptions).
 
@@ -262,13 +262,15 @@ Data 1999-01-04 → 2018-12-31. OOS 2005-01-03 → 2018-12-31 (13.98 years).
 ```json
 {
   "execution": "signal at close t, fill at open t+1 (+half spread +slippage)",
+  "profile_note": "US ETFs (SPY/QQQ) in USD at Alpaca.",
   "base_costs": {
     "spread_bps": 2.0,
     "slippage_bps": 2.0,
     "fx_bps": 0.0,
-    "fee_fn": "US SEC+TAF on sells, cent-rounded",
-    "stop_extra_bps": 0.0
+    "stop_extra_bps": 0.0,
+    "fees": "US SEC + FINRA TAF on sells, each rounded up to the cent"
   },
+  "modelled_round_trip_bps": 6.0,
   "gbpusd_for_account_sizes": 1.3,
   "dividend_yield_accrual": {
     "SPY": 0.019,

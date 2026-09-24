@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -35,6 +35,28 @@ GRIDS: dict[str, list[dict[str, Any]]] = {
 }
 FACTORY = {"trend_sma": TrendSMA, "rsi2_mr": RSI2MeanReversion}
 DIVIDEND_YIELD = {"SPY": 0.019, "QQQ": 0.010}   # approximate averages, 1999-2018
+
+def no_fee(side: str, qty: float, price: float) -> float:
+    return 0.0
+
+
+# Execution-cost profiles. Spreads are full quoted spreads; half is paid per side.
+PROFILES: dict[str, dict[str, Any]] = {
+    "alpaca": {
+        "costs": CostModel(spread_bps=2.0, slippage_bps=2.0),
+        "fees": "US SEC + FINRA TAF on sells, each rounded up to the cent",
+        "note": "US ETFs (SPY/QQQ) in USD at Alpaca.",
+        "extra_stress": {"trading212_fx_15bps": CostModel(fx_bps=15, fee_fn=no_fee)},
+    },
+    "trading212_ucits": {
+        "costs": CostModel(spread_bps=10.0, slippage_bps=2.0, fee_fn=no_fee),
+        "fees": "none: no commission, GBP line so no FX fee, ETFs exempt from UK stamp duty",
+        "note": ("Signals on SPY/QQQ, executed in London UCITS equivalents (VUSA/EQQQ) in GBP. The backtest "
+                 "uses US index prices, so it ignores GBP/USD moves and UCITS tracking differences that a "
+                 "GBP holder experiences; the 10 bps spread for London ETF lines is an assumption."),
+        "extra_stress": {"spread_25bps": CostModel(spread_bps=25.0, slippage_bps=2.0, fee_fn=no_fee)},
+    },
+}
 
 CRITERIA = {
     "min_oos_trades": 40,
@@ -133,39 +155,46 @@ def baseline(df: pd.DataFrame, cfg: BacktestConfig, start, end) -> dict[str, Any
     return metrics(r)
 
 
-def evaluate(frames: dict[str, pd.DataFrame], source: str, train_years: int = 5) -> dict[str, Any]:
+def evaluate(frames: dict[str, pd.DataFrame], source: str, train_years: int = 5,
+             profile: str = "alpaca") -> dict[str, Any]:
+    prof = PROFILES[profile]
+    base_costs: CostModel = prof["costs"]
+    usd = profile == "alpaca"
     out: dict[str, Any] = {"generated_at": datetime.now(timezone.utc).isoformat(), "source": source,
-                           "criteria": CRITERIA, "assumptions": {
+                           "profile": profile, "criteria": CRITERIA, "assumptions": {
                                "execution": "signal at close t, fill at open t+1 (+half spread +slippage)",
-                               "base_costs": asdict(CostModel()) | {"fee_fn": "US SEC+TAF on sells, cent-rounded"},
+                               "profile_note": prof["note"],
+                               "base_costs": {k: v for k, v in asdict(base_costs).items() if k != "fee_fn"}
+                               | {"fees": prof["fees"]},
+                               "modelled_round_trip_bps": base_costs.spread_bps + 2 * base_costs.slippage_bps,
                                "gbpusd_for_account_sizes": GBPUSD,
                                "dividend_yield_accrual": DIVIDEND_YIELD,
                                "train_years": train_years}, "results": []}
     for sym, df in frames.items():
         div = DIVIDEND_YIELD.get(sym, 0.0)
-        base_cfg = BacktestConfig(start_equity=1000 * GBPUSD, dividend_yield=div)
+        base_cfg = BacktestConfig(start_equity=1000 * (GBPUSD if usd else 1), dividend_yield=div, costs=base_costs)
         for family in GRIDS:
             rets, trades, choices, expo = walk_forward(df, family, base_cfg, train_years)
             oos_start, oos_end = rets.index[0], rets.index[-1]
             m = oos_metrics(rets, trades, expo, base_cfg.start_equity)
             bh = baseline(df, base_cfg, oos_start, oos_end)
             stress = {}
-            for label, cfg in {
-                "costs_3x": BacktestConfig(start_equity=base_cfg.start_equity, dividend_yield=div,
-                                           costs=CostModel().scaled(3)),
-                "delay_1d": BacktestConfig(start_equity=base_cfg.start_equity, dividend_yield=div, delay_days=1),
-                "stop_gap_100bps": BacktestConfig(start_equity=base_cfg.start_equity, dividend_yield=div,
-                                                  costs=CostModel(stop_extra_bps=100)),
-                "trading212_fx_15bps": BacktestConfig(start_equity=base_cfg.start_equity, dividend_yield=div,
-                                                      costs=CostModel(fx_bps=15, fee_fn=lambda *a: 0.0)),
-            }.items():
+            scenarios = {
+                "costs_3x": base_costs.scaled(3),
+                "delay_1d": base_costs,
+                "stop_gap_100bps": replace(base_costs, stop_extra_bps=100),
+                **prof["extra_stress"],
+            }
+            for label, costs in scenarios.items():
+                cfg = BacktestConfig(start_equity=base_cfg.start_equity, dividend_yield=div, costs=costs,
+                                     delay_days=1 if label == "delay_1d" else 0)
                 r2, t2, _, e2 = walk_forward(df, family, cfg, train_years, fixed=choices)
                 sm = oos_metrics(r2, t2, e2, cfg.start_equity)
                 stress[label] = {k: sm[k] for k in ("total_return_pct", "cagr_pct", "sharpe",
                                                     "max_drawdown_pct", "trades", "avg_trade_bps")}
             sizes = {}
             for gbp in (10, 100, 1000):
-                cfg = BacktestConfig(start_equity=gbp * GBPUSD, dividend_yield=div)
+                cfg = BacktestConfig(start_equity=gbp * (GBPUSD if usd else 1), dividend_yield=div, costs=base_costs)
                 r3, t3, _, e3 = walk_forward(df, family, cfg, train_years, fixed=choices)
                 sm = oos_metrics(r3, t3, e3, cfg.start_equity)
                 sizes[f"gbp_{gbp}"] = {k: sm[k] for k in ("total_return_pct", "cagr_pct", "avg_trade_bps",
@@ -198,8 +227,9 @@ def evaluate(frames: dict[str, pd.DataFrame], source: str, train_years: int = 5)
 
 
 def to_markdown(rep: dict[str, Any]) -> str:
-    lines = ["# Strategy validation results\n",
-             f"Generated {rep['generated_at']} from source `{rep['source']}`.\n",
+    lines = [f"# Strategy validation results: `{rep.get('profile', 'alpaca')}` cost profile\n",
+             f"Generated {rep['generated_at']} from source `{rep['source']}`. "
+             f"{rep['assumptions'].get('profile_note', '')}\n",
              "All figures are **net of modelled costs** and **out-of-sample** (walk-forward: parameters "
              "chosen on the prior 5 years, traded on the next year). They are historical simulations, "
              "not forecasts, and index-level proxies (see assumptions).\n",
@@ -242,16 +272,18 @@ def main() -> None:
     ap.add_argument("--source", choices=["bundled", "alpaca"], default="bundled")
     ap.add_argument("--symbols", default="SPY,QQQ")
     ap.add_argument("--out", default="var/validation")
+    ap.add_argument("--profile", choices=[*PROFILES, "all"], default="all")
     a = ap.parse_args()
     frames = load_bundled() if a.source == "bundled" else load_alpaca(a.symbols.split(","))
-    rep = evaluate(frames, a.source)
-    out = Path(a.out)
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "results.json").write_text(json.dumps(rep, indent=2, default=str))
-    (out / "RESULTS.md").write_text(to_markdown(rep))
-    for r in rep["results"]:
-        print(r["symbol"], r["strategy"], "backtest", "PASS" if r["backtest_criteria_pass"] else "FAIL",
-              "live-eligible" if r["eligible_for_live"] else "not live-eligible", r["oos"]["cagr_pct"])
+    for profile in (PROFILES if a.profile == "all" else [a.profile]):
+        rep = evaluate(frames, a.source, profile=profile)
+        out = Path(a.out) / profile
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "results.json").write_text(json.dumps(rep, indent=2, default=str))
+        (out / "RESULTS.md").write_text(to_markdown(rep))
+        for r in rep["results"]:
+            print(profile, r["symbol"], r["strategy"], "backtest", "PASS" if r["backtest_criteria_pass"] else "FAIL",
+                  "live-eligible" if r["eligible_for_live"] else "not live-eligible", r["oos"]["cagr_pct"])
 
 
 if __name__ == "__main__":

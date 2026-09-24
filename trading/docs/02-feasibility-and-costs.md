@@ -13,7 +13,9 @@
 | Minimum US regulatory fee on each sale (SEC + TAF, each rounded up to $0.01) | $0.02 per exit | 16 bps on a $12.50 position, 32 bps on $6.25 |
 | AI news assessment (optional; defaults to Claude Opus 5, $5 / $25 per M tokens) | ≈ $0.01–0.02 per article, capped by `TRADEBOT_AI_DAILY_BUDGET_USD` (default $0.50/day) | up to ~£11/month if the cap is reached |
 
-What the validation shows at £10, out of sample 2005–2018, same parameter path ([results](validation/RESULTS.md)):
+**With Trading 212 (your choice)** there is no per-trade minimum fee and no FX fee on the GBP UCITS lines. A £10 account therefore earns the same *percentage* as a larger one: the SPY trend strategy's out-of-sample CAGR is 4.58% at £10, £100 and £1,000 ([results](validation/trading212_ucits/RESULTS.md)). That is about **£0.46 a year on £10**, against about **£46 a year** of server cost. The fixed costs are still what make £10 uneconomic.
+
+For comparison, Alpaca's minimum fee *does* erode small accounts ([Alpaca-profile results](validation/alpaca/RESULTS.md)):
 
 | Strategy (SPY proxy) | Avg net trade at £1,000 | Avg net trade at £10 | CAGR £1,000 → £10 |
 |---|---|---|---|
@@ -25,7 +27,7 @@ At £10, the two SPY strategies *historically* earned about **£0.07–0.29 a ye
 ## Practical funding estimate (explicit assumptions)
 
 Assumptions:
-* Expected net strategy return *r* before operating costs = 2–4% a year. This is roughly the validated out-of-sample range, which may not persist.
+* Expected net strategy return *r* before operating costs = 2–4% a year (Trading 212 profile: trend 4.6–6.0%, RSI(2) 1.1–1.3%). This is roughly the validated out-of-sample range, which may not persist.
 * Operating costs *C* = £46/year (server only, AI off, free IEX data).
 * "Practical" means operating costs take at most a fraction *k* of expected gross profit: balance ≥ C / (k · r).
 

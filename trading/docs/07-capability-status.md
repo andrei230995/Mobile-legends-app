@@ -18,7 +18,8 @@
 ## Implemented but UNVERIFIED against the real services
 The build environment's network policy blocked alpaca.markets, trading212.com and the ECB.
 * **Alpaca Trading and Market Data adapters** (paper and live): unit-tested against mocked responses in the documented format. First real verification: `docker compose exec tradebot python -m tradebot.cli check-broker --env paper` on your server (read-only).
-* **Trading 212 adapter**: written from the v0 docs as extracted by search. Field names, live order-type limits and fee behaviour need checking against the live docs and your demo account.
+* **Trading 212 adapter (your chosen broker)**: written from the v0 docs as extracted by search. It's tested against a stateful fake of the API, including ISIN lookup of VUSA/EQQQ, pence-to-GBP conversion, rate-limit caching, and reconciliation without client ids. Still to check against the real service: field names (e.g. `fillPrice`, `filledValue`), whether prices are in GBP or pence, and the live order-type limits. First step: `check-broker --env paper` against your Practice account.
+* **Finnhub delayed London quotes**: not called for real; the free plan may not include London.
 * **ECB FX reference rates**, **ntfy/Telegram delivery**, **Healthchecks pings**, **Anthropic news assessment**: code paths tested with fakes; not called for real.
 * Alpaca account safety configuration (`no_shorting`, `max_margin_multiplier=1`) via `PATCH /v2/account/configurations`: field names unverified. The bot's own sizing never uses margin either way.
 * The `configure.sh` / cloud-init flow has not been run on a real VM.
@@ -29,6 +30,8 @@ The build environment's network policy blocked alpaca.markets, trading212.com an
 3. **ntfy topic / Telegram bot** and a **Healthchecks.io** check for phone alerts.
 4. Optional **Anthropic API key**.
 5. **Live trading is blocked by design.** No strategy passes the promotion gate:
+   * Trading 212 costs ([results](validation/trading212_ucits/RESULTS.md)): `trend_sma:SPY` fails only on the CI of its mean trade (−20.8…159 bps). The others also fail the Sharpe and/or drawdown checks, and RSI(2) turns negative at 3× costs.
+   * Alpaca costs ([results](validation/alpaca/RESULTS.md)):
    * `trend_sma:SPY`: CI of mean trade includes 0; max drawdown 29% > 25%; Sharpe below buy-and-hold
    * `rsi2_mr:SPY`: Sharpe 0.446 < buy-and-hold 0.463
    * `trend_sma:QQQ`: max drawdown 28.8% > 25%
@@ -44,7 +47,12 @@ The build environment's network policy blocked alpaca.markets, trading212.com an
 * Native iOS app and Apple web push (ntfy/Telegram used instead).
 * Tax reporting.
 
-## Decisions for you
-* **Live broker:** Alpaca (full automation; US-regulated, no FSCS, USD) or Trading 212 (FCA/FSCS; more limited beta API, 0.15% FX, software-only exits).
-* **Risk preferences:** defaults are 1% risk per trade, 3% daily loss, 15% drawdown, 50% max position, overnight holds allowed, report at 21:30 UK.
+## Decisions made (24 Sep 2026)
+* Live broker: **Trading 212**, trading VUSA/EQQQ (UCITS, GBP) because SPY/QQQ aren't available to UK retail.
+* Risk limits: the defaults (1% risk per trade, 3% daily loss, 15% drawdown, 50% max position, overnight holds allowed, report at 21:30 UK).
+* Hosting: ~£4/month VM plus Tailscale.
+
+## Still open
+* **Invest or Stocks ISA** for live trading (ISA gains are tax-free).
+* **AI news assessment**: on or off (off by default).
 * **Funding:** see the [feasibility estimate](02-feasibility-and-costs.md). At £10 the bot will mostly and correctly stay in cash.

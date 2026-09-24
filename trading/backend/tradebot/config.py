@@ -10,6 +10,7 @@ Two kinds of configuration exist and are deliberately kept apart:
 """
 from __future__ import annotations
 
+import json
 import os
 from dataclasses import dataclass
 from pathlib import Path
@@ -37,6 +38,15 @@ class BrokerCredentials:
     secret: SecretStr
 
 
+# Trading 212 UK clients cannot buy US-domiciled ETFs (no PRIIPs/KID), so signals computed on
+# SPY/QQQ are executed in London-listed UCITS equivalents quoted in GBP. ISINs to verify
+# against Trading 212's instrument list (the adapter resolves the ticker by ISIN at runtime).
+DEFAULT_T212_EXECUTION: dict[str, dict[str, str]] = {
+    "SPY": {"isin": "IE00B3XXRP09", "label": "Vanguard S&P 500 UCITS ETF (VUSA)", "reference_symbol": "VUSA.L"},
+    "QQQ": {"isin": "IE0032077012", "label": "Invesco EQQQ Nasdaq-100 UCITS ETF (EQQQ)", "reference_symbol": "EQQQ.L"},
+}
+
+
 class Settings(BaseModel):
     model_config = {"arbitrary_types_allowed": True}
 
@@ -51,6 +61,8 @@ class Settings(BaseModel):
     t212_demo: BrokerCredentials | None = None
     t212_live: BrokerCredentials | None = None
 
+    finnhub_api_key: SecretStr | None = None      # delayed London prices for sizing (Trading 212)
+    execution_map: dict[str, dict[str, str]] | None = None   # signal symbol -> execution instrument
     anthropic_api_key: SecretStr | None = None
     ai_model: str = "claude-opus-5"
     ai_daily_budget_usd: float = 0.50
@@ -87,6 +99,8 @@ class Settings(BaseModel):
             alpaca_paper=creds("ALPACA_PAPER"),
             alpaca_live=creds("ALPACA_LIVE"),
             alpaca_data_feed=_env("ALPACA_DATA_FEED", "iex"),
+            finnhub_api_key=_secret("FINNHUB_API_KEY"),
+            execution_map=json.loads(_env("TRADEBOT_EXECUTION_MAP")) if _env("TRADEBOT_EXECUTION_MAP") else None,
             t212_demo=creds("T212_DEMO"),
             t212_live=creds("T212_LIVE"),
             anthropic_api_key=_secret("ANTHROPIC_API_KEY"),
@@ -115,6 +129,15 @@ class Settings(BaseModel):
     def paper_credentials_present(self) -> bool:
         return {"alpaca": self.alpaca_paper, "trading212": self.t212_demo}.get(self.broker) is not None
 
+    def effective_execution_map(self) -> dict[str, dict[str, str]]:
+        if self.execution_map is not None:
+            return self.execution_map
+        return DEFAULT_T212_EXECUTION if self.broker == "trading212" else {}
+
+    @property
+    def validation_profile(self) -> str:
+        return "trading212_ucits" if self.broker == "trading212" else "alpaca"
+
     def missing_requirements(self) -> list[str]:
         """Human-readable list of what is not configured, for the UI and docs."""
         missing = []
@@ -130,8 +153,15 @@ class Settings(BaseModel):
             missing.append("Phone notifications (NTFY_URL or TELEGRAM_BOT_TOKEN)")
         if not self.healthcheck_ping_url:
             missing.append("HEALTHCHECK_PING_URL (external dead-man's switch)")
+        if self.broker == "trading212":
+            if not (self.alpaca_paper or self.alpaca_live):
+                missing.append("Alpaca data-only keys (free paper account, no funding): real-time US index "
+                               "prices for signals and stops - Trading 212 has no price feed")
+            if not self.finnhub_api_key:
+                missing.append("FINNHUB_API_KEY (delayed London ETF price for order sizing; without it, "
+                               "first entries are refused until a position price is known)")
         if not self.anthropic_api_key:
-            missing.append("ANTHROPIC_API_KEY (AI news assessment disabled)")
+            missing.append("ANTHROPIC_API_KEY (optional; AI news assessment is off)")
         return missing
 
 

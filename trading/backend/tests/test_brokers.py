@@ -110,40 +110,63 @@ def test_alpaca_data_quote_and_bars_exclude_incomplete_session():
     assert [str(b.day) for b in bars] == ["2026-09-22", "2026-09-23"]
 
 
-def test_t212_basic_auth_market_only_live_and_sell_sign():
-    seen = {}
-
-    def h(req):
-        seen["auth"] = req.headers["Authorization"]
-        seen["path"] = req.url.path
-        seen["body"] = json.loads(req.content) if req.content else None
-        return httpx.Response(200, json={"id": 42, "ticker": "SPY_US_EQ", "quantity": -0.5, "filledQuantity": 0,
-                                         "status": "NEW", "type": "MARKET", "creationTime": "2026-09-24T13:40:00Z"})
-    b = Trading212Broker(CREDS, demo=False, transport=httpx.MockTransport(h))
-    o = b.submit_order(OrderRequest("c1", "SPY", Side.SELL, OrderType.MARKET, qty=Decimal("0.5")))
-    assert seen["auth"].startswith("Basic ") and seen["path"].endswith("/equity/orders/market")
-    assert seen["body"]["quantity"] == -0.5 and o.side == Side.SELL
-    assert not b.capabilities.protective_stop_for_fractional       # live: market orders only
+def test_t212_resolves_ucits_by_isin_market_only_and_sell_sign():
+    from tests.fake_t212 import FakeT212
+    from tradebot.config import DEFAULT_T212_EXECUTION
+    fake = FakeT212(prices={"VUSAl_EQ": Decimal("95.50")})
+    b = Trading212Broker(CREDS, demo=False, transport=fake.transport(), execution_map=DEFAULT_T212_EXECUTION)
+    fake.cash = Decimal("100")
+    o = b.submit_order(OrderRequest("c1", "SPY", Side.BUY, OrderType.MARKET, qty=Decimal("0.5")))
+    assert fake.last_body == {"ticker": "VUSAl_EQ", "quantity": 0.5, "extendedHours": False}
+    assert fake.last_auth.startswith("Basic ")
+    assert o.symbol == "SPY" and o.status == OrderStatus.FILLED and o.filled_avg_price == Decimal("95.50")
+    b.submit_order(OrderRequest("c2", "SPY", Side.SELL, OrderType.MARKET, qty=Decimal("0.2")))
+    assert fake.last_body["quantity"] == -0.2
+    assert not b.capabilities.protective_stop_for_fractional and b.capabilities.order_types == ("market",)
     with pytest.raises(BrokerRejected):
-        b.submit_order(OrderRequest("c2", "SPY", Side.SELL, OrderType.STOP, qty=Decimal("0.5"),
-                                    stop_price=Decimal("400")))
+        b.submit_order(OrderRequest("c3", "SPY", Side.SELL, OrderType.STOP, qty=Decimal("0.1"),
+                                    stop_price=Decimal("90")))
+    pos = b.get_positions()[0]
+    assert pos.symbol == "SPY" and pos.currency == "GBP" and pos.qty == Decimal("0.3")
+    assert b.get_asset("SPY").currency == "GBP" and b.venue_calendar == "XLON"
+
+
+def test_t212_pence_quoted_line_converted_to_gbp():
+    from tests.fake_t212 import FakeT212
+    fake = FakeT212(prices={"EQQQl_EQ": Decimal("41000")}, gbx={"EQQQl_EQ"})     # 41,000p = £410
+    b = Trading212Broker(CREDS, demo=True, transport=fake.transport(),
+                         execution_map={"QQQ": {"isin": "IE0032077012", "label": "EQQQ"}})
+    fake.cash = Decimal("1000")
+    o = b.submit_order(OrderRequest("c1", "QQQ", Side.BUY, OrderType.MARKET, qty=Decimal("1")))
+    assert o.filled_avg_price == Decimal("410.00")
+    assert b.get_positions()[0].market_price == Decimal("410.00")
+
+
+def test_t212_reads_are_cached_to_respect_rate_limits():
+    from tests.fake_t212 import FakeT212
+    fake = FakeT212()
+    b = Trading212Broker(CREDS, demo=True, transport=fake.transport())
+    for _ in range(5):
+        b.get_account()
+        b.get_positions()
+    assert fake.calls["/api/v0/equity/account/cash"] == 1 and fake.calls["/api/v0/equity/portfolio"] == 1
 
 
 def test_t212_reconciles_without_client_id_by_matching():
     from datetime import datetime, timezone
-
-    def h(req):
-        if req.url.path.endswith("/equity/orders"):
-            return httpx.Response(200, json=[{"id": 7, "ticker": "SPY_US_EQ", "quantity": 0.5, "status": "FILLED",
-                                              "filledQuantity": 0.5, "fillPrice": 500, "type": "MARKET",
-                                              "creationTime": "2026-09-24T13:40:01Z"}])
-        return httpx.Response(200, json={"items": []})
-    b = Trading212Broker(CREDS, demo=True, transport=httpx.MockTransport(h))
+    from tests.fake_t212 import FakeT212
+    from tradebot.config import DEFAULT_T212_EXECUTION
+    fake = FakeT212(prices={"VUSAl_EQ": Decimal("95")})
+    fake.cash = Decimal("100")
+    b = Trading212Broker(CREDS, demo=True, transport=fake.transport(), execution_map=DEFAULT_T212_EXECUTION)
+    fake.timeout_next_submit = True          # broker executes but the response is lost
+    with pytest.raises(BrokerTimeout):
+        b.submit_order(OrderRequest("c1", "SPY", Side.BUY, OrderType.MARKET, qty=Decimal("0.5")))
     hint = OrderRequest("c1", "SPY", Side.BUY, OrderType.MARKET, qty=Decimal("0.5"))
-    found = b.find_order_by_client_id("c1", hint=hint, since=datetime(2026, 9, 24, 13, 40, tzinfo=timezone.utc))
-    assert found and found.broker_order_id == "7" and found.client_order_id == "c1"
-    assert b.find_order_by_client_id("c1", hint=OrderRequest("c1", "SPY", Side.BUY, OrderType.MARKET,
-                                                              qty=Decimal("0.6"))) is None
+    found = b.find_order_by_client_id("c1", hint=hint, since=datetime(2000, 1, 1, tzinfo=timezone.utc))
+    assert found and found.client_order_id == "c1" and found.status == OrderStatus.FILLED
+    other = OrderRequest("c2", "SPY", Side.BUY, OrderType.MARKET, qty=Decimal("0.6"))
+    assert b.find_order_by_client_id("c2", hint=other) is None
 
 
 def test_t212_auth_error():

@@ -11,16 +11,19 @@ q()      { printf "'%s'" "$(printf '%s' "$1" | sed "s/'/'\\\\''/g")"; }   # sing
 
 echo "== Tradebot configuration =="
 docker compose build tradebot >/dev/null
-broker=$(ask "Broker [alpaca/trading212/sim] (default alpaca)"); broker=${broker:-alpaca}
+broker=$(ask "Broker [trading212/alpaca/sim] (default trading212)"); broker=${broker:-trading212}
 
 echo "Paper/demo credentials are required. Live credentials are optional and can be added later."
 if [[ $broker == alpaca ]]; then
   apk=$(secret "Alpaca PAPER key id"); aps=$(secret "Alpaca PAPER secret")
   alk=$(secret "Alpaca LIVE key id");  als=$(secret "Alpaca LIVE secret")
 elif [[ $broker == trading212 ]]; then
-  apk=$(secret "Alpaca PAPER key id (market data only)"); aps=$(secret "Alpaca PAPER secret")
-  tdk=$(secret "Trading 212 DEMO API key"); tds=$(secret "Trading 212 DEMO API secret")
-  tlk=$(secret "Trading 212 LIVE API key"); tls=$(secret "Trading 212 LIVE API secret")
+  echo "Trading 212 has no price feed: a free Alpaca *paper* account (no money deposited) supplies"
+  echo "real-time US index prices for signals and stops."
+  apk=$(secret "Alpaca PAPER key id (data only)"); aps=$(secret "Alpaca PAPER secret")
+  tdk=$(secret "Trading 212 PRACTICE (demo) API key"); tds=$(secret "Trading 212 PRACTICE API secret")
+  tlk=$(secret "Trading 212 LIVE API key (optional now)"); tls=$(secret "Trading 212 LIVE API secret")
+  fh=$(secret "Finnhub API key (delayed London ETF prices for order sizing)")
 fi
 
 echo "Choose the control-panel password (min 12 characters)."
@@ -34,7 +37,7 @@ fi
 domain=$(ask "Public domain for HTTPS via Caddy (leave empty if using Tailscale)")
 ntfy=$(secret "ntfy topic URL, e.g. https://ntfy.sh/<long-random-topic>")
 hc=$(secret "Healthchecks.io ping URL")
-ai=$(secret "Anthropic API key (optional)")
+ai=$(secret "Anthropic API key (optional; leave empty to keep AI news assessment off)")
 
 {
   echo "TRADEBOT_BROKER=$(q "$broker")"
@@ -49,6 +52,7 @@ ai=$(secret "Anthropic API key (optional)")
   echo "NTFY_URL=$(q "$ntfy")"
   echo "HEALTHCHECK_PING_URL=$(q "$hc")"
   echo "ANTHROPIC_API_KEY=$(q "$ai")"
+  echo "FINNHUB_API_KEY=$(q "${fh:-}")"
 } > .env
 chmod 600 .env
 echo "Wrote $(pwd)/.env (mode 600)."

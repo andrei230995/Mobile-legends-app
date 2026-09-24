@@ -49,6 +49,11 @@ TRANSIENT_CHECKS = {"quote_available", "quote_fresh", "spread_ok", "within_entry
 ENTRY_ORDER_TTL = timedelta(minutes=10)
 EXIT_AFTER_OPEN_MIN = 2
 DATA_OUTAGE_EXIT = timedelta(minutes=15)
+# exits with these reasons run as soon as the execution venue is open; strategy exits wait
+# for the US session so they match the validated "next US open" execution
+URGENT_EXIT_PREFIXES = ("software stop", "manual close", "price data unavailable", "max drawdown",
+                        "flat-by-close")
+DELAYED_REFERENCE_SLIPPAGE_ALLOWANCE_BPS = 50
 
 
 @dataclass
@@ -71,6 +76,8 @@ def load_registry(results_path: Path) -> list[dict[str, Any]]:
         out.append({"key": f"{r['strategy']}:{r['symbol']}", "family": r["strategy"], "symbol": r["symbol"],
                     "params": params, "backtest_pass": r["backtest_criteria_pass"],
                     "checks": r["checks"], "expected_edge_bps": r.get("expected_edge_bps"),
+                    "modelled_cost_bps": rep.get("assumptions", {}).get("modelled_round_trip_bps"),
+                    "profile": rep.get("profile", "alpaca"),
                     "source": rep.get("source"), "data_end": r.get("data_end"),
                     "generated_at": rep.get("generated_at")})
     return out
@@ -79,12 +86,16 @@ def load_registry(results_path: Path) -> list[dict[str, Any]]:
 class Engine:
     def __init__(self, settings: Settings, store: Store, broker: Broker, data: MarketData, fx: FxProvider,
                  clock: Clock, notifier: Notifier, assessor: NewsAssessor | None = None,
-                 registry: list[dict[str, Any]] | None = None, control: Store | None = None):
+                 registry: list[dict[str, Any]] | None = None, control: Store | None = None,
+                 exec_prices: Any = None):
         self.ctl = control or store          # global control state (mode, switches)
         self.s, self.store, self.broker, self.data, self.fx = settings, store, broker, data, fx
         store.now = self.ctl.now = clock.now
         self.clock, self.notifier, self.assessor = clock, notifier, assessor
-        self.cal = MarketCalendar()
+        self.cal = MarketCalendar()                                  # NYSE: signals, stops
+        self.venue = MarketCalendar(getattr(broker, "venue_calendar", "XNYS"))   # where orders execute
+        self.exec_map: dict[str, dict[str, str]] = getattr(broker, "execution_map", None) or {}
+        self.exec_prices = exec_prices
         self.risk = RiskEngine()
         self.lock = threading.RLock()
         self.exec = ExecutionEngine(store, broker, clock, self.mode, self._fx_rate)
@@ -294,14 +305,18 @@ class Engine:
         since_open = (now - mclock.session_open).total_seconds() / 60 if market_open else None
         to_close = (mclock.session_close - now).total_seconds() / 60 if market_open else None
         session = self.cal.session_date(now).isoformat()
+        venue_open, venue_since = self._venue_state(now)
+        if self.exec_prices is not None:
+            self.exec_prices.update_from_positions(positions)
 
         # -- manage positions (always, even when paused) ----------------------------------
-        self._manage_positions(L, positions, market_open, since_open, to_close, session, now, mclock)
+        self._manage_positions(L, positions, market_open, since_open, to_close, session, now, mclock,
+                               venue_open, venue_since)
 
         # -- entries --------------------------------------------------------------------
-        if market_open and mode != Mode.READ_ONLY:
+        if venue_open and mode != Mode.READ_ONLY:
             self._expire_stale_entries(now)
-        if market_open:
+        if market_open and venue_open:
             ctx_base = dict(now=now, mode=mode, limits=L, caps=self.broker.capabilities,
                             fee_model=self.broker.fee_model, account=account, positions=positions,
                             open_orders=open_orders, trading_enabled=bool(self.ctl.get("trading_enabled")),
@@ -311,7 +326,8 @@ class Engine:
                             drawdown_pct=dd, entries_today=self._entries_today(anchor),
                             orders_today=self.exec.orders_today(parse_ts(anchor["since"])),
                             turnover_today_pct=self._turnover_today_pct(anchor, equity_gbp, fx),
-                            data_is_replay=self.data.is_replay, reconciliation_ok=recon_ok)
+                            data_is_replay=self.data.is_replay, reconciliation_ok=recon_ok,
+                            venue_open=venue_open)
             self._look_for_entries(L, ctx_base, session, now, since_open)
 
         # -- AI, reports, heartbeat ----------------------------------------------------------
@@ -455,7 +471,8 @@ class Engine:
         return bars
 
     # ------------------------------------------------------------------ positions & exits
-    def _manage_positions(self, L, positions, market_open, since_open, to_close, session, now, mclock) -> None:
+    def _manage_positions(self, L, positions, market_open, since_open, to_close, session, now, mclock,
+                          venue_open: bool = True, venue_since: float | None = None) -> None:
         held = {p.symbol: p for p in positions}
         mode = self.mode()
         for mp in self.store.query("SELECT * FROM managed_positions"):
@@ -487,37 +504,81 @@ class Engine:
                         mp["exit_pending_reason"] = reason
                 except DataUnavailable as e:
                     self.store.event("warning", "data", f"exit evaluation skipped for {sym}: {e}")
-            if not market_open:
-                continue
-            q = self._fresh_quote(sym, L, now)
-            # data outage while relying on a software stop
-            if q is None and mp["stop_mode"] == "software":
-                since = self.store.get(f"no_data_since:{sym}") or iso(now)
-                self.store.set(f"no_data_since:{sym}", since)
-                self._alert_once(f"nodata:{sym}", "failure", f"No fresh prices for {sym}",
-                                 f"The software stop for {sym} cannot be monitored. The position will be closed "
-                                 f"at market if prices do not return within {int(DATA_OUTAGE_EXIT.total_seconds() // 60)} minutes.")
-                if now - parse_ts(since) >= DATA_OUTAGE_EXIT:
-                    self._request_exit(sym, "price data unavailable; software stop unmonitored", now)
-                continue
-            self.store.set(f"no_data_since:{sym}", None)
-            self._clear_alert(f"nodata:{sym}")
             reason = mp["exit_pending_reason"]
-            if not reason and q and mp["stop_price"] and mp["stop_mode"] == "software" and q.bid <= D(mp["stop_price"]):
-                reason = f"software stop: bid {q.bid} <= stop {mp['stop_price']}"
-            if not reason and L.flat_by_close and to_close is not None and to_close <= L.flat_minutes_before_close:
-                reason = "flat-by-close setting"
-            if reason and (since_open or 0) >= EXIT_AFTER_OPEN_MIN:
-                self._request_exit(sym, reason, now)
+            if market_open:               # real-time signal quotes exist only during the US session
+                q = self._fresh_quote(sym, L, now)
+                if q is None and mp["stop_mode"] == "software":
+                    since = self.store.get(f"no_data_since:{sym}") or iso(now)
+                    self.store.set(f"no_data_since:{sym}", since)
+                    self._alert_once(f"nodata:{sym}", "failure", f"No fresh prices for {sym}",
+                                     f"The software stop for {sym} cannot be monitored. The position will be closed "
+                                     f"at market if prices do not return within "
+                                     f"{int(DATA_OUTAGE_EXIT.total_seconds() // 60)} minutes.")
+                    if not reason and now - parse_ts(since) >= DATA_OUTAGE_EXIT:
+                        reason = "price data unavailable; software stop unmonitored"
+                elif q is not None:
+                    self.store.set(f"no_data_since:{sym}", None)
+                    self._clear_alert(f"nodata:{sym}")
+                    if not reason and mp["stop_price"] and mp["stop_mode"] == "software" and q.bid <= D(mp["stop_price"]):
+                        reason = f"software stop: {sym} bid {q.bid} <= stop {mp['stop_price']}"
+                if not reason and L.flat_by_close and to_close is not None and to_close <= L.flat_minutes_before_close:
+                    reason = "flat-by-close setting"
+            if reason:
+                urgent = reason.startswith(URGENT_EXIT_PREFIXES)
+                venue_ready = venue_open and (venue_since or 0) >= EXIT_AFTER_OPEN_MIN
+                us_ready = market_open and (since_open or 0) >= EXIT_AFTER_OPEN_MIN
+                if venue_ready and (urgent or us_ready):
+                    self._request_exit(sym, reason, now)
+                    continue
+                if reason != mp["exit_pending_reason"]:
+                    self.store.execute("UPDATE managed_positions SET exit_pending_reason=? WHERE symbol=?",
+                                       (reason, sym))
+                    self._decision("exit", "queued", f"exit waiting for the execution venue to open: {reason}",
+                                   mp["strategy"], sym)
                 continue
+            if not entry_open:
+                self._check_entry_slippage(mp, L)
             # protective stop at the broker once the entry is complete
-            if not entry_open and mode != Mode.READ_ONLY and mp["stop_price"]:
+            if market_open and not entry_open and mode != Mode.READ_ONLY and mp["stop_price"]:
                 self._ensure_protective_stop(mp, pos, session, now)
+
+    def _venue_state(self, now: datetime) -> tuple[bool, float | None]:
+        vc = self.venue.clock(now)
+        return vc.is_open, ((now - vc.session_open).total_seconds() / 60 if vc.is_open else None)
+
+    def _check_entry_slippage(self, mp: dict[str, Any], L: RiskLimits) -> None:
+        """Compare the entry fill with the price used for the decision; alert and pause entries
+        if execution is materially worse than assumed (e.g. wide London spreads)."""
+        key = f"slip_checked:{mp['entry_cid']}"
+        if self.store.get(key):
+            return
+        self.store.set(key, True)
+        entry = self.store.get_order(mp["entry_cid"])
+        dec = self.store.one("SELECT evidence FROM decisions WHERE id=?", (entry["decision_id"],)) if entry else None
+        if not entry or not dec or not entry["filled_avg_price"]:
+            return
+        ev = json.loads(dec["evidence"] or "{}")
+        ref = ev.get("execution_reference") or ev.get("quote") or {}
+        ref_px = D(ref.get("ask") or 0)
+        if ref_px <= 0:
+            return
+        slip = (D(entry["filled_avg_price"]) / ref_px - 1) * 10000
+        allowance = D(L.max_slippage_bps) + (DELAYED_REFERENCE_SLIPPAGE_ALLOWANCE_BPS if ref.get("delayed") else 0)
+        self.store.event("info", "execution", f"entry slippage {slip:.1f}bps vs {ref.get('source')} reference",
+                         {"cid": mp["entry_cid"], "allowance_bps": str(allowance)})
+        if slip > allowance:
+            self.ctl.set("entries_paused", True)
+            self.ctl.set("entries_paused_reason", "slippage")
+            self._alert_once(f"slippage:{mp['entry_cid']}", "risk", "Execution worse than expected - entries paused",
+                             f"{mp['symbol']} filled {slip:.0f}bps above the reference price "
+                             f"(allowance {allowance}bps). New entries paused until you resume them.")
 
     def _ensure_protective_stop(self, mp: dict[str, Any], pos: Position, session: str, now: datetime) -> None:
         caps = self.broker.capabilities
         whole = pos.qty == pos.qty.to_integral_value()
-        if "stop" not in caps.order_types or not (whole or caps.protective_stop_for_fractional):
+        # a stop level expressed in the signal symbol's price can't be sent for another instrument
+        if (mp["symbol"] in self.exec_map or "stop" not in caps.order_types
+                or not (whole or caps.protective_stop_for_fractional)):
             if mp["stop_mode"] != "software":
                 self.store.execute("UPDATE managed_positions SET stop_mode='software' WHERE symbol=?", (mp["symbol"],))
             return
@@ -552,10 +613,10 @@ class Engine:
             return "read-only: not executed"
         if mp:
             self.store.execute("UPDATE managed_positions SET exit_pending_reason=? WHERE symbol=?", (reason, sym))
-        mclock = self.cal.clock(now)
-        if not mclock.is_open:
-            self._decision("exit", "queued", f"exit queued for next session open: {reason}", strategy, sym)
-            return "queued for next session (market closed)"
+        if not self.venue.clock(now).is_open:
+            self._decision("exit", "queued", f"exit queued for next {self.venue.code} session open: {reason}",
+                           strategy, sym)
+            return f"queued for next session ({self.venue.code} closed)"
         # cancel every other open order for the symbol first (protective stop included)
         for r in self.exec.open_rows(symbol=sym):
             if r["purpose"] == Purpose.EXIT.value:
@@ -568,7 +629,7 @@ class Engine:
         pos = next((p for p in self._safe_positions() if p.symbol == sym), None)
         if pos is None or pos.qty <= 0:
             return "no position at broker"
-        session = self.cal.session_date(now).isoformat()
+        session = self.venue.session_date(now).isoformat()
         attempt = self.store.one("SELECT COUNT(*) AS n FROM orders WHERE symbol=? AND purpose='exit' AND "
                                  "client_order_id LIKE ?", (sym, f"%{session}%"))["n"]
         cid = make_client_order_id(strategy.split(":")[0], sym, Purpose.EXIT, session, attempt)
@@ -640,7 +701,8 @@ class Engine:
                 continue
             sig = Signal(slot.key, slot.strategy.version, slot.symbol, "enter", ev.get("rule", ""), ev,
                          stop_pct=slot.strategy.stop_pct, max_hold_days=slot.strategy.max_hold_days,
-                         expected_edge_bps=slot.expected_edge_bps)
+                         expected_edge_bps=slot.expected_edge_bps,
+                         modelled_cost_bps=slot.validation.get("modelled_cost_bps"))
             quote = self._quotes.get(slot.symbol)
             try:
                 asset = self.broker.get_asset(slot.symbol)
@@ -648,8 +710,13 @@ class Engine:
                 asset = None
             veto = self.assessor.veto_for(slot.symbol, now) if self.assessor else None
             ctx = RiskContext(**ctx_base, strategy_status=slot.status, ai_veto=veto)
-            dec = self.risk.evaluate_entry(sig, ctx, quote, asset)
-            evidence = {"signal": ev, "quote": self._quote_ev(slot.symbol), "expected_edge_bps": slot.expected_edge_bps,
+            separate = slot.symbol in self.exec_map
+            exec_quote = self.exec_prices.quote(slot.symbol) if (separate and self.exec_prices) else None
+            dec = self.risk.evaluate_entry(sig, ctx, quote, asset, exec_quote=exec_quote, separate_execution=separate)
+            evidence = {"execution_instrument": self.exec_map.get(slot.symbol, {}).get("label", slot.symbol),
+                        "execution_reference": None if exec_quote is None else {
+                            "ask": str(exec_quote.ask), "source": exec_quote.source, "ts": iso(exec_quote.ts),
+                            "delayed": exec_quote.delayed},"signal": ev, "quote": self._quote_ev(slot.symbol), "expected_edge_bps": slot.expected_edge_bps,
                         "est_cost_bps": str(dec.est_cost_bps) if dec.est_cost_bps is not None else None,
                         "qty": str(dec.qty), "est_value": str(dec.notional), "stop_price": str(dec.stop_price)}
             failed = {c.name for c in dec.checks if not c.passed}

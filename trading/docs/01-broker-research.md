@@ -55,7 +55,20 @@ Round trip = buy then sell one position of the stated size, excluding the bid/as
 
 Validated edges are small: 20–100 bps per trade for the strategies tested (see [validation](validation/RESULTS.md)), so the cost column decides feasibility.
 
-## Recommendation
+## Decision (24 Sep 2026): **Trading 212**, as you chose
+
+What that means in practice:
+* **SPY/QQQ can't be bought on Trading 212 UK.** US-domiciled ETFs publish no PRIIPs KID, so UK brokers can't sell them to retail clients, and Trading 212 offers them only as leveraged CFDs, which are excluded [25][26]. The UK's replacement regime (Consumer Composite Investments, from 6 Apr 2026) hasn't changed this in practice yet [27].
+* The bot therefore computes signals on SPY/QQQ and **executes in London-listed UCITS equivalents quoted in GBP**: Vanguard S&P 500 UCITS ETF (VUSA, ISIN IE00B3XXRP09) and Invesco EQQQ Nasdaq-100 UCITS ETF (EQQQ, ISIN IE0032077012). The Trading 212 ticker is looked up by ISIN at runtime; check that both appear in your account.
+* Upsides: FCA/FSCS, a GBP account, **no commission, no FX fee on the GBP lines, no stamp duty on ETFs**, and API support for the **Stocks ISA** (gains tax-free within your allowance).
+* Downsides, and how the bot handles them:
+  * Live API market orders only, so no broker-held stops. Exits are software-managed, and a stop hit after London closes (16:30 UK) is executed at the next London open.
+  * No price feed. Signals and stops use real-time US index-ETF quotes from a free, unfunded Alpaca data account. Order *sizing* uses a 15-minute-delayed London price (Finnhub) or Trading 212's own price for a held position, labelled as delayed. Fills worse than the reference beyond tolerance pause new entries.
+  * No client order ids: reconciliation after a timeout waits 120 s and matches ticker/quantity/time.
+  * Strict rate limits: reads are cached.
+* Evidence re-run with Trading 212 costs is in [validation/trading212_ucits](validation/trading212_ucits/RESULTS.md). No strategy passes the live gate yet.
+
+## Original recommendation (before your choice)
 
 **Alpaca (Trading API) is the primary broker for this MVP**, for engineering reasons you can verify:
 
@@ -92,4 +105,7 @@ Broker integrations are replaceable: strategy, risk, execution and accounting on
 21. Alpaca: Paper trading. https://docs.alpaca.markets/us/docs/paper-trading
 22. FINRA Regulatory Notice 26-10; SEC release 34-105226. https://www.finra.org/rules-guidance/notices/26-10
 23. Saxo: Direct clients, live application credentials. https://www.developer.saxo/openapi/learn/direct-clients-request-for-openapi-application-credentials-for-the-live-environ
+25. Investing in the Web: QQQ availability in Europe & UK (PRIIPs). https://investingintheweb.com/blog/qqq-europe-uk-alternatives/
+26. Trading 212 community: requests for real US ETFs (QQQ/SPY). https://community.trading212.com/t/add-real-us-etfs-qqq-spy-tqqq-sqqq-to-invest-isa/63056
+27. FCA PS25/20, Consumer Composite Investments; commentary on US ETFs in 2026. https://www.fca.org.uk/publication/policy/ps25-20.pdf and https://edale.co/us-uk-etf-kid-cci-reporting/
 24. eToro: Public APIs launch. https://www.etoro.com/news-and-analysis/press-releases/etoro-marks-15-years-of-social-investing-with-launch-of-public-apis-and-expansion-of-copytradertm-to-the-us/

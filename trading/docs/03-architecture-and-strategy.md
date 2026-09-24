@@ -31,6 +31,18 @@
 | `accounting.py` | FIFO lots in GBP, unrealised P&L, cash flows, NAV units, daily report |
 | `api.py`, `auth.py`, `web/` | Authenticated control API and the PWA |
 
+## Signal symbol vs execution instrument (Trading 212)
+
+| | Signal / stop monitoring | Order placed in | Hours orders can execute |
+|---|---|---|---|
+| Alpaca / simulator | SPY, QQQ (real-time IEX) | the same ETF | NYSE 14:30–21:00 UK |
+| **Trading 212** | SPY, QQQ (real-time IEX via a free Alpaca data account) | **VUSA / EQQQ** (London, GBP) | London 08:00–16:30 UK |
+
+* Entries run only while **both** markets are open (about 14:35–15:30 UK), matching the validated "next US open" execution.
+* Strategy exits also wait for that overlap. Stop, manual and emergency exits run as soon as London is open.
+* Order quantity = size in GBP ÷ (reference London price × 1.01). The reference is Trading 212's price for a held position, else a delayed Finnhub quote no older than 20 minutes. Otherwise the entry is refused.
+* The stop level is expressed in the signal symbol (e.g. SPY dollars), so it tracks the index move and ignores GBP/USD moves.
+
 ## Order lifecycle (implemented)
 
 1. Fresh data is verified: quote age ≤ `max_quote_age_seconds`, the last daily bar equals the previous session, and the feed is neither delayed nor replayed in live.
@@ -74,7 +86,7 @@
 
 Baselines: buy-and-hold on the same period and costs, and cash.
 
-## Validation method (see [results](validation/RESULTS.md))
+## Validation method (see results for [Trading 212](validation/trading212_ucits/RESULTS.md) and [Alpaca](validation/alpaca/RESULTS.md) cost profiles)
 
 * Chronological **walk-forward**: parameters chosen on the prior 5 years only, traded on the next year; 2005–2018 are out of sample.
 * No look-ahead: signal at close t, fill at open t+1 (tested). Live code refuses the current session's incomplete bar (tested).
@@ -87,7 +99,7 @@ Baselines: buy-and-hold on the same period and costs, and cash.
 All must hold before a strategy can be approved for live, and approval also needs your password:
 ≥ 40 OOS trades; positive OOS net return; lower bound of the 90% CI of the mean trade > 0; OOS max drawdown ≤ 25%; Sharpe ≥ buy-and-hold; positive under 3× costs and under a one-day delay; positive at £10; validation data ending within 120 days; **forward paper trading ≥ 20 sessions and ≥ 5 closed trades**.
 
-**Current result: no strategy passes, so live trading is blocked.** Paper trading continues, for strategies with positive OOS net returns only, to collect forward evidence. Paper fills are not treated as live fills: Alpaca paper ignores market impact, queue position, latency slippage, fees and dividends.
+**Current result: no strategy passes under either cost profile, so live trading is blocked.** With Trading 212 costs, SPY trend comes closest: Sharpe 0.469 vs buy-and-hold 0.462, max drawdown 18.5%. It fails only because the 90% CI of its mean trade includes zero (−20.8…159 bps), plus the recent-data and forward-paper requirements. Paper trading continues, for strategies with positive OOS net returns only, to collect forward evidence. Paper fills are not treated as live fills: Alpaca paper ignores market impact, queue position, latency slippage, fees and dividends.
 
 ## AI usage
 

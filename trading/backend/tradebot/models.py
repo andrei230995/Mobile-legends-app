@@ -244,6 +244,7 @@ class Signal:
     stop_pct: float | None = None    # planned stop distance below entry (fraction)
     max_hold_days: int | None = None
     expected_edge_bps: float | None = None  # validated OOS mean net trade return, if any
+    modelled_cost_bps: float | None = None  # round-trip spread+slippage assumed in that validation
 
 
 @dataclass

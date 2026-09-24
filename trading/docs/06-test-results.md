@@ -1,6 +1,6 @@
 # Test results
 
-Run on 2026-09-24 in the build container (Python 3.11.15, Linux): `cd trading/backend && python -m pytest -q` → **69 passed**. CI (`.github/workflows/trading-tests.yml`) runs the same tests, pyflakes, the bundled validation, and a Docker build and boot check. First CI run on GitHub: **all green**: [run 35968166603](https://github.com/andrei230995/Mobile-legends-app/actions/runs/35968166603) (tests, lint, validation, image build, container `/healthz`).
+Run on 2026-09-24 in the build container (Python 3.11.15, Linux): `cd trading/backend && python -m pytest -q` → **76 passed** (69 in the first version; net 7 added for the Trading 212 path). CI (`.github/workflows/trading-tests.yml`) runs the same tests, pyflakes, the bundled validation, and a Docker build and boot check. First CI run on GitHub: **all green**: [run 35968166603](https://github.com/andrei230995/Mobile-legends-app/actions/runs/35968166603) (tests, lint, validation, image build, container `/healthz`).
 
 Also verified by hand in the build container:
 * Docker image built and ran as a non-root user; `/healthz` returned 200; state persisted across `docker restart` (a local-only Dockerfile variant was needed to trust the sandbox's TLS proxy CA; the committed Dockerfile is unchanged).
@@ -25,6 +25,7 @@ Also verified by hand in the build container:
 | Security / live gating | `test_requires_login`, `test_wrong_password_and_throttle`, `test_csrf_required_for_state_changes`, `test_live_activation_blocked_with_reasons`, `test_live_activation_requires_password`, `test_strategy_cannot_be_approved_when_gate_fails`, `test_no_secrets_in_state`, `test_secrets_not_in_repr`, `test_security_headers_and_health` |
 | AI containment | `test_untrusted_text_is_delimited_and_escaped`, `test_malformed_or_extra_fields_are_discarded`, `test_refusal_is_not_an_assessment`, `test_veto_only_in_veto_mode_and_only_blocks`, `test_budget_cap` |
 | Backtest integrity | `test_orders_fill_next_open_not_signal_close`, `test_delay_shifts_execution`, `test_costs_reduce_returns_monotonically`, `test_gap_through_stop_fills_at_open_not_stop` |
+| Trading 212 path (UCITS execution, London hours) | `test_entry_executes_in_ucits_line_sized_from_reference`, `test_no_reference_price_means_no_entry`, `test_stop_after_london_close_exits_at_next_london_open`, `test_strategy_exit_waits_for_us_session_overlap`, `test_slippage_far_above_reference_pauses_entries`, `test_t212_resolves_ucits_by_isin_market_only_and_sell_sign`, `test_t212_pence_quoted_line_converted_to_gbp`, `test_t212_reads_are_cached_to_respect_rate_limits` |
 | Calendars / DST | `test_calendar_dst_and_holidays`, `test_report_time_is_uk_local_across_bst` |
 
 Broker adapters are tested against **mocked HTTP responses written from the documented formats**. They have not been run against Alpaca's or Trading 212's servers (see [capability status](07-capability-status.md)).
