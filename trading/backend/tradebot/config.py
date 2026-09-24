@@ -167,7 +167,7 @@ class Settings(BaseModel):
 
 # Hard ceilings enforced in code. The UI cannot configure beyond these.
 HARD_MAX_EXPOSURE_PCT = 100.0     # never more than account equity: no leverage
-HARD_MAX_RISK_PER_TRADE_PCT = 5.0
+HARD_MAX_RISK_PER_TRADE_PCT = 35.0   # raised from 5 at the user's explicit request (24 Sep 2026)
 HARD_MAX_DAILY_LOSS_PCT = 20.0
 HARD_MAX_DRAWDOWN_PCT = 50.0
 
@@ -178,7 +178,7 @@ class RiskLimits(BaseModel):
     max_position_pct: float = Field(50.0, gt=0, le=100)
     max_positions: int = Field(2, ge=1, le=20)
     max_total_exposure_pct: float = Field(100.0, gt=0, le=HARD_MAX_EXPOSURE_PCT)
-    risk_per_trade_pct: float = Field(1.0, gt=0, le=HARD_MAX_RISK_PER_TRADE_PCT)
+    risk_per_trade_pct: float = Field(35.0, gt=0, le=HARD_MAX_RISK_PER_TRADE_PCT)   # user choice; was 1.0
     daily_loss_limit_pct: float = Field(3.0, gt=0, le=HARD_MAX_DAILY_LOSS_PCT)
     max_drawdown_pct: float = Field(15.0, gt=0, le=HARD_MAX_DRAWDOWN_PCT)
     on_drawdown_breach: str = Field("pause_entries")     # pause_entries | flatten

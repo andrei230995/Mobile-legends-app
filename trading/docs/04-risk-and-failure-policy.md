@@ -7,7 +7,7 @@
 | Max position (% equity) | 50 | 100 |
 | Max positions | 2 | 20 |
 | Max total exposure (% equity) | 100 | **100: no leverage, ever** |
-| Planned risk per trade (% equity, loss at stop + 1% gap allowance) | 1 | 5 |
+| Planned risk per trade (% equity, loss at stop + 1% gap allowance) | **35** (your choice, 24 Sep 2026; was 1) | 35 |
 | Daily loss (% NAV, **includes open positions**) | 3 | 20 |
 | Max drawdown from NAV peak | 15 | 50 |
 | Entries / orders per day | 2 / 12 | 50 / 200 |
@@ -19,6 +19,7 @@
 | Flat by close | off | – |
 | Daily report time | 21:30 Europe/London | – |
 
+* **Effect of 35% risk per trade:** the risk limit no longer constrains size; each position is capped by *max position* (50%) and cash instead. With a 10% stop (trend) a stopped-out trade loses about 5–6% of the account, more after a price gap. A normal bad day on a 50% position (≈ −2%) can trip the 3% daily-loss pause.
 * **Tightening** a limit needs only a logged-in session. **Loosening** one, or confirming the limits before going live, needs your password (and TOTP if configured). Every change is stored as a new version in the audit trail.
 * The engine **never** changes limits itself. There is no martingale or averaging down (one position per symbol, no adding), no shorting (simulator refuses; Alpaca `no_shorting=true`), no margin (Alpaca `max_margin_multiplier=1`, and sizing uses non-marginable buying power).
 

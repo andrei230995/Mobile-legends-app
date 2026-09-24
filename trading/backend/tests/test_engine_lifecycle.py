@@ -310,3 +310,17 @@ def test_data_outage_with_software_stop_exits_after_grace(tmp_path):
     assert h.orders("exit") == []
     h.tick(16)
     assert len(h.orders("exit")) == 1
+
+
+def test_risk_per_trade_35pct_is_capped_by_position_limit(tmp_path):
+    import pytest
+    from tradebot.config import RiskLimits
+    assert RiskLimits().risk_per_trade_pct == 35.0
+    with pytest.raises(ValueError):
+        RiskLimits(risk_per_trade_pct=36)
+    h = Harness(tmp_path, limits=RiskLimits(max_cost_to_edge_ratio=1.0))   # 35% risk, 50% max position
+    h.tick(10)
+    e = h.orders("entry")[0]
+    value = Decimal(e["filled_qty"]) * Decimal(e["filled_avg_price"])
+    assert Decimal("4900") <= value <= Decimal("5000")                  # binding limit: 50% of $10,000
+    assert "binding limit=position_cap" in h.decisions("approved")[0]["checks"]
