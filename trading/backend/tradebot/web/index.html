@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tradebot">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/static/icons/icon-180.png">
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>Tradebot</title>
+</head>
+<body>
+  <div id="login" class="screen hidden">
+    <div class="login-card">
+      <h1>Tradebot</h1>
+      <p class="muted">Sign in to monitor and control the trading engine.</p>
+      <form id="login-form" autocomplete="on">
+        <label>Password <input id="pw" type="password" autocomplete="current-password" required></label>
+        <label id="totp-row" class="hidden">One-time code <input id="totp" inputmode="numeric" autocomplete="one-time-code" maxlength="8"></label>
+        <button type="submit" class="btn primary wide">Sign in</button>
+        <p id="login-error" class="error"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="top">
+      <div class="status-line">
+        <span id="mode-pill" class="pill">…</span>
+        <span id="trading-pill" class="pill">…</span>
+        <span id="health-dot" class="dot" title="engine health"></span>
+      </div>
+      <div class="equity">
+        <div class="label">Account value</div>
+        <div id="equity" class="big">–</div>
+        <div id="equity-sub" class="muted small"></div>
+      </div>
+      <div id="banner" class="banner hidden"></div>
+    </header>
+
+    <nav class="tabs" id="tabs">
+      <button data-tab="overview" class="active">Today</button>
+      <button data-tab="positions">Positions</button>
+      <button data-tab="decisions">Decisions</button>
+      <button data-tab="risk">Risk</button>
+      <button data-tab="reports">Reports</button>
+      <button data-tab="system">System</button>
+    </nav>
+
+    <main>
+      <section id="tab-overview" class="tab">
+        <div class="card">
+          <h2>Today (GBP)</h2>
+          <div class="grid2" id="today-grid"></div>
+          <p class="muted small" id="today-note"></p>
+        </div>
+        <div class="card">
+          <h2>Controls</h2>
+          <div class="controls">
+            <button class="btn primary" data-cmd="start">Start trading</button>
+            <button class="btn" data-cmd="stop">Stop new trades</button>
+            <button class="btn" data-cmd="pause_entries">Pause entries</button>
+            <button class="btn" data-cmd="resume_entries">Resume entries</button>
+            <button class="btn warn" data-cmd="cancel_pending_entries">Cancel pending entries</button>
+            <button class="btn danger" data-cmd="close_all" data-confirm="Close ALL positions at market?">Close all positions</button>
+          </div>
+          <p class="muted small">Pausing or stopping blocks new entries only. Stops and exits on open positions keep running.</p>
+        </div>
+        <div class="card">
+          <h2>Strategies</h2>
+          <div id="strategies"></div>
+        </div>
+        <div class="card">
+          <h2>Latest decisions</h2>
+          <ul id="recent-decisions" class="list"></ul>
+        </div>
+      </section>
+
+      <section id="tab-positions" class="tab hidden">
+        <div class="card"><h2>Open positions</h2><div id="positions"></div></div>
+        <div class="card"><h2>Pending orders</h2><div id="pending"></div></div>
+      </section>
+
+      <section id="tab-decisions" class="tab hidden">
+        <div class="card"><h2>Why trades were taken or rejected</h2><ul id="decisions" class="list"></ul></div>
+      </section>
+
+      <section id="tab-risk" class="tab hidden">
+        <div class="card">
+          <h2>Risk budget</h2>
+          <div class="grid2" id="risk-budget"></div>
+        </div>
+        <div class="card">
+          <h2>Risk limits <span id="limits-version" class="muted small"></span></h2>
+          <form id="limits-form" class="limits"></form>
+          <label id="limits-pw-row">Password (needed to loosen or confirm limits)
+            <input id="limits-pw" type="password" autocomplete="current-password"></label>
+          <label id="limits-totp-row" class="hidden">One-time code <input id="limits-totp" inputmode="numeric" maxlength="8"></label>
+          <div class="controls">
+            <button class="btn primary" id="save-limits">Save limits</button>
+            <button class="btn" id="confirm-limits">Confirm current limits</button>
+          </div>
+          <p id="limits-msg" class="small"></p>
+        </div>
+      </section>
+
+      <section id="tab-reports" class="tab hidden">
+        <div class="card"><h2>Daily reports</h2><div id="reports"></div></div>
+      </section>
+
+      <section id="tab-system" class="tab hidden">
+        <div class="card"><h2>Mode</h2>
+          <div class="controls">
+            <button class="btn" data-mode="read_only">Read-only</button>
+            <button class="btn" data-mode="paper">Paper</button>
+            <button class="btn danger" id="go-live">Go live…</button>
+          </div>
+          <div id="live-panel" class="hidden">
+            <p class="warn-text small">Live mode places real orders automatically, without asking for each trade, within your risk limits. Losses are possible. Stop orders do not guarantee a maximum loss.</p>
+            <ul id="live-blockers" class="list small"></ul>
+            <label>Password <input id="live-pw" type="password" autocomplete="current-password"></label>
+            <label id="live-totp-row" class="hidden">One-time code <input id="live-totp" inputmode="numeric" maxlength="8"></label>
+            <label>Type <b>ENABLE LIVE TRADING</b> <input id="live-confirm" autocapitalize="characters"></label>
+            <button class="btn danger wide" id="live-submit">Authorise live trading</button>
+            <p id="live-msg" class="small"></p>
+          </div>
+        </div>
+        <div class="card"><h2>Connections &amp; data freshness</h2><div id="connections"></div></div>
+        <div class="card"><h2>Missing configuration</h2><ul id="missing" class="list small"></ul></div>
+        <div class="card"><h2>Notifications</h2><ul id="notifications" class="list small"></ul></div>
+        <div class="card"><h2>Audit trail</h2><ul id="events" class="list small mono"></ul></div>
+        <div class="card"><button class="btn wide" id="logout">Sign out</button></div>
+      </section>
+    </main>
+    <footer class="muted small" id="footer"></footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

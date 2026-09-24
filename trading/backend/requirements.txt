@@ -1,0 +1,14 @@
+# Runtime dependencies (pinned; tested with Python 3.11 on 2026-09-24)
+fastapi==0.141.1
+starlette==1.7.0
+uvicorn==0.53.0
+httpx==0.28.1
+pydantic==2.13.5
+exchange_calendars==4.13.2
+pandas==3.0.6
+numpy==2.4.6
+argon2-cffi==25.1.0
+PyOTP==2.10.0
+anthropic==1.8.0
+# arch bundles the S&P 500 / NASDAQ daily history used for validation and replay demos
+arch==8.0.0

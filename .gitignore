@@ -2,3 +2,10 @@ ios/CoachAssets/Items/*.png
 ios/.build/
 __pycache__/
 *.xcuserstate
+trading/backend/.venv/
+trading/backend/var/
+trading/deploy/.env
+*.db
+*.db-wal
+*.db-shm
+.pytest_cache/

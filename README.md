@@ -7,3 +7,7 @@ Native iPhone prototype using user-started ReplayKit screen capture to read visi
 **Still required:** Apple signing and real-device testing. This is not an installable iPhone release; live game recognition and notification delivery remain unverified.
 
 See [setup and limitations](ios/README.md) and [cloud build instructions](ios/CLOUD-BUILD.md).
+
+## Also in this repository
+
+[`trading/`](trading/README.md): an autonomous, risk-limited trading engine with an iPhone web control panel (separate project).

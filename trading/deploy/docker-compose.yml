@@ -1,0 +1,29 @@
+# Usage (on the server, from trading/deploy):  docker compose up -d --build
+# Secrets live in deploy/.env (chmod 600), created by configure.sh - never committed.
+services:
+  tradebot:
+    build: ..
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - tradebot-data:/data
+    # Not published to the internet directly: reachable only through Caddy (or Tailscale).
+    expose: ["8000"]
+    ports: ["127.0.0.1:8000:8000"]
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "5"}}
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    profiles: ["public"]          # enable with: docker compose --profile public up -d
+    ports: ["80:80", "443:443"]
+    environment:
+      - TRADEBOT_DOMAIN=${TRADEBOT_DOMAIN:?set TRADEBOT_DOMAIN in deploy/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on: [tradebot]
+
+volumes:
+  tradebot-data:
+  caddy-data:

@@ -1,0 +1,47 @@
+name: Trading bot — tests
+on:
+  workflow_dispatch:
+  push:
+    paths: ["trading/**", ".github/workflows/trading-tests.yml"]
+  pull_request:
+    paths: ["trading/**", ".github/workflows/trading-tests.yml"]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: trading/backend
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: python -m pyflakes tradebot tests
+      - name: Unit, failure-mode and API tests
+        run: python -m pytest -q
+      - name: Re-run strategy validation on bundled data
+        run: python -m tradebot.backtest.validate --source bundled --out /tmp/validation
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build image
+        run: docker build -t tradebot:ci trading
+      - name: Container starts and serves the app
+        run: |
+          docker run -d --name tb -e TRADEBOT_BROKER=sim -e TRADEBOT_MARKET_DATA=replay -p 8000:8000 tradebot:ci
+          for i in $(seq 1 30); do curl -fs localhost:8000/healthz && break; sleep 2; done
+          curl -fs localhost:8000/healthz
+          curl -fs localhost:8000/ | grep -q Tradebot
+          docker logs tb | tail -20

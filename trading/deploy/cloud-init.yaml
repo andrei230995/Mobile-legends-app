@@ -1,0 +1,13 @@
+#cloud-config
+# Paste into "Cloud config" when creating an Ubuntu 24.04 server (e.g. Hetzner Cloud).
+# It installs Docker, a firewall and automatic security updates, and fetches the code.
+# Afterwards open the provider's web console (works in iPhone Safari) and run:
+#   sudo /opt/tradebot/trading/deploy/configure.sh
+package_update: true
+packages: [git, ufw, unattended-upgrades, sqlite3]
+runcmd:
+  - curl -fsSL https://get.docker.com | sh
+  - ufw default deny incoming && ufw allow OpenSSH && ufw allow 80/tcp && ufw allow 443/tcp && ufw --force enable
+  - git clone --branch claude/autonomous-ai-trading-app-xfzhej https://github.com/andrei230995/Mobile-legends-app.git /opt/tradebot
+  - chmod 700 /opt/tradebot/trading/deploy
+  - (crontab -l 2>/dev/null; echo "15 3 * * * /opt/tradebot/trading/deploy/backup.sh") | crontab -
