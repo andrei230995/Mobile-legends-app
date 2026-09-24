@@ -1,6 +1,6 @@
 # Test results
 
-Run on 2026-09-24 in the build container (Python 3.11.15, Linux): `cd trading/backend && python -m pytest -q` → **69 passed**. CI (`.github/workflows/trading-tests.yml`) runs the same tests, pyflakes, the bundled validation, and a Docker build and boot check.
+Run on 2026-09-24 in the build container (Python 3.11.15, Linux): `cd trading/backend && python -m pytest -q` → **69 passed**. CI (`.github/workflows/trading-tests.yml`) runs the same tests, pyflakes, the bundled validation, and a Docker build and boot check. First CI run on GitHub: **all green**: [run 35968166603](https://github.com/andrei230995/Mobile-legends-app/actions/runs/35968166603) (tests, lint, validation, image build, container `/healthz`).
 
 Also verified by hand in the build container:
 * Docker image built and ran as a non-root user; `/healthz` returned 200; state persisted across `docker restart` (a local-only Dockerfile variant was needed to trust the sandbox's TLS proxy CA; the committed Dockerfile is unchanged).
